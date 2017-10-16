@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterControllerTest : MonoBehaviour {
+public class CharacterControllerTest : MonoBehaviour {
     private CharacterController controller;
     public float speed = 10;
 	// Use this for initialization
@@ -24,5 +24,8 @@ public class characterControllerTest : MonoBehaviour {
 
         //Move
         controller.Move(move * Time.fixedDeltaTime);
+
+        //Shoot
+        
     }
 }
