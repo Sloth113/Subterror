@@ -23,7 +23,7 @@ public class ExplosiveBarrelScript : MonoBehaviour {
             GameObject exploison = Instantiate<GameObject>(explosion, this.transform.position, this.transform.rotation);
             ParticleSystem particle = explosion.GetComponent<ParticleSystem>();
             particle.Play();
-            Destroy(this.gameObject, particle.main.duration/2);
+            Destroy(this.gameObject);
         }else {
             Destroy(this.gameObject);
         }
