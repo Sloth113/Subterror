@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyV1 : MonoBehaviour {
     public int hp = 3;
@@ -19,18 +20,21 @@ public class EnemyV1 : MonoBehaviour {
     private float rangedTimer = 0.0f;
     //
     private CharacterController controller;
+    private NavMeshAgent navAgent;
 
     // Use this for initialization
     void Start () {
         controller = this.GetComponent<CharacterController>();
+        navAgent = this.GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //Move parts
 		if(target != null) {
+            navAgent.destination = target.transform.position;
             //Move towards
-            if((target.transform.position - this.transform.position).magnitude > distToTarget) {
+            /*if((target.transform.position - this.transform.position).magnitude > distToTarget) {
                 Vector3 dir = target.transform.position - this.transform.position;
                 dir.Normalize();
                 if (!controller.isGrounded) {
@@ -41,6 +45,7 @@ public class EnemyV1 : MonoBehaviour {
                 }
                 controller.Move(dir * moveSpeed * Time.deltaTime);
             } 
+            */
         }
 
         //Attack parts
