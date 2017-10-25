@@ -5,6 +5,9 @@ using UnityEngine;
 public class CharacterControllerTest : MonoBehaviour {
     private CharacterController controller;
     public float speed = 10;
+    public float shootCooldown = 5;
+    private float shootTimer  =0;
+    public GameObject bulletTest;
 	// Use this for initialization
 	void Start () {
         controller = GetComponent<CharacterController>();
@@ -26,6 +29,12 @@ public class CharacterControllerTest : MonoBehaviour {
         controller.Move(move * Time.fixedDeltaTime);
 
         //Shoot
+        if(Input.GetButton("Fire1") && shootTimer >= shootCooldown && bulletTest != null) {
+            Instantiate<GameObject>(bulletTest, this.transform.position, this.transform.rotation);//make transform postition the point on the gun
+            shootTimer = 0;
+        }else {
+            shootTimer += Time.deltaTime;
+        }
         
     }
 }
