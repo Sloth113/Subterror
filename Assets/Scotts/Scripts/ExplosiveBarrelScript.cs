@@ -13,9 +13,7 @@ public class ExplosiveBarrelScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire1")) {
-            OnDeath();
-        }
+
 	}
 
     void OnDeath() {
@@ -32,4 +30,12 @@ public class ExplosiveBarrelScript : MonoBehaviour {
             m_dropSystem.DropItems();
         }        
     }
+
+    public void Hit() {
+        hp--;
+        if(hp <= 0) {
+            OnDeath();
+        }
+    }
+    
 }

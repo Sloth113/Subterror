@@ -67,4 +67,11 @@ public class EnemyV1 : MonoBehaviour {
         }
         
     }
+
+    public void Hit() {
+        hp--;
+        if(hp <= 0) {
+            Destroy(this.gameObject);
+        }
+    }
 }
