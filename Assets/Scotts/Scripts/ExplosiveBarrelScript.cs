@@ -5,9 +5,10 @@ using UnityEngine;
 public class ExplosiveBarrelScript : MonoBehaviour {
     public int hp = 2;
     public GameObject explosion;
+    private ItemDropSystem m_dropSystem;
 	// Use this for initialization
 	void Start () {
-		
+        m_dropSystem = GetComponent<ItemDropSystem>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,8 @@ public class ExplosiveBarrelScript : MonoBehaviour {
         }else {
             Destroy(this.gameObject);
         }
-        
+        if(m_dropSystem != null) {
+            m_dropSystem.DropItems();
+        }        
     }
 }
