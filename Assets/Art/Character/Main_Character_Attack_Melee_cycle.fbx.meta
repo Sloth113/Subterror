@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 3a4bab7fb05b7054bbabafecffb83d74
-timeCreated: 1509411945
-licenseType: Pro
+guid: 9271f8997ddd558418f9c9e5bd8ddc3d
+timeCreated: 1509422389
+licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -9,83 +9,69 @@ ModelImporter:
     100002: ankle_R_JNT
     100004: clavicle_L_JNT
     100006: clavicle_R_JNT
-    100008: elbow_L_CTRL
-    100010: elbow_L_JNT
-    100012: elbow_R_JNT
-    100014: final_character_base_low2
-    100016: fingertips_L_END
-    100018: fingertips_R_END
-    100020: global_CTRL
-    100022: head_base_JNT
-    100024: head_top_END
-    100026: hip_L_JNT
-    100028: hip_M_JNT
-    100030: hip_R_JNT
-    100032: knee_L_JNT
-    100034: knee_R_JNT
-    100036: //RootNode
-    100038: main_character_GRP
-    100040: main_character_JNTs
-    100042: main_character_rig
-    100044: Mask_Mesh_Low
-    100046: neck_JNT
-    100048: newspaper_LOC
-    100050: newspaper_mesh
-    100052: ribs_CTRL
-    100054: ribs_JNT
-    100056: root_JNT
-    100058: shoulder_L_CTRL
-    100060: shoulder_L_JNT
-    100062: shoulder_R_JNT
-    100064: toes_L_END
-    100066: toes_R_END
-    100068: waist_CTRL
-    100070: wrist_L_CTRL
-    100072: wrist_L_JNT
-    100074: wrist_R_JNT
+    100008: elbow_L_JNT
+    100010: elbow_R_JNT
+    100012: final_character_base_low2
+    100014: fingertips_L_END
+    100016: fingertips_R_END
+    100018: head_base_JNT
+    100020: head_top_END
+    100022: hip_L_JNT
+    100024: hip_M_JNT
+    100026: hip_R_JNT
+    100028: knee_L_JNT
+    100030: knee_R_JNT
+    100032: left
+    100034: //RootNode
+    100036: Mask_Mesh_Low
+    100038: neck_JNT
+    100040: newspaper_LOC
+    100042: newspaper_mesh
+    100044: ribs_JNT
+    100046: root_JNT
+    100048: shoulder_L_JNT
+    100050: shoulder_R_JNT
+    100052: toes_L_END
+    100054: toes_R_END
+    100056: wrist_L_JNT
+    100058: wrist_R_JNT
     400000: ankle_L_JNT
     400002: ankle_R_JNT
     400004: clavicle_L_JNT
     400006: clavicle_R_JNT
-    400008: elbow_L_CTRL
-    400010: elbow_L_JNT
-    400012: elbow_R_JNT
-    400014: final_character_base_low2
-    400016: fingertips_L_END
-    400018: fingertips_R_END
-    400020: global_CTRL
-    400022: head_base_JNT
-    400024: head_top_END
-    400026: hip_L_JNT
-    400028: hip_M_JNT
-    400030: hip_R_JNT
-    400032: knee_L_JNT
-    400034: knee_R_JNT
-    400036: //RootNode
-    400038: main_character_GRP
-    400040: main_character_JNTs
-    400042: main_character_rig
-    400044: Mask_Mesh_Low
-    400046: neck_JNT
-    400048: newspaper_LOC
-    400050: newspaper_mesh
-    400052: ribs_CTRL
-    400054: ribs_JNT
-    400056: root_JNT
-    400058: shoulder_L_CTRL
-    400060: shoulder_L_JNT
-    400062: shoulder_R_JNT
-    400064: toes_L_END
-    400066: toes_R_END
-    400068: waist_CTRL
-    400070: wrist_L_CTRL
-    400072: wrist_L_JNT
-    400074: wrist_R_JNT
+    400008: elbow_L_JNT
+    400010: elbow_R_JNT
+    400012: final_character_base_low2
+    400014: fingertips_L_END
+    400016: fingertips_R_END
+    400018: head_base_JNT
+    400020: head_top_END
+    400022: hip_L_JNT
+    400024: hip_M_JNT
+    400026: hip_R_JNT
+    400028: knee_L_JNT
+    400030: knee_R_JNT
+    400032: left
+    400034: //RootNode
+    400036: Mask_Mesh_Low
+    400038: neck_JNT
+    400040: newspaper_LOC
+    400042: newspaper_mesh
+    400044: ribs_JNT
+    400046: root_JNT
+    400048: shoulder_L_JNT
+    400050: shoulder_R_JNT
+    400052: toes_L_END
+    400054: toes_R_END
+    400056: wrist_L_JNT
+    400058: wrist_R_JNT
+    2000000: left
     2300000: newspaper_mesh
     3300000: newspaper_mesh
     4300000: final_character_base_low2
     4300002: newspaper_mesh
     4300004: Mask_Mesh_Low
+    7400000: Take 001
     9500000: //RootNode
     13700000: final_character_base_low2
     13700002: Mask_Mesh_Low
@@ -116,7 +102,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -139,7 +125,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

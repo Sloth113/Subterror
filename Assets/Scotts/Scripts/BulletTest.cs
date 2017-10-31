@@ -23,7 +23,6 @@ public class BulletTest : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider c) {
-        Debug.Log(c.transform.tag);
         if(c.transform.tag == "Destructible") {
             c.GetComponent<ExplosiveBarrelScript>().Hit();
         } else if (c.transform.tag == "Enemy") {
