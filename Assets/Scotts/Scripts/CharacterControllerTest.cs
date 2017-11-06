@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterControllerTest : MonoBehaviour {
 
     private CharacterController controller;
+    private Animator m_animator;
 
     //Stats
     public float speed = 10;
@@ -24,6 +25,7 @@ public class CharacterControllerTest : MonoBehaviour {
     public float shootCooldown = 5;
     private float shootTimer  =0;
     public GameObject bulletTest;
+    public Transform bulletExit;
 
     //Inventory
     private List<string> m_keys;
@@ -31,6 +33,7 @@ public class CharacterControllerTest : MonoBehaviour {
     public int m_mutagen =0;
 	// Use this for initialization
 	void Start () {
+        m_animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         m_keys = new List<string>();
 	}
@@ -42,6 +45,9 @@ public class CharacterControllerTest : MonoBehaviour {
         if(move.sqrMagnitude >= m_MAXSPEED*m_MAXSPEED) {
             move = move.normalized * m_MAXSPEED;
         }
+
+        m_animator.SetFloat("Speed", move.magnitude / m_MAXSPEED);
+
         transform.LookAt(getMouseToPlayerPlanePoint()); //look at mouse
 
         //Keep grounded
@@ -56,16 +62,20 @@ public class CharacterControllerTest : MonoBehaviour {
         controller.Move(move * Time.deltaTime);
 
         //Shoot
-        if(Input.GetButton("Fire1") && shootTimer >= shootCooldown && bulletTest != null) {
-            Instantiate<GameObject>(bulletTest, this.transform.position, this.transform.rotation);//make transform postition the point on the gun
+        if(Input.GetButton("Fire1") && shootTimer >= shootCooldown && bulletTest != null && bulletExit != null) {
+            m_animator.SetTrigger("Shoot");
+            Instantiate<GameObject>(bulletTest, bulletExit.transform.position, bulletExit.transform.rotation);//make transform postition the point on the gun
             shootTimer = 0;
         }//Melee
         else if(Input.GetButton("Fire2") && meleeTimer >= meleeCooldown) {
             //Sphere case in front?
             Debug.Log("Melee");
+            m_animator.SetTrigger("Melee");
             //
-            //RaycastHit hit;
-
+            RaycastHit hit;
+            if(Physics.SphereCast(transform.position + controller.center, controller.height/2, transform.forward, out hit, 1)) {
+                Debug.Log(hit.transform.name); //Works
+            }
             //
             meleeTimer = 0;
         }
