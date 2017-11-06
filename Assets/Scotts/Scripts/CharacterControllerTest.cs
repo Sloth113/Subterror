@@ -27,6 +27,14 @@ public class CharacterControllerTest : MonoBehaviour {
     public GameObject bulletTest;
     public Transform bulletExit;
 
+    //Block
+    public float blockCooldown = 5;
+    private float blockTimer = 0;
+    public float blockDuration = 2.0f;
+    public float blockCounter = 0.0f;
+    public float blockChange = 1.0f;//No damage - change 
+
+
     //Inventory
     private List<string> m_keys;
     public int m_scrap =0;
@@ -45,10 +53,16 @@ public class CharacterControllerTest : MonoBehaviour {
         if(move.sqrMagnitude >= m_MAXSPEED*m_MAXSPEED) {
             move = move.normalized * m_MAXSPEED;
         }
-
-        m_animator.SetFloat("Speed", move.magnitude / m_MAXSPEED);
-
+        
         transform.LookAt(getMouseToPlayerPlanePoint()); //look at mouse
+
+        //Debug.Log("Dot thing" + Vector3.Dot(transform.forward, move));
+        if (Vector3.Dot(transform.forward, move) < 0) {
+            m_animator.SetFloat("Speed", -move.magnitude / m_MAXSPEED);//Backwards
+        } else {
+            m_animator.SetFloat("Speed", move.magnitude / m_MAXSPEED);
+        }
+        
 
         //Keep grounded
         if (!controller.isGrounded) {
@@ -78,6 +92,11 @@ public class CharacterControllerTest : MonoBehaviour {
             }
             //
             meleeTimer = 0;
+        } else if(Input.GetButton("Fire3") && blockTimer >= blockCooldown) {
+            m_animator.SetTrigger("Block");
+            incomeDamMod -= blockChange;
+            blockCounter = 0.01f;
+            blockTimer = 0;
         }
         //Timers
         if (shootTimer < shootCooldown) {
@@ -86,7 +105,17 @@ public class CharacterControllerTest : MonoBehaviour {
         if (meleeTimer < meleeCooldown) {
             meleeTimer += Time.deltaTime;
         }
-        
+        if(blockTimer < blockCooldown) {
+            blockTimer += Time.deltaTime;
+        }
+        if(blockCounter > 0 && blockCounter < blockDuration) {
+            blockCounter += Time.deltaTime;
+        }
+        if(blockCounter >= blockDuration) {
+            incomeDamMod += blockChange;
+            blockCounter = 0.0f;
+        }
+
     }
 
 
