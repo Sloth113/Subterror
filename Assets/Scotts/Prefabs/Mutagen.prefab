@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33521948064408476}
   - component: {fileID: 65437780422940188}
   - component: {fileID: 23876951148929016}
-  - component: {fileID: 114699797362054184}
+  - component: {fileID: 114924953253795004}
   m_Layer: 13
-  m_Name: Scrap
+  m_Name: Mutagen
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178144379392660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76975, y: 1.0484321, z: -0.96}
+  m_LocalPosition: {x: 10.188763, y: 0.65, z: -3.7549975}
   m_LocalScale: {x: 0.5067009, y: 0.50670075, z: 0.50670075}
   m_Children:
   - {fileID: 4532555185589912}
@@ -86,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3f8e4d2460ef31749a5d560304a94822, type: 2}
+  - {fileID: 2100000, guid: 0902b0e59b2c6644fa3b9aeaffd1eb85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,7 +133,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.25517225, a: 1}
   m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
@@ -174,7 +174,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114699797362054184
+--- !u!114 &114924953253795004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -182,6 +182,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1178144379392660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84113f81c8c555f4497d3d4ff2d81c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c16c03ac7d12064dbf9db47c829ac17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

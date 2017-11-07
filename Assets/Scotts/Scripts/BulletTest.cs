@@ -6,6 +6,7 @@ public class BulletTest : MonoBehaviour {
     public float speed = 10;
     public float lifeTime = 1;
     private float timer = 0;
+    public float m_damage = 10;
 	// Use this for initialization
 	void Start () {
 		
@@ -23,10 +24,9 @@ public class BulletTest : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider c) {
-        if(c.transform.tag == "Destructible") {
-            c.GetComponent<ExplosiveBarrelScript>().Hit();
-        } else if (c.transform.tag == "Enemy") {
-            c.gameObject.GetComponent<EnemyV1>().Hit(); 
+        iHitable script = c.GetComponent<iHitable>();
+        if (script != null) {
+            script.Hit((int)m_damage);
         }
         //Effect
         //

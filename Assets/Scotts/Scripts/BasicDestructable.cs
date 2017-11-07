@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveBarrelScript : MonoBehaviour {
-    public int hp = 2;
-    public GameObject explosion;
+public class BasicDestructable : MonoBehaviour, iHitable {
+    public int m_hp = 20;
+    public GameObject m_particleEffect;
     private ItemDropSystem m_dropSystem;
 	// Use this for initialization
 	void Start () {
@@ -18,22 +18,29 @@ public class ExplosiveBarrelScript : MonoBehaviour {
 
     void OnDeath() {
         //Explosion
-        if (explosion != null) {
-            GameObject exploison = Instantiate<GameObject>(explosion, this.transform.position, this.transform.rotation);
-            ParticleSystem particle = explosion.GetComponent<ParticleSystem>();
+        if (m_particleEffect != null) {
+            GameObject effect = Instantiate<GameObject>(m_particleEffect, this.transform.position, this.transform.rotation);
+            ParticleSystem particle = effect.GetComponent<ParticleSystem>();
             particle.Play();
             Destroy(this.gameObject);
         }else {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); //vanish 
         }
+        //Drop system
         if(m_dropSystem != null) {
             m_dropSystem.DropItems();
         }        
     }
 
     public void Hit() {
-        hp--;
-        if(hp <= 0) {
+        m_hp--;
+        if(m_hp <= 0) {
+            OnDeath();
+        }
+    }
+    public void Hit(int dam) {
+        m_hp -= dam;
+        if (m_hp <= 0) {
             OnDeath();
         }
     }
