@@ -6,4 +6,5 @@ using UnityEngine;
 interface iInteractable {
     void Use();
     string GetText();
+    void DisplayToggle();
 }

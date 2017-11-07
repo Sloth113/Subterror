@@ -23,12 +23,14 @@ public class EnemyV1 : MonoBehaviour, iHitable {
     //
     private CharacterController controller;
     private NavMeshAgent navAgent;
+    private ItemDropSystem m_dropSystem;
 
     // Use this for initialization
     void Start () {
         controller = this.GetComponent<CharacterController>();
         navAgent = this.GetComponent<NavMeshAgent>();
-	}
+        m_dropSystem = GetComponent<ItemDropSystem>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -81,7 +83,9 @@ public class EnemyV1 : MonoBehaviour, iHitable {
     }
     private void OnDeath() {
         //Do stuff animation n shit then die? 
-
+        if (m_dropSystem != null) {
+            m_dropSystem.DropItems();
+        }
         Destroy(this.gameObject);
     }
 

@@ -143,7 +143,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
     void OnTriggerEnter(Collider c) {
         //Items
         if(c.transform.tag == "Item") {
-            string itemName = c.GetComponent<ItemScriptOne>().m_info;
+            string itemName = c.GetComponent<iPickUp>().GetItem();
             if (itemName.Contains("Key")){
                 m_keys.Add(itemName);
             }else if(itemName == "Scrap") {
@@ -152,6 +152,19 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
                 m_mutagen++;
             }
             Destroy(c.gameObject);
+        }
+        if(c.transform.tag == "Interactable") {
+            c.GetComponent<iInteractable>().DisplayToggle();            
+        }
+    }
+    void OnTriggerExit(Collider c) {
+        if (c.transform.tag == "Interactable") {
+            c.GetComponent<iInteractable>().DisplayToggle();
+        }
+    }
+    void OnTriggerStay(Collider c) {
+        if (c.transform.tag == "Interactable" && Input.GetKeyDown(KeyCode.X)) {
+            c.GetComponent<iInteractable>().Use();
         }
     }
 
