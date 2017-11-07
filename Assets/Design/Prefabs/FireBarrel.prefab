@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4543656627058856}
   - component: {fileID: 33209383968713550}
   - component: {fileID: 23293608350262358}
+  - component: {fileID: 136521786361871606}
   m_Layer: 0
   m_Name: open_barrel
   m_TagString: Untagged
@@ -96,8 +97,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667113725198352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112.35, y: 0.70428, z: 5.51}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.906, y: 0.70428, z: -46.595}
   m_LocalScale: {x: 1, y: 0.704277, z: 1}
   m_Children:
   - {fileID: 4543656627058856}
@@ -232,6 +233,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f72156411622f7428776897f8d61bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136521786361871606
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753499913142760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.18
+  m_Height: 3.75
+  m_Direction: 1
+  m_Center: {x: -0.4854102, y: 0.8627975, z: -0.35267127}
 --- !u!198 &198266799279687776
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -291,7 +305,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2071165064
+  randomSeed: -1579862911
   InitialModule:
     serializedVersion: 3
     enabled: 1
