@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterControllerTest : MonoBehaviour {
+public class CharacterControllerTest : MonoBehaviour, iHitable {
 
     private CharacterController controller;
     private Animator m_animator;
 
     //Stats
     public float speed = 10;
-    public float hp = 100;
+    public float m_hp = 100;
     public float maxHp = 100;
     public float incomeDamMod = 1.0f;
     private float m_MAXSPEED = 5;
@@ -18,6 +18,7 @@ public class CharacterControllerTest : MonoBehaviour {
     public float meleeCooldown = 0.5f;
     private float meleeTimer = 0;
     public float meleeMod = 1.0f;
+    public float meleeDamage = 10.0f;
     public float meleeRange = 1.0f;
     public float meleeAngle = 90; //Degrees
 
@@ -76,23 +77,28 @@ public class CharacterControllerTest : MonoBehaviour {
         controller.Move(move * Time.deltaTime);
 
         //Shoot
-        if(Input.GetButton("Fire1") && shootTimer >= shootCooldown && bulletTest != null && bulletExit != null) {
+        
+        if(Input.GetKey(KeyCode.Q) && shootTimer >= shootCooldown && bulletTest != null && bulletExit != null) {
             m_animator.SetTrigger("Shoot");
             Instantiate<GameObject>(bulletTest, bulletExit.transform.position, bulletExit.transform.rotation);//make transform postition the point on the gun
             shootTimer = 0;
         }//Melee
-        else if(Input.GetButton("Fire2") && meleeTimer >= meleeCooldown) {
+        else if(Input.GetKey(KeyCode.E) && meleeTimer >= meleeCooldown) {
             //Sphere case in front?
             Debug.Log("Melee");
             m_animator.SetTrigger("Melee");
             //
             RaycastHit hit;
-            if(Physics.SphereCast(transform.position + controller.center, controller.height/2, transform.forward, out hit, 1)) {
-                Debug.Log(hit.transform.name); //Works
+            //SphereCast(origin[position<foot> + controller displacement], 
+            if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height/1.5f, transform.forward, out hit, 0.75f)) {
+                Debug.Log(hit.transform.name); //Works        
+                if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
+                    hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(meleeDamage * meleeMod));
+                }
             }
             //
             meleeTimer = 0;
-        } else if(Input.GetButton("Fire3") && blockTimer >= blockCooldown) {
+        } else if(Input.GetKey(KeyCode.F) && blockTimer >= blockCooldown) {
             m_animator.SetTrigger("Block");
             incomeDamMod -= blockChange;
             blockCounter = 0.01f;
@@ -146,6 +152,25 @@ public class CharacterControllerTest : MonoBehaviour {
                 m_mutagen++;
             }
             Destroy(c.gameObject);
+        }
+    }
+
+    private void OnDeath() {
+        //Do stuff animation n shit then die? 
+
+        Destroy(this.gameObject);
+    }
+
+    public void Hit() {
+        m_hp--;
+        if (m_hp <= 0) {
+            OnDeath();
+        }
+    }
+    public void Hit(int dam) {
+        m_hp -= dam;
+        if (m_hp <= 0) {
+            OnDeath();
         }
     }
 }

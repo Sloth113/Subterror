@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyV1 : MonoBehaviour {
-    public int hp = 3;
+public class EnemyV1 : MonoBehaviour, iHitable {
+    public int m_hp = 30;
     public float moveSpeed = 3.0f;
     //
     public GameObject target;
@@ -13,11 +13,13 @@ public class EnemyV1 : MonoBehaviour {
     public bool ranged = false;
     //
     public float meleeDamage = 1.0f;
-    public float rangeDamage = 0.0f;
     public float meleeCooldown = 1.0f;//Seconds
     public float rangedCooldown = 5.0f;
     private float meleeTimer = 0.0f;
     private float rangedTimer = 0.0f;
+    //
+    public GameObject m_rangeProjectile;
+    public Transform m_projectileExit;
     //
     private CharacterController controller;
     private NavMeshAgent navAgent;
@@ -50,9 +52,17 @@ public class EnemyV1 : MonoBehaviour {
 
         //Attack parts
         //Melee
-        if (melee && meleeTimer > meleeCooldown && (target.transform.position - this.transform.position).magnitude <1.5f) {
+        if (melee && meleeTimer > meleeCooldown && (target.transform.position - this.transform.position).magnitude <2) {
             //Melee attack
-            Debug.Log("Melee Attack");
+            Debug.Log("Enemy melee");
+            RaycastHit hit;
+
+            if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
+                Debug.Log(hit.transform.name); //Works        
+                if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
+                    hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(meleeDamage));
+                }
+            }
             meleeTimer = 0.0f;
         }else {
             meleeTimer += Time.deltaTime;
@@ -60,18 +70,31 @@ public class EnemyV1 : MonoBehaviour {
         //Ranged
         if (ranged && rangedTimer > rangedCooldown && (target.transform.position - this.transform.position).magnitude > 2.0f) {
             //Range attack
-            Debug.Log("Range Attack");
+            //Make sure look at player 
+            Debug.Log("Enemy Range Attack");
+            Instantiate<GameObject>(m_rangeProjectile, m_projectileExit.transform.position, m_projectileExit.transform.rotation);//make transform postition the point on the gun
             rangedTimer = 0.0f;
         } else {
             rangedTimer += Time.deltaTime;
         }
         
     }
+    private void OnDeath() {
+        //Do stuff animation n shit then die? 
+
+        Destroy(this.gameObject);
+    }
 
     public void Hit() {
-        hp--;
-        if(hp <= 0) {
-            Destroy(this.gameObject);
+        m_hp--;
+        if(m_hp <= 0) {
+            OnDeath();
+        }
+    }
+    public void Hit(int dam) {
+        m_hp -= dam;
+        if (m_hp <= 0) {
+            OnDeath();
         }
     }
 }
