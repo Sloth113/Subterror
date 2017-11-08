@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4865594934861902}
   - component: {fileID: 33477982590934836}
-  - component: {fileID: 23545797897312972}
   - component: {fileID: 65122215607594326}
+  - component: {fileID: 23545797897312972}
   - component: {fileID: 54728250543962930}
   - component: {fileID: 114763358630814726}
   - component: {fileID: 114024898361803636}
@@ -123,7 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hp: 20
-  m_particleObjects: []
+  m_particleObjects:
+  - {fileID: 1342201634513220, guid: 3ef08a24aec52d14f97ea39505f1e7d2, type: 2}
+  - {fileID: 1099783127205026, guid: c6ba7fb4759bc884797eb85c43decc00, type: 2}
 --- !u!114 &114763358630814726
 MonoBehaviour:
   m_ObjectHideFlags: 1
