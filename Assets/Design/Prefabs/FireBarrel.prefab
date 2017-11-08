@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667113725198352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.74, y: 0.70428, z: -42.45}
+  m_LocalPosition: {x: 27.53, y: 0.70428, z: 2.74}
   m_LocalScale: {x: 1, y: 0.704277, z: 1}
   m_Children:
   - {fileID: 4543656627058856}
@@ -127,8 +127,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142692573510006}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.064, y: 0.772, z: -0.039}
-  m_LocalScale: {x: 0.5684863, y: 0.5684862, z: 0.9389805}
+  m_LocalPosition: {x: 0.03, y: 0.772, z: -0.039}
+  m_LocalScale: {x: 0.52468395, y: 0.5684862, z: 0.9389805}
   m_Children: []
   m_Father: {fileID: 4642737530718862}
   m_RootOrder: 2
@@ -305,7 +305,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1579862911
+  randomSeed: -260977792
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2750,12 +2750,12 @@ ParticleSystem:
     light: {fileID: 108046900649685418}
     randomDistribution: 1
     color: 1
-    range: 0
-    intensity: 0
+    range: 1
+    intensity: 1
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.07
+      scalar: 0.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2803,19 +2803,19 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.5068493
+          value: 0.31506538
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.48881793
-          value: 1
+          time: 0.49521136
+          value: 0.58903885
           inSlope: 0.010430813
           outSlope: 0.010430813
           tangentMode: 0
         - serializedVersion: 2
-          time: 1
-          value: 0.5136986
+          time: 0.9840393
+          value: 0.28424072
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2840,7 +2840,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    maxLights: 20
+    maxLights: 2
   TrailModule:
     enabled: 0
     ratio: 1
