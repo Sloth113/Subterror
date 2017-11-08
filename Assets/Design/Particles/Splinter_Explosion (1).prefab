@@ -9,44 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1099783127205026}
+  m_RootGameObject: {fileID: 1342201634513220}
   m_IsPrefabParent: 1
---- !u!1 &1099783127205026
+--- !u!1 &1342201634513220
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4238319758507434}
-  - component: {fileID: 198002588740405648}
-  - component: {fileID: 199994187907620932}
+  - component: {fileID: 4261860581869016}
+  - component: {fileID: 198938522240904430}
+  - component: {fileID: 199603316401721036}
   m_Layer: 0
-  m_Name: Cloud Explosion
+  m_Name: Splinter_Explosion (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4238319758507434
+--- !u!4 &4261860581869016
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1099783127205026}
+  m_GameObject: {fileID: 1342201634513220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.167, y: 1.929, z: 4.199}
+  m_LocalPosition: {x: 90.92506, y: 1.4800373e-15, z: 8.334642}
   m_LocalScale: {x: 1.4047091, y: 1.4047092, z: 1.4047092}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &198002588740405648
+--- !u!198 &198938522240904430
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1099783127205026}
+  m_GameObject: {fileID: 1342201634513220}
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
@@ -100,7 +100,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 31724487
+  randomSeed: 1293710729
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3320,13 +3320,13 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!199 &199994187907620932
+--- !u!199 &199603316401721036
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1099783127205026}
+  m_GameObject: {fileID: 1342201634513220}
   m_Enabled: 1
   m_CastShadows: 2
   m_ReceiveShadows: 1
@@ -3334,8 +3334,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2203ba141ff562446b21906576b9b544, type: 2}
-  - {fileID: 2100000, guid: 2203ba141ff562446b21906576b9b544, type: 2}
+  - {fileID: 2100000, guid: 625a0c8d50ee494408e1f57657504141, type: 2}
+  - {fileID: 2100000, guid: 625a0c8d50ee494408e1f57657504141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
