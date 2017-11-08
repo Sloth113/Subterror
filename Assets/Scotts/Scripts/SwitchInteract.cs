@@ -29,7 +29,7 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
     }
 
     public string GetText() {
-        return "Use";
+        return "X: Use";
     }
 
     public void Use() {

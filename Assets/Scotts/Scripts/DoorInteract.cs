@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DoorInteract : MonoBehaviour,iInteractable {
-    bool m_open = false;
+    public bool m_open = false;
     private Text m_displayText;
     public string m_Key;
     private Animator m_animator;
@@ -34,19 +34,19 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     }
 
     public string GetText() {
-        return "Open";
+        return "X: Open";
     }
 
     public void Use() {
         //Nothing
-        if(m_Key == null && !m_open) {
+        if (m_Key == "" && !m_open) {
             Open();
         }
     }
 
     public void Use(GameObject user) {
         
-        if (m_Key == null && !m_open) {
+        if (m_Key == "" && !m_open) {
             Open();
         }else {
             if(user.transform.tag == "Player") {
