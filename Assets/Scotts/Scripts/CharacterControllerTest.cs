@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterControllerTest : MonoBehaviour, iHitable {
 
@@ -164,14 +165,13 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
     }
     void OnTriggerStay(Collider c) {
         if (c.transform.tag == "Interactable" && Input.GetKeyDown(KeyCode.X)) {
-            c.GetComponent<iInteractable>().Use();
+            c.GetComponent<iInteractable>().Use(this.gameObject);
         }
     }
 
     private void OnDeath() {
-        //Do stuff animation n shit then die? 
-
-        Destroy(this.gameObject);
+ 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Hit() {

@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 4040967966858204}
   - component: {fileID: 33221320899834718}
   - component: {fileID: 23203134176360666}
-  - component: {fileID: 114381661038679596}
   - component: {fileID: 65273044977241432}
+  - component: {fileID: 114564900648806568}
   m_Layer: 0
   m_Name: Key
   m_TagString: Item
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981321348569462}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 69.15, y: 0.26321, z: -58.74}
+  m_LocalPosition: {x: -6.1, y: 0.26321, z: -39.9}
   m_LocalScale: {x: 0.5264152, y: 0.07156902, z: 0.5264155}
   m_Children:
   - {fileID: 4096022487457388}
@@ -303,28 +303,28 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173381668685842}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!33 &33221320899834718
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981321348569462}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!33 &33250805398563204
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1448300789683806}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!33 &33420797927324812
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113331484576922}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!65 &65273044977241432
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -387,7 +387,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114381661038679596
+--- !u!114 &114564900648806568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -395,10 +395,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981321348569462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99c44b5821dc804e8456603268af657, type: 3}
+  m_Script: {fileID: 11500000, guid: 8197940bba7210b49b319c2e28d1da9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_info: Key 1
+  m_keyInfo: 1
 --- !u!136 &136456096896623566
 CapsuleCollider:
   m_ObjectHideFlags: 1
