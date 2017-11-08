@@ -37,7 +37,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 
 
     //Inventory
-    private List<string> m_keys;
+    public List<string> m_keys;
     public int m_scrap =0;
     public int m_mutagen =0;
 	// Use this for initialization
@@ -78,12 +78,12 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 
         //Shoot
         
-        if(Input.GetKey(KeyCode.Q) && shootTimer >= shootCooldown && bulletTest != null && bulletExit != null) {
+        if(Input.GetButton("Fire1") && shootTimer >= shootCooldown && bulletTest != null && bulletExit != null) {
             m_animator.SetTrigger("Shoot");
             Instantiate<GameObject>(bulletTest, bulletExit.transform.position, bulletExit.transform.rotation);//make transform postition the point on the gun
             shootTimer = 0;
         }//Melee
-        else if(Input.GetKey(KeyCode.E) && meleeTimer >= meleeCooldown) {
+        else if(Input.GetButton("Fire2") && meleeTimer >= meleeCooldown) {
             //Sphere case in front?
             Debug.Log("Melee");
             m_animator.SetTrigger("Melee");
@@ -98,7 +98,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             }
             //
             meleeTimer = 0;
-        } else if(Input.GetKey(KeyCode.F) && blockTimer >= blockCooldown) {
+        } else if(Input.GetButton("Fire3") && blockTimer >= blockCooldown) {
             m_animator.SetTrigger("Block");
             incomeDamMod -= blockChange;
             blockCounter = 0.01f;

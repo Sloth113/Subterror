@@ -36,7 +36,17 @@ public class EnemyV1 : MonoBehaviour, iHitable {
 	void Update () {
         //Move parts
 		if(target != null) {
-            navAgent.destination = target.transform.position;
+            //Check dis
+            if((target.transform.position - this.transform.position).magnitude > distToTarget) {
+                Vector3 dir = target.transform.position - this.transform.position;
+                dir.Normalize();
+
+                navAgent.destination = target.transform.position - (dir * distToTarget);
+            }else if (ranged) {
+                Vector3 lookAtPos = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
+                
+                transform.LookAt(lookAtPos);
+            }
             //Move towards
             /*if((target.transform.position - this.transform.position).magnitude > distToTarget) {
                 Vector3 dir = target.transform.position - this.transform.position;
@@ -56,7 +66,7 @@ public class EnemyV1 : MonoBehaviour, iHitable {
         //Melee
         if (melee && meleeTimer > meleeCooldown && (target.transform.position - this.transform.position).magnitude <2) {
             //Melee attack
-            Debug.Log("Enemy melee");
+            Debug.Log("Enemy Melee Attack");
             RaycastHit hit;
 
             if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
@@ -70,6 +80,7 @@ public class EnemyV1 : MonoBehaviour, iHitable {
             meleeTimer += Time.deltaTime;
         }
         //Ranged
+        
         if (ranged && rangedTimer > rangedCooldown && (target.transform.position - this.transform.position).magnitude > 2.0f) {
             //Range attack
             //Make sure look at player 
