@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1236417925510326
 GameObject:
   m_ObjectHideFlags: 1
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 114416654131347836}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +713,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057679436180900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 161.2, y: -0.16735, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4454799811946542}
@@ -1223,11 +1223,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  hp: 100
+  m_hp: 100
   maxHp: 100
   incomeDamMod: 1
   meleeCooldown: 0.5
   meleeMod: 1
+  meleeDamage: 10
   meleeRange: 1
   meleeAngle: 90
   shootCooldown: 1
@@ -1237,6 +1238,7 @@ MonoBehaviour:
   blockDuration: 2
   blockCounter: 0
   blockChange: 1
+  m_keys: []
   m_scrap: 0
   m_mutagen: 0
 --- !u!114 &114674480598597192
