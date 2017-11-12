@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755971886844026}
   - component: {fileID: 212368176782716232}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rectangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 95011409389668284}
   - component: {fileID: 65444085723104076}
   - component: {fileID: 114484191152168244}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: gate_door_animation
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 223377772946189706}
   - component: {fileID: 114541009654654650}
   - component: {fileID: 114740707231687952}
+  - component: {fileID: 114035896411649028}
   m_Layer: 5
   m_Name: Canvas_Prompt
   m_TagString: Untagged
@@ -171,8 +172,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201093951283412}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -16.8, y: 0, z: -46}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -46.8, y: 0.000000038147, z: -6.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4144664469700730}
@@ -476,6 +477,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114035896411649028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479596095103088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b36ed4c696ad67429b7241f90562793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114484191152168244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -653,7 +665,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479596095103088}
-  m_LocalRotation: {x: 0.34833044, y: -0.6153584, z: 0.34833044, w: 0.6153584}
+  m_LocalRotation: {x: 0, y: 0.8702483, z: -0.49261338, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 1.859}
   m_LocalScale: {x: 1, y: 1.1235723, z: 1.1235726}
   m_Children:
@@ -661,7 +673,7 @@ RectTransform:
   - {fileID: 4755971886844026}
   m_Father: {fileID: 4240352366622066}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 59.025, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 59.025, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -4.7799993, y: 4.674}
