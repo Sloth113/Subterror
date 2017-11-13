@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoorInteract : MonoBehaviour,iInteractable {
     public bool m_open = false;
     private Text m_displayText;
-    public string m_Key;
+    public Key m_key;
     private Animator m_animator;
     // Use this for initialization
     void Start () {
@@ -39,20 +39,20 @@ public class DoorInteract : MonoBehaviour,iInteractable {
 
     public void Use() {
         //Nothing
-        if (m_Key == "" && !m_open) {
+        if (m_key.info == "" && !m_open) {
             Open();
         }
     }
 
     public void Use(GameObject user) {
         
-        if (m_Key == "" && !m_open) {
+        if (m_key.info == "" && !m_open) {
             Open();
         }else {
             if(user.transform.tag == "Player") {
-                List<string> keys = user.GetComponent<CharacterControllerTest>().m_keys;
-                foreach(string key in keys) {
-                    if(key == m_Key) {
+                List<Key> keys = user.GetComponent<CharacterControllerTest>().m_keys;
+                foreach(Key key in keys) {
+                    if(key.info == m_key.info) {
                         Open();
                     }
                 }

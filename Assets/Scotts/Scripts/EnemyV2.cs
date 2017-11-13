@@ -51,6 +51,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
                 
                 transform.LookAt(lookAtPos);
             }
+            
             m_animator.SetFloat("Speed", navAgent.velocity.magnitude / navAgent.speed);
             //Debug.Log(navAgent.velocity.normalized.magnitude);
             //Move towards
