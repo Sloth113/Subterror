@@ -38,14 +38,14 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 
 
     //Inventory
-    public List<string> m_keys;
+    public List<Key> m_keys;
     public int m_scrap =0;
     public int m_mutagen =0;
 	// Use this for initialization
 	void Start () {
         m_animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        m_keys = new List<string>();
+        m_keys = new List<Key>();
         m_MAXSPEED = speed;
 	}
 	
@@ -147,7 +147,8 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
         if(c.transform.tag == "Item") {
             string itemName = c.GetComponent<iPickUp>().GetItem();
             if (itemName.Contains("Key")){
-                m_keys.Add(itemName);
+                Key k = c.GetComponent<KeyScript>().GetKey();
+                m_keys.Add(k);
             }else if(itemName == "Scrap") {
                 m_scrap++;
             }else if(itemName == "MutaGen") {

@@ -19,14 +19,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4104726325642274}
-  - component: {fileID: 65079954768756348}
   - component: {fileID: 114032269194606520}
+  - component: {fileID: 114792937088100990}
+  - component: {fileID: 135862406901051232}
   m_Layer: 13
   m_Name: Key
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1794129443848198
 GameObject:
@@ -59,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4104726325642274
 Transform:
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512274770826612}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 63.335514, y: 2.39, z: -3.910255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426789512524810}
@@ -115,7 +116,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a11b607e4e185f34bb83b74829f77660, type: 2}
+  - {fileID: 2100000, guid: d7960d4a9f9c48943893a498e64e8361, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,18 +142,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873059758869694}
   m_Mesh: {fileID: 4300000, guid: b09dbdafb9b2e2542bf232cfe5d68fde, type: 3}
---- !u!65 &65079954768756348
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1512274770826612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!108 &108035608944054326
 Light:
   m_ObjectHideFlags: 1
@@ -162,7 +151,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0, g: 0.04827571, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -214,4 +203,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197940bba7210b49b319c2e28d1da9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_keyInfo: 0
+  m_key:
+    info: 
+    glow: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &114792937088100990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1512274770826612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c7ceb198b1fa840851001ce4cf115a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotateSpeed: 50
+  m_bounceDist: 0.3
+  m_speed: 0.5
+--- !u!135 &135862406901051232
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1512274770826612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
