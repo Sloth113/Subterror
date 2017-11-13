@@ -13,6 +13,10 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     void Start () {
         m_displayText = this.GetComponentInChildren<Text>();
         m_animator = GetComponent<Animator>();
+        Light light = GetComponentInChildren<Light>();
+        light.color = m_key.glow;
+        Renderer rend = GetComponentInChildren<Renderer>();
+        rend.material.SetColor("_Color", m_key.glow);
     }
 	
 	// Update is called once per frame
