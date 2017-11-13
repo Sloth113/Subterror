@@ -67,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512274770826612}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -73.8, y: 0.26321, z: -38.928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426789512524810}
@@ -115,7 +115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a11b607e4e185f34bb83b74829f77660, type: 2}
+  - {fileID: 2100000, guid: d7960d4a9f9c48943893a498e64e8361, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,7 +162,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0, g: 0.04827571, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -214,4 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197940bba7210b49b319c2e28d1da9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_keyInfo: 0
+  m_key:
+    info: 
+    glow: {r: 0, g: 0, b: 0, a: 0}
