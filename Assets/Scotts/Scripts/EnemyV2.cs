@@ -76,7 +76,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
             m_animator.SetTrigger("Attack");
             RaycastHit hit;
 
-            if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
+            if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 1f)) {
                 Debug.Log(hit.transform.name); //Works        
                 if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
                     hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(meleeDamage));

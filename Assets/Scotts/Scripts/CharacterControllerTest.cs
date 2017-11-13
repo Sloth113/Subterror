@@ -46,6 +46,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
         m_animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         m_keys = new List<string>();
+        m_MAXSPEED = speed;
 	}
 	
 	// Update is called once per frame
