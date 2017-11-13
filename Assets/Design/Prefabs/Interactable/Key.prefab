@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4104726325642274}
   - component: {fileID: 65079954768756348}
   - component: {fileID: 114032269194606520}
+  - component: {fileID: 114792937088100990}
   m_Layer: 13
   m_Name: Key
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1794129443848198
 GameObject:
@@ -59,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4104726325642274
 Transform:
@@ -67,8 +68,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512274770826612}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -73.8, y: 0.26321, z: -38.928}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -3.439, y: 1.05, z: 9.286992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426789512524810}
@@ -216,4 +217,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_key:
     info: 
-    glow: {r: 0, g: 0, b: 0, a: 0}
+    glow: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &114792937088100990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1512274770826612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c7ceb198b1fa840851001ce4cf115a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotateSpeed: 50
+  m_bounceDist: 0.3
+  m_speed: 0.5

@@ -21,11 +21,12 @@ public class KeyScript : MonoBehaviour, iPickUp {
     // Use this for initialization
     void Start () {
         Light light = GetComponentInChildren<Light>();
-        light.color = m_key.glow;		
-	}
+        light.color = m_key.glow;
+        Renderer rend = GetComponentInChildren<Renderer>();
+        rend.material.SetColor("_Color", m_key.glow);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 }
