@@ -66,6 +66,10 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+    public void AddUpgrade(iUpgrade upgrade) {
+        upgrade.Apply(m_player);
+    }
+
     public void StartGame() {
         titleMenuUI.SetActive(false);
         m_state.Pop();
