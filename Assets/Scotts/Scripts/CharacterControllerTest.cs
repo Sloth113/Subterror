@@ -172,7 +172,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
     }
 
     private void OnDeath() {
- 
+        //GameManager.m_instance.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
