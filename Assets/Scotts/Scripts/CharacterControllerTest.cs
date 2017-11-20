@@ -106,6 +106,9 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             blockCounter = 0.01f;
             blockTimer = 0;
         }
+
+
+
         //Timers
         if (shootTimer < shootCooldown) {
             shootTimer += Time.deltaTime;
@@ -120,7 +123,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             blockCounter += Time.deltaTime;
         }
         if(blockCounter >= blockDuration) {
-            incomeDamMod += blockChange;
+            incomeDamMod += blockChange;//reset modifier
             blockCounter = 0.0f;
         }
 
@@ -173,7 +176,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 
     private void OnDeath() {
         //GameManager.m_instance.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//Destart
     }
 
     public void Hit() {
