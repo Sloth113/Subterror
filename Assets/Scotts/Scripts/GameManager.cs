@@ -63,6 +63,19 @@ public class GameManager : MonoBehaviour {
             m_state.Push(State.Pause);
             inGameUI.SetActive(false);
             pauseMenuUI.SetActive(true);
+
+            //Disable Player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<CharacterControllerTest>().enabled = false;
+
+            //Disable enemies
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject enemy in enemies) {
+                enemy.GetComponent<EnemyV2>().enabled = false;
+            }
+
+           
+
         }
 	}
 
@@ -99,6 +112,15 @@ public class GameManager : MonoBehaviour {
         m_state.Push(State.InGame);
         pauseMenuUI.SetActive(false);
         inGameUI.SetActive(true);
+
+        //Enable Player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<CharacterControllerTest>().enabled = true;
+        //Enable enemies
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies) {
+            enemy.GetComponent<EnemyV2>().enabled = true;
+        }
     }
 
     public void PauseToTitle() {
