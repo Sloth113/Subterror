@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour {
             //Disable enemies
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach(GameObject enemy in enemies) {
+                Debug.Log(enemy.transform.name);
                 enemy.GetComponent<EnemyV2>().enabled = false;
             }
 
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour {
         titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
-        m_level = "level_1-1";
+        m_level = "level_2-1";
         
         SceneManager.LoadScene(m_level);
         inGameUI.SetActive(true);
