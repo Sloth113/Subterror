@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198266799279687776}
   - component: {fileID: 199948264080474666}
   - component: {fileID: 114709472105327316}
+  - component: {fileID: 82225386172342848}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -71,7 +72,6 @@ GameObject:
   - component: {fileID: 33209383968713550}
   - component: {fileID: 23293608350262358}
   - component: {fileID: 136521786361871606}
-  - component: {fileID: 82694982405842334}
   m_Layer: 0
   m_Name: open_barrel
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667113725198352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.87, y: 0.70428, z: -10.25}
+  m_LocalPosition: {x: 3.6755, y: 0.70428, z: -36.955}
   m_LocalScale: {x: 1, y: 0.704277, z: 1}
   m_Children:
   - {fileID: 4543656627058856}
@@ -173,18 +173,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753499913142760}
   m_Mesh: {fileID: 4300000, guid: 745aa2ffa168e6947b1d1b33707b47ff, type: 3}
---- !u!82 &82694982405842334
+--- !u!82 &82225386172342848
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1753499913142760}
+  m_GameObject: {fileID: 1142692573510006}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 64b879be2e4b8904791c79fbb34de279, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -192,10 +192,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 10
+  MinDistance: 1
+  MaxDistance: 23
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -203,28 +203,16 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.2
-      value: 1
-      inSlope: -5.0019917
-      outSlope: -5.0019917
+      time: 0.2667189
+      value: 0.5052109
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.4
-      value: 0.5
-      inSlope: -1.2504979
-      outSlope: -1.2504979
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.73307496
-      value: 0.16790771
-      inSlope: -0.87669975
-      outSlope: -0.87669975
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.99627686
+      time: 0.95043945
       value: 0
-      inSlope: -0.20007975
-      outSlope: -0.20007975
+      inSlope: -1.0416666
+      outSlope: -1.0416666
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -398,7 +386,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 508324283
+  randomSeed: 79425253
   InitialModule:
     serializedVersion: 3
     enabled: 1
