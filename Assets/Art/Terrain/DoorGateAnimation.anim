@@ -84,6 +84,12 @@ AnimationClip:
         inSlope: {x: -1.2180733e-14, y: 3.806479e-16, z: 1.015061e-15}
         outSlope: {x: -1.2180733e-14, y: 3.806479e-16, z: 1.015061e-15}
         tangentMode: 0
+      - serializedVersion: 2
+        time: 0.125
+        value: {x: -4.0673046, y: 0.16128631, z: -0.07755371}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -188,9 +194,595 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves: []
-  m_EulerEditorCurves: []
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: -0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: 1
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: barred_door_mesh
+    classID: 25
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: 7.761232e-18
+        inSlope: 1.5476556e-16
+        outSlope: 1.5476556e-16
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: 4.112145e-17
+        inSlope: -5.1672732e-20
+        outSlope: -5.1672732e-20
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: 3.7034345e-17
+        inSlope: -2.1597454e-17
+        outSlope: -2.1597454e-17
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: 2.758804e-17
+        inSlope: -1.2457332e-17
+        outSlope: -1.2457332e-17
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: 2.646868e-17
+        inSlope: -1.849485e-18
+        outSlope: -1.849485e-18
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0.15558034
+        outSlope: 0.15558034
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: 0.09468845
+        inSlope: 1.0568215
+        outSlope: 1.0568215
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: 0.46316338
+        inSlope: 1.6480951
+        outSlope: 1.6480951
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: 0.7676363
+        inSlope: 1.1521571
+        outSlope: 1.1521571
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: 0.9580766
+        inSlope: -0.00019819103
+        outSlope: -0.00019819103
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: 0.9415869
+        inSlope: -0.09249982
+        outSlope: -0.09249982
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: 0.895536
+        inSlope: -0.06746298
+        outSlope: -0.06746298
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: 0.8893987
+        inSlope: -0.0102453325
+        outSlope: -0.0102453325
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: -7.761232e-18
+        inSlope: -1.5476556e-16
+        outSlope: -1.5476556e-16
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: -4.112145e-17
+        inSlope: 5.1672732e-20
+        outSlope: 5.1672732e-20
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: -3.7034345e-17
+        inSlope: 2.1597454e-17
+        outSlope: 2.1597454e-17
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: -2.758804e-17
+        inSlope: 1.2457332e-17
+        outSlope: 1.2457332e-17
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: -2.646868e-17
+        inSlope: 1.849485e-18
+        outSlope: 1.849485e-18
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -1
+        inSlope: 0.00050354004
+        outSlope: 0.00050354004
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: -0.99550694
+        inSlope: 0.10526277
+        outSlope: 0.10526277
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: -0.8862729
+        inSlope: 0.8636229
+        outSlope: 0.8636229
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: -0.6408858
+        inSlope: 1.375356
+        outSlope: 1.375356
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: -0.28651237
+        inSlope: -0.0006464496
+        outSlope: -0.0006464496
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: -0.33677012
+        inSlope: -0.26021314
+        outSlope: -0.26021314
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: -0.44498911
+        inSlope: -0.13598134
+        outSlope: -0.13598134
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: -0.45713234
+        inSlope: -0.0199578
+        outSlope: -0.0199578
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -4.0673046
+        inSlope: -2.842171e-14
+        outSlope: -2.842171e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: -4.0673046
+        inSlope: -1.2180733e-14
+        outSlope: -1.2180733e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.125
+        value: -4.0673046
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.16128631
+        inSlope: 8.881784e-16
+        outSlope: 8.881784e-16
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: 0.16128631
+        inSlope: 3.806479e-16
+        outSlope: 3.806479e-16
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.125
+        value: 0.16128631
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.07755371
+        inSlope: -1.015061e-15
+        outSlope: -1.015061e-15
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: -0.07755371
+        inSlope: 1.015061e-15
+        outSlope: 1.015061e-15
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.125
+        value: -0.07755371
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.041666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: 1.1272832e-16
+        inSlope: -1.6232879e-15
+        outSlope: -9.018262e-16
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: 3.1645255e-15
+        inSlope: -2.5316197e-14
+        outSlope: -5.6961475e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: 2.5667358e-15
+        inSlope: -4.6201253e-14
+        outSlope: -1.5400414e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: 1.4243393e-15
+        inSlope: -8.546036e-15
+        outSlope: -2.5638114e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: 1.3111015e-15
+        inSlope: -2.3599834e-14
+        outSlope: -2.3599834e-14
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: -17.828339
+        outSlope: -17.828339
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: -10.866776
+        inSlope: -121.59171
+        outSlope: -121.43205
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: -55.182842
+        inSlope: -211.56743
+        outSlope: -212.07137
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: -100.284195
+        inSlope: -204.50107
+        outSlope: -202.17743
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: -146.70145
+        inSlope: 0.077392556
+        outSlope: 0.07745363
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: -140.63956
+        inSlope: 31.642555
+        outSlope: 31.620941
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: -127.1547
+        inSlope: 17.390625
+        outSlope: 17.394108
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: -125.59556
+        inSlope: 2.5708015
+        outSlope: 2.5708015
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.16666667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.4166667
+        value: -0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.625
+        value: 1.2526996e-15
+        inSlope: -1.8038876e-14
+        outSlope: -1.0021594e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.0000001
+        value: 5.8647155e-15
+        inSlope: -4.691771e-14
+        outSlope: -1.055649e-13
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.1666667
+        value: 5.425121e-15
+        inSlope: -9.7652206e-14
+        outSlope: -3.2550727e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.6666667
+        value: 4.2378778e-15
+        inSlope: -2.5427267e-14
+        outSlope: -7.6281815e-14
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.8333334
+        value: 4.084146e-15
+        inSlope: -7.351465e-14
+        outSlope: -7.351465e-14
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: barred_door_mesh
+    classID: 4
+    script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.125
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 08d552ff43de37e458c88b576268b82b,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
