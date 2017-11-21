@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 23293608350262358}
   - component: {fileID: 136521786361871606}
   m_Layer: 0
-  m_Name: open_barrel
+  m_Name: open_barrel_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,8 +98,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667113725198352}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6755, y: 0.70428, z: -36.955}
+  m_LocalRotation: {x: -0, y: -0.5963424, z: -0, w: 0.8027302}
+  m_LocalPosition: {x: 10.306515, y: 0.37, z: 13.204296}
   m_LocalScale: {x: 1, y: 0.704277, z: 1}
   m_Children:
   - {fileID: 4543656627058856}
@@ -107,7 +107,7 @@ Transform:
   - {fileID: 4750239718358526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -73.217, z: 0}
 --- !u!4 &4711041178230126
 Transform:
   m_ObjectHideFlags: 1
@@ -147,7 +147,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ba4c9aa00d231a74c8157f422bd0c94d, type: 2}
+  - {fileID: 2100000, guid: b6251166ffca1d6488f55b55d231f4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -263,7 +263,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.46450302, b: 0.11764705, a: 1}
-  m_Intensity: 80
+  m_Intensity: 30.27
   m_Range: 7.2773747
   m_SpotAngle: 30
   m_CookieSize: 10
