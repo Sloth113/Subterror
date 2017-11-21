@@ -13,9 +13,21 @@ public class GameManager : MonoBehaviour {
         GameOver
     }
 
-    public static GameManager m_instance = null;
+    private static GameManager m_instance = null;
+    public static GameManager Instance
+    {
+        get
+        {
+            if(m_instance == null) {
+                m_instance = new GameManager();
+            }
+            return m_instance;
+        }
+    }
 
     private GameObject m_player;
+    private List<iUpgrade> m_playersUpgrades = new List<iUpgrade>();
+    private float m_timer;
     private Stack<State> m_state;
     private string m_level = "Title";
 
@@ -33,15 +45,14 @@ public class GameManager : MonoBehaviour {
     public GameObject scrapMenuUI;
 
     void Awake() {
-        if (m_instance == null) {
-            m_instance = this;
-            m_state = new Stack<State>();
-            m_state.Push(State.Title);
+        if (GameManager.m_instance == null) {
+            GameManager.m_instance = this;
+            m_instance.m_state = new Stack<State>();
+            m_instance.m_state.Push(State.Title);
             DontDestroyOnLoad(this.gameObject);
-        } else if(m_instance != this) {
+        } else if(GameManager.m_instance != this) {
             Destroy(this.gameObject);
-        }
-            
+        }           
     }
     
     // Use this for initialization
@@ -54,7 +65,7 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(mutagenMenuUI);
         DontDestroyOnLoad(scrapMenuUI);
         //Player
-        DontDestroyOnLoad(m_player);
+        //DontDestroyOnLoad(m_player);
     }
 	
 	// Update is called once per frame
@@ -68,18 +79,14 @@ public class GameManager : MonoBehaviour {
             //Disable Player
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<CharacterControllerTest>().enabled = false;
-            /*
-            //Disable Player
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<CharacterControllerTest>().enabled = false;
-            */
-
-
-
+         }
+        if(m_state.Peek() == State.InGame) {
+            m_timer += Time.deltaTime;
         }
 	}
 
     public void AddUpgrade(iUpgrade upgrade) {
+        m_playersUpgrades.Add(upgrade);
         upgrade.Apply(m_player);
     }
 
@@ -88,6 +95,7 @@ public class GameManager : MonoBehaviour {
         m_state.Pop();
         m_state.Push(State.InGame);
         m_level = "level_1-1";
+        m_timer = 0;
         
         SceneManager.LoadScene(m_level);
         inGameUI.SetActive(true);
@@ -137,5 +145,16 @@ public class GameManager : MonoBehaviour {
 
     public void InGameToDead() {
 
+    }
+
+    public void NextLevel(string name) {
+        SceneManager.LoadScene(name);
+    }
+
+    public void NewPlayer(GameObject player) {
+        m_player = player;
+        foreach(iUpgrade upgrade in m_playersUpgrades) {
+            upgrade.Apply(m_player);
+        }
     }
 }

@@ -48,6 +48,11 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
         m_keys = new List<Key>();
         m_MAXSPEED = speed;
 	}
+
+    void Awake() {
+        //Set new player as instance
+        GameManager.Instance.NewPlayer(this.gameObject);
+    }
 	
 	// Update is called once per frame
 	void Update () {
