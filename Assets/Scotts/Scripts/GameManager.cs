@@ -64,18 +64,17 @@ public class GameManager : MonoBehaviour {
             inGameUI.SetActive(false);
             pauseMenuUI.SetActive(true);
 
+            Time.timeScale = 0;
             //Disable Player
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<CharacterControllerTest>().enabled = false;
+            /*
+            //Disable Player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<CharacterControllerTest>().enabled = false;
+            */
 
-            //Disable enemies
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach(GameObject enemy in enemies) {
-                Debug.Log(enemy.transform.name);
-                enemy.GetComponent<EnemyV2>().enabled = false;
-            }
 
-           
 
         }
 	}
@@ -88,7 +87,7 @@ public class GameManager : MonoBehaviour {
         titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
-        m_level = "level_2-1";
+        m_level = "level_1-1";
         
         SceneManager.LoadScene(m_level);
         inGameUI.SetActive(true);
@@ -114,14 +113,15 @@ public class GameManager : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         inGameUI.SetActive(true);
 
+        Time.timeScale = 1;
         //Enable Player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<CharacterControllerTest>().enabled = true;
-        //Enable enemies
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies) {
-            enemy.GetComponent<EnemyV2>().enabled = true;
-        }
+        /*
+        //Enable Player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<CharacterControllerTest>().enabled = true;
+        */
     }
 
     public void PauseToTitle() {
@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour {
         m_state.Push(State.Title);
         titleMenuUI.SetActive(true);
         pauseMenuUI.SetActive(false);
+        Time.timeScale = 1;
 
         SceneManager.LoadScene("TitleScreen");
     }

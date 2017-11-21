@@ -19,7 +19,7 @@ public class ItemDropSystem : MonoBehaviour {
             while(dropNum > 0) {
                 //Drop if roll is higher than num or 
                 if (roll < dropNum) {
-                    Instantiate<GameObject>(d.item, this.transform.position, this.transform.rotation);// spawn on location
+                    Instantiate<GameObject>(d.item, this.transform.position + transform.up /2, this.transform.rotation);// spawn on location
                 }
                 dropNum -= 100;
             }
