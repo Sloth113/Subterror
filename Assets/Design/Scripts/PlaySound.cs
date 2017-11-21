@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 
 public class PlaySound : MonoBehaviour {
-    AudioSource audio;
+    AudioSource[] audio;
 
     // Use this for initialization
     void Start () {
-        audio = GetComponent<AudioSource>();
+        audio = GetComponents<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -18,7 +18,13 @@ public class PlaySound : MonoBehaviour {
 	}
     public void Play()
     {
-        audio.Play();
+        audio[0].Play();
+    }
+
+    public void PlayDetail(AnimationEvent anievent)
+    {
+        Debug.Log(anievent.intParameter);
+        audio[anievent.intParameter].Play();
     }
 
 }

@@ -8,15 +8,18 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
     bool m_state = false;
     private Text m_displayText;
     public GameObject m_link;
-    
+    private Animator m_animator;
+
+
     // Use this for initialization
     void Start () {
         m_displayText = this.GetComponentInChildren<Text>();
+        m_animator = GetComponentInChildren<Animator>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -32,8 +35,9 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
         return "X: Use";
     }
 
-    public void Use() {
-        if(m_link != null && m_link.GetComponent<iInteractable>() != null) {
+    public void Use()  {
+        m_animator.SetTrigger("Used");
+        if (m_link != null && m_link.GetComponent<iInteractable>() != null) {
             m_link.GetComponent<iInteractable>().Use();
         }
         m_state = !m_state;

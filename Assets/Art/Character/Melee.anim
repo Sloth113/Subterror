@@ -1469,7 +1469,7 @@ AnimationClip:
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.4166667
+        time: 0.41666666
         value: {x: -0.0017819402, y: 0.5963469, z: -0.14398313}
         inSlope: {x: -1.7842863e-17, y: -0.12964827, z: -3.806477e-16}
         outSlope: {x: -1.7842863e-17, y: -0.12964827, z: -3.806477e-16}
@@ -6152,7 +6152,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.4166667
+        time: 0.41666666
         value: -0.0017819402
         inSlope: -1.7842863e-17
         outSlope: -1.7842863e-17
@@ -6204,7 +6204,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.4166667
+        time: 0.41666666
         value: 0.5963469
         inSlope: -0.12964827
         outSlope: -0.12964827
@@ -6256,7 +6256,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.4166667
+        time: 0.41666666
         value: -0.14398313
         inSlope: -3.806477e-16
         outSlope: -3.806477e-16
@@ -23668,4 +23668,19 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayDetail
+    data: Meleesound
+    objectReferenceParameter: {fileID: 11500000, guid: 08d552ff43de37e458c88b576268b82b,
+      type: 3}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: PlayDetail
+    data: Melee
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
