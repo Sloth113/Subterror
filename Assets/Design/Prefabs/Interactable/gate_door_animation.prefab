@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 33254928205799514}
   - component: {fileID: 23416469650635264}
   - component: {fileID: 64450525076832964}
+  - component: {fileID: 208688492470550874}
   m_Layer: 0
   m_Name: barred_door_mesh
   m_TagString: Untagged
@@ -218,8 +219,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201093951283412}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 26.836498, y: 1.3224234e-15, z: -15.955665}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 146.40651, y: -0.37329572, z: -33.615704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4960005501683954}
@@ -342,7 +343,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1153d4bf4899a5841b7721d4e356fff6, type: 2}
+  - {fileID: 2100000, guid: 000d9265a4c586d48b18b85d3946d895, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -406,7 +407,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1153d4bf4899a5841b7721d4e356fff6, type: 2}
+  - {fileID: 2100000, guid: 949d0bcdd77645d45a928e86b5c153da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -725,6 +726,21 @@ MonoBehaviour:
   m_Text: '
 
 '
+--- !u!208 &208688492470550874
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243637448941568}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1.7110001, z: 0.051000003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1, y: 1.7110001, z: -0.051000003}
+  m_TimeToStationary: 0.5
 --- !u!212 &212368176782716232
 SpriteRenderer:
   m_ObjectHideFlags: 1
