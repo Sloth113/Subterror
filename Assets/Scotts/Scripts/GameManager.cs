@@ -31,18 +31,17 @@ public class GameManager : MonoBehaviour {
     private Stack<State> m_state;
     private string m_level = "Title";
 
+    [Header("UI Elements")]
     [Tooltip("UI prefabs")]
-    public GameObject titleMenuUI;
-    [Tooltip("UI prefabs")]
-    public GameObject pauseMenuUI;
-    [Tooltip("UI prefabs")]
-    public GameObject inGameUI;
-    [Tooltip("UI prefabs")]
-    public GameObject settingsUI;
-    [Tooltip("UI prefabs")]
-    public GameObject mutagenMenuUI;
-    [Tooltip("UI prefabs")]
-    public GameObject scrapMenuUI;
+    public GameObject m_titleMenuUI;
+    public GameObject m_loadingUI;
+    public GameObject m_pauseMenuUI;
+    public GameObject m_inGameUI;
+    public GameObject m_settingsUI;
+    public GameObject m_mutagenMenuUI;
+    public GameObject m_scrapMenuUI;
+    public GameObject m_winUI;
+    public GameObject m_deadUI;
 
     void Awake() {
         if (GameManager.m_instance == null) {
@@ -57,13 +56,17 @@ public class GameManager : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-        titleMenuUI.SetActive(true);
+        m_titleMenuUI.SetActive(true);
         //Set menus not to destroy
-        DontDestroyOnLoad(titleMenuUI);
-        DontDestroyOnLoad(pauseMenuUI);
-        DontDestroyOnLoad(inGameUI);
-        DontDestroyOnLoad(mutagenMenuUI);
-        DontDestroyOnLoad(scrapMenuUI);
+        DontDestroyOnLoad(m_titleMenuUI);
+        DontDestroyOnLoad(m_loadingUI);
+        DontDestroyOnLoad(m_pauseMenuUI);
+        DontDestroyOnLoad(m_inGameUI);
+        DontDestroyOnLoad(m_settingsUI);
+        DontDestroyOnLoad(m_mutagenMenuUI);
+        DontDestroyOnLoad(m_scrapMenuUI);
+        DontDestroyOnLoad(m_winUI);
+        DontDestroyOnLoad(m_deadUI);
         //Player
         //DontDestroyOnLoad(m_player);
     }
@@ -72,8 +75,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Cancel") && m_state.Peek() == State.InGame) {
             m_state.Push(State.Pause);
-            inGameUI.SetActive(false);
-            pauseMenuUI.SetActive(true);
+            m_inGameUI.SetActive(false);
+            m_pauseMenuUI.SetActive(true);
 
             Time.timeScale = 0;
             //Disable Player
@@ -91,14 +94,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
-        titleMenuUI.SetActive(false);
+        m_titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
         m_level = "level_1-1";
         m_timer = 0;
         
         SceneManager.LoadScene(m_level);
-        inGameUI.SetActive(true);
+        m_inGameUI.SetActive(true);
     }
 
     public void ExitGame() {
@@ -107,19 +110,19 @@ public class GameManager : MonoBehaviour {
 
     public void ExitSettings() {
         m_state.Pop();
-        pauseMenuUI.SetActive(false);
+        m_pauseMenuUI.SetActive(false);
         if(m_state.Peek() == State.InGame) {
-            inGameUI.SetActive(true);
+            m_inGameUI.SetActive(true);
         }else if(m_state.Peek() == State.Title) {
-            titleMenuUI.SetActive(true);
+            m_titleMenuUI.SetActive(true);
         }
     }
 
     public void PauseToIngame() {
         m_state.Pop();//Pause
         m_state.Push(State.InGame);
-        pauseMenuUI.SetActive(false);
-        inGameUI.SetActive(true);
+        m_pauseMenuUI.SetActive(false);
+        m_inGameUI.SetActive(true);
 
         Time.timeScale = 1;
         //Enable Player
@@ -136,18 +139,39 @@ public class GameManager : MonoBehaviour {
         m_state.Pop();//Pause
         m_state.Pop();//InGame
         m_state.Push(State.Title);
-        titleMenuUI.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        m_titleMenuUI.SetActive(true);
+        m_pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
 
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void InGameToDead() {
+        m_state.Pop();
+        m_state.Push(State.GameOver);
+        m_inGameUI.SetActive(false);
+        m_deadUI.SetActive(true);
+    }
 
+    public void InGameToWin() {
+        m_state.Pop();
+        m_state.Push(State.GameOver);
+        m_inGameUI.SetActive(false);
+        m_winUI.SetActive(true);
+    }
+
+    public void OverToMenu() {
+        m_state.Pop();//Should pop over
+        m_state.Push(State.Title);
+        m_deadUI.SetActive(false);
+        m_winUI.SetActive(false);
+        m_titleMenuUI.SetActive(true);
     }
 
     public void NextLevel(string name) {
+        if(name == "Win") {
+            InGameToWin();
+        }
         SceneManager.LoadScene(name);
     }
 
@@ -157,4 +181,6 @@ public class GameManager : MonoBehaviour {
             upgrade.Apply(m_player);
         }
     }
+
+    
 }
