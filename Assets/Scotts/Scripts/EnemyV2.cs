@@ -74,7 +74,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
         if (melee && meleeTimer > meleeCooldown && (target.transform.position - this.transform.position).magnitude < m_meleeRange) {
             //Melee attack
             Debug.Log("Enemy Melee Attack");
-            m_animator.SetTrigger("Attack");
+            m_animator.SetTrigger("Melee");
             RaycastHit hit;
 
             if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 1f)) {
@@ -93,6 +93,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
             //Range attack
             //Make sure look at player 
             Debug.Log("Enemy Range Attack");
+            m_animator.SetTrigger("Shoot");
             Instantiate<GameObject>(m_rangeProjectile, m_projectileExit.transform.position, m_projectileExit.transform.rotation);//make transform postition the point on the gun
             rangedTimer = 0.0f;
         } else {
