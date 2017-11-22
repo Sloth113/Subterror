@@ -165,9 +165,13 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             Destroy(c.gameObject);
         }
         if(c.transform.tag == "Interactable") {
+            if(c.GetComponent<LadderInteract>() != null) {
+                c.GetComponent<iInteractable>().Use(this.gameObject);
+            }
             c.GetComponent<iInteractable>().DisplayToggle();            
         }
     }
+    //leaving interactable space
     void OnTriggerExit(Collider c) {
         if (c.transform.tag == "Interactable") {
             c.GetComponent<iInteractable>().DisplayToggle();
