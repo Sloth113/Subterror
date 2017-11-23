@@ -107,10 +107,22 @@ public class GameManager : MonoBehaviour {
     public void ExitGame() {
         Application.Quit();
     }
-
+    public void ToSettings() {
+        //Check what ui to disable
+        if(m_state.Peek() == State.Pause) {
+            m_pauseMenuUI.SetActive(false);
+        }else if(m_state.Peek() == State.Title) {
+            m_titleMenuUI.SetActive(false);
+        }
+        //set ui to active and update state
+        m_settingsUI.SetActive(true);
+        m_state.Push(State.Options);
+        
+    }
     public void ExitSettings() {
+        //Remove settings state
         m_state.Pop();
-        m_pauseMenuUI.SetActive(false);
+        m_settingsUI.SetActive(false);
         if(m_state.Peek() == State.InGame) {
             m_inGameUI.SetActive(true);
         }else if(m_state.Peek() == State.Title) {
@@ -180,6 +192,7 @@ public class GameManager : MonoBehaviour {
         foreach(iUpgrade upgrade in m_playersUpgrades) {
             upgrade.Apply(m_player);
         }
+        m_inGameUI.GetComponent<BasicInGameUi>().SetPlayer(m_player);//Set player on UI controller
     }
 
     

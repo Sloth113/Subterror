@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BasicInGameUi : MonoBehaviour {
-    public GameObject m_playerObj;
+    private GameObject m_playerObj;
     private CharacterControllerTest m_player;
     //UI
     public Image m_healthBar;
@@ -15,18 +15,23 @@ public class BasicInGameUi : MonoBehaviour {
     public Text m_mutagenCount;
 
 	// Use this for initialization
-	void Start () {
-        //WILL BREAK IF THINGS ARE NOT SET
-        m_player = m_playerObj.GetComponent<CharacterControllerTest>();
+	void Start () {        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //HP
-        m_healthBar.fillAmount = m_player.m_hp/m_player.maxHp;
-        //Cooldowns make function that return a %
-        m_scrapCount.text = m_player.m_scrap.ToString();
-        m_mutagenCount.text = m_player.m_mutagen.ToString();
+        if (m_player != null) {
+            //HP
+            m_healthBar.fillAmount = m_player.m_hp / m_player.maxHp;
+            //Cooldowns make function that return a %
+            m_scrapCount.text = m_player.m_scrap.ToString();
+            m_mutagenCount.text = m_player.m_mutagen.ToString();
 
+        }
 	}
+
+    public void SetPlayer(GameObject player) {
+        m_playerObj = player;
+        m_player = m_playerObj.GetComponent<CharacterControllerTest>(); //player script 
+    }
 }
