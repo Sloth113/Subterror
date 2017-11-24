@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33749778756575010}
   - component: {fileID: 23870041111985676}
   - component: {fileID: 64522468391656400}
-  - component: {fileID: 65770668638403964}
   m_Layer: 15
   m_Name: Dripping _Pipe
   m_TagString: Untagged
@@ -68,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1499680693262148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.82, y: 1.6, z: -27.262}
+  m_LocalPosition: {x: 9.329886, y: 10.474627, z: 66.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4271081950369218}
@@ -88,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1153d4bf4899a5841b7721d4e356fff6, type: 2}
+  - {fileID: 2100000, guid: 59a45d2037f981745b9847cb5160bb4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,18 +127,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c60ecf258598d4244a3b8e4ce95c5f23, type: 3}
---- !u!65 &65770668638403964
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499680693262148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7760088, y: 1, z: 0.9214957}
-  m_Center: {x: -0.8880044, y: 2, z: -0.14237869}
 --- !u!82 &82125435462499136
 AudioSource:
   m_ObjectHideFlags: 1
