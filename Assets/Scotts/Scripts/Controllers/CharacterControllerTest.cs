@@ -164,6 +164,7 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             }else if(itemName == "MutaGen") {
                 m_mutagen++;
             }
+            c.GetComponent<PlaySoundOnDestroy>().CreateTempSoundObj();
             Destroy(c.gameObject);
         }
         if(c.transform.tag == "Interactable") {

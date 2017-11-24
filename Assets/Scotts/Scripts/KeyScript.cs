@@ -17,6 +17,7 @@ public class KeyScript : MonoBehaviour, iPickUp {
     public Key GetKey() {
         return m_key;
     }
+    
 
     // Use this for initialization
     void Start () {

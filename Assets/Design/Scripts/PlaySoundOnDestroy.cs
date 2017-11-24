@@ -11,12 +11,12 @@ public class PlaySoundOnDestroy : MonoBehaviour {
 		sound = GetComponent<AudioSource>();
 	}
 
-    void OnDestroy()
-    {
-		soundmanager = new GameObject();
-		AudioSource audioSource = soundmanager.AddComponent<AudioSource>() as AudioSource;
-		audioSource.clip = sound.clip;
-		audioSource.Play();
-		Destroy (soundmanager, 5.0f);
+    public void CreateTempSoundObj() {
+        soundmanager = new GameObject();
+        AudioSource audioSource = soundmanager.AddComponent<AudioSource>() as AudioSource;
+        audioSource.clip = sound.clip;
+        audioSource.Play();
+        Destroy(soundmanager, 5.0f);
     }
+    
 }
