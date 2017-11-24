@@ -50,8 +50,10 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 	}
 
     void Awake() {
+#if !UNITY_EDITOR
         //Set new player as instance
         GameManager.Instance.NewPlayer(this.gameObject);
+#endif
     }
 	
 	// Update is called once per frame
