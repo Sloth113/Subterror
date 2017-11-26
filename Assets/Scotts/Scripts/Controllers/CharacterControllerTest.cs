@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class CharacterControllerTest : MonoBehaviour, iHitable {
 
@@ -38,14 +40,17 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
 
 
     //Inventory
+    /*
+    public Inventory m_inventory;
     public List<Key> m_keys;
     public int m_scrap =0;
     public int m_mutagen =0;
+    */
 	// Use this for initialization
 	void Start () {
         m_animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        m_keys = new List<Key>();
+        //m_keys = new List<Key>();
         m_MAXSPEED = speed;
 	}
 
@@ -158,11 +163,12 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
             string itemName = c.GetComponent<iPickUp>().GetItem();
             if (itemName.Contains("Key")){
                 Key k = c.GetComponent<KeyScript>().GetKey();
-                m_keys.Add(k);
+                GameManager.Instance.AddKey(k);
+                //m_keys.Add(k);
             }else if(itemName == "Scrap") {
-                m_scrap++;
+                GameManager.Instance.ChangeScrap(1);
             }else if(itemName == "MutaGen") {
-                m_mutagen++;
+                GameManager.Instance.ChangeMutaGen(1);
             }
             c.GetComponent<PlaySoundOnDestroy>().CreateTempSoundObj();
             Destroy(c.gameObject);
@@ -202,5 +208,13 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
         if (m_hp <= 0) {
             OnDeath();
         }
+    }
+
+    public void KnockBack() {
+        Debug.Log("Stagger");
+    }
+
+    public void KockBack(Vector3 dir) {
+        Debug.Log("Push back");
     }
 }

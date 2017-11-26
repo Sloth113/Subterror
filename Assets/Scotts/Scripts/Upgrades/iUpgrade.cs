@@ -15,4 +15,5 @@ public interface iUpgrade {
     void Apply(GameObject player);
     string GetDetails();
     upgradeDetails CostAmount();
+    bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades);
 }

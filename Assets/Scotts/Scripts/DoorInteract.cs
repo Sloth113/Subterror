@@ -54,7 +54,7 @@ public class DoorInteract : MonoBehaviour,iInteractable {
             Open();
         }else {
             if(user.transform.tag == "Player") {
-                List<Key> keys = user.GetComponent<CharacterControllerTest>().m_keys;
+                List<Key> keys = GameManager.Instance.PlayerKeys();
                 foreach(Key key in keys) {
                     if(key.info == m_key.info) {
                         Open();

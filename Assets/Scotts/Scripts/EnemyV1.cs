@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -111,5 +112,13 @@ public class EnemyV1 : MonoBehaviour, iHitable {
         if (m_hp <= 0) {
             OnDeath();
         }
+    }
+
+    public void KnockBack() {
+        throw new NotImplementedException();
+    }
+
+    public void KockBack(Vector3 dir) {
+        throw new NotImplementedException();
     }
 }

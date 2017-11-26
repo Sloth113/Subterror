@@ -1,33 +1,31 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseHealthUpgrade : MonoBehaviour, iUpgrade {
-    public int m_increaseAmount = 10;
+public class RangeCorDamUpgrade : MonoBehaviour, iUpgrade {
+    public float m_rangeMod = 1.0f;
     public upgradeDetails m_info;
-    
+    public string m_details = "Change the players melee to hit further";
+
     public void Apply(GameObject player) {
         CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
-        if(playerScript != null) {
-            playerScript.m_hp += m_increaseAmount;
-            playerScript.maxHp += m_increaseAmount;
+        if (playerScript != null) {
+            playerScript.meleeRange += m_rangeMod;
         }
     }
-
     public upgradeDetails CostAmount() {
         return m_info;
     }
 
     public string GetDetails() {
-        return "Increase players health by " + m_increaseAmount + " for " + m_info.cost + " MutaGen";
+        return m_details + m_info.cost + " scrap";
     }
     public void DebugInfo() {
         Debug.Log(GetDetails());
     }
 
     public bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if(inv.mutagen > m_info.cost) {
+        if (inv.mutagen > m_info.cost) {
             return true;
         }
         return false;

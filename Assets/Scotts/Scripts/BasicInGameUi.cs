@@ -24,9 +24,9 @@ public class BasicInGameUi : MonoBehaviour {
             //HP
             m_healthBar.fillAmount = m_player.m_hp / m_player.maxHp;
             //Cooldowns make function that return a %
-            m_scrapCount.text = m_player.m_scrap.ToString();
-            m_mutagenCount.text = m_player.m_mutagen.ToString();
-
+            m_scrapCount.text = GameManager.Instance.ScrapAmount().ToString();
+            m_mutagenCount.text = GameManager.Instance.MutaGenAmount().ToString();
+            Debug.Log(GameManager.Instance.ScrapAmount());
         }
 	}
 

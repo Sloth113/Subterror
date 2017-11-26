@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,5 +47,13 @@ public class BasicDestructable : MonoBehaviour, iHitable {
             OnDeath();
         }
     }
-    
+
+    public void KnockBack() {
+       //does nothing
+    }
+
+    public void KockBack(Vector3 dir) {
+        //
+        this.GetComponent<Rigidbody>().AddForce(dir);
+    }
 }
