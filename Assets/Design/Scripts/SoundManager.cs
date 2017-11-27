@@ -11,11 +11,12 @@ public class SoundManager : MonoBehaviour
 	public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
 	public Slider musicSlider;
 	public Slider sfxSlider;
+    public Slider masterSlider;
 
 	void Start()
 	{
-		efxSource.volume = sfxSlider.value;
-		musicSource.volume = sfxSlider.value;
+		efxSource.volume = sfxSlider.value * masterSlider.value;
+		musicSource.volume = sfxSlider.value * masterSlider.value;
 	}
 
 	void Awake ()
@@ -80,12 +81,23 @@ public class SoundManager : MonoBehaviour
 
 	public void MusicVolumeChanged()
 	{
-		musicSource.volume = musicSlider.value;
+		musicSource.volume = musicSlider.value * masterSlider.value;
 	}
 
 	public void SfxVolumeChanged()
 	{
-		efxSource.volume = sfxSlider.value;
+		efxSource.volume = sfxSlider.value * masterSlider.value;
+        Play3DSound[] sounds;
+        sounds = Object.FindObjectsOfType<Play3DSound>();
+        foreach (Play3DSound sfx in sounds)
+        {
+            sfx.GetComponent<AudioSource>().volume = sfxSlider.value * masterSlider.value;
+        }
 	}
 
+    public void MasterVolumeChanged()
+    {
+        MusicVolumeChanged();
+        SfxVolumeChanged();
+    }
 }
