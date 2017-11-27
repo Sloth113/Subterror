@@ -488,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &827970332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +547,74 @@ RectTransform:
   m_AnchoredPosition: {x: 478.66614, y: 306.492}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &835095104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 835095105}
+  - component: {fileID: 835095107}
+  - component: {fileID: 835095106}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &835095105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835095104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596710688}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 37.500008, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &835095106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835095104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &835095107
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835095104}
 --- !u!1 &873919686
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +1033,49 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1648731423067370, guid: 9f5f0732a3db59c4288d48c03a94b9ce, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224070505847128748, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224443735717194990, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869172406224474, guid: 9f5f0732a3db59c4288d48c03a94b9ce, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114949885777784634, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 114729269697297078, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 0.292
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394558032796470, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481577161587438, guid: 9f5f0732a3db59c4288d48c03a94b9ce, type: 2}
+      propertyPath: m_Name
+      value: Defensive Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437693323444026, guid: 9f5f0732a3db59c4288d48c03a94b9ce, type: 2}
+      propertyPath: m_Name
+      value: Melee Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232312804944128, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.15686275
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f5f0732a3db59c4288d48c03a94b9ce, type: 2}
@@ -1258,6 +1368,43 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114888341295834848, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Corrosive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163673010473966, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Standard
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537050825508452, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Explosive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114630956689298200, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Increased Range
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945701869218640, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Extended
+
+        Corrosion'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960566058704408, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Bullet Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597555245080666, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Text
+      value: Faster Bullets
+      objectReference: {fileID: 0}
     - target: {fileID: 1430894312310354, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1456,6 +1603,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1620681313273930, guid: 83ea07b0851fd0548a29523d5474d202,
     type: 2}
   m_PrefabInternal: {fileID: 909430934}
+--- !u!224 &1596710688 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224997104267511754, guid: 9f5f0732a3db59c4288d48c03a94b9ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 946172571}
 --- !u!1 &1645238162 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1798554823188650, guid: c5572f5c41d87b845ac406de294ecaa8,
