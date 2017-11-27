@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour, iHitable {
     void Start() {
         m_animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        m_bulletPrefabs = new List<GameObject>();
-
     }
 
     void Awake() {
@@ -94,25 +92,27 @@ public class PlayerController : MonoBehaviour, iHitable {
         controller.Move(move * Time.deltaTime);
 
         //Range shoot input.
-        if (Input.GetButton("Fire1") && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
-            m_animator.SetTrigger("Shoot");
-            Instantiate<GameObject>(m_bulletPrefabs[m_bulletIndex], m_bulletExitPos.transform.position, m_bulletExitPos.transform.rotation);//make transform postition the point on the gun
-            m_rangeTimer = 0;
-        }//Melee
-        else if (Input.GetButton("Fire2") && m_meleeTimer >= m_meleeCooldown) {
-            m_animator.SetTrigger("Melee");
-            //Hit check PUT IN FUNCTION FOR ANIMATOR TO CALL
-            MeleeHit();
-            //Set timer to 0 
-            m_meleeTimer = 0;
-        } else if (Input.GetButton("Fire3") && m_blockTimer >= m_blockCooldown) {
-            //Blocking
-            m_animator.SetTrigger("Block");
-            m_incomeDamMod -= m_blockChange; //drop the mod 
-            m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
-            m_blockTimer = 0; //Cooldown 
+        if (m_animator.GetCurrentAnimatorStateInfo(1).IsName("UpperBody.Movement")) {
+            // Debug.Log("Moving");
+            if (Input.GetButton("Fire1") && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
+                m_animator.SetTrigger("Shoot");
+                CreateBullet();
+                m_rangeTimer = 0;
+            }//Melee
+            else if (Input.GetButton("Fire2") && m_meleeTimer >= m_meleeCooldown) {
+                m_animator.SetTrigger("Melee");
+                //Hit check PUT IN FUNCTION FOR ANIMATOR TO CALL
+                MeleeSwing();
+                //Set timer to 0 
+                m_meleeTimer = 0;
+            } else if (Input.GetButton("Fire3") && m_blockTimer >= m_blockCooldown) {
+                //Blocking
+                m_animator.SetTrigger("Block");
+                m_incomeDamMod -= m_blockChange; //drop the mod 
+                m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
+                m_blockTimer = 0; //Cooldown 
+            }
         }
-
         //Heal
 
         //Switch weapon
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour, iHitable {
 
     }
 
-    public void MeleeHit() {
+    public void MeleeSwing() {
         RaycastHit hit;
         //SphereCast(origin[position<foot> + controller displacement], 
         if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
@@ -149,13 +149,17 @@ public class PlayerController : MonoBehaviour, iHitable {
             if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage * m_meleeMod));
                 if (m_meleeKnockBack) {
-                    //hit.transform.gameObject.GetComponent<iHitable>().KnockBack());
+                    hit.transform.gameObject.GetComponent<iHitable>().KnockBack();
                 }
                 if (m_meleeLifeSteal) {
                     IncreaseCurrentHP((int)(m_meleeDamage / 2.0f));//Heal partial
                 }
             }
         }
+    }
+
+    public void CreateBullet() {
+        Instantiate<GameObject>(m_bulletPrefabs[m_bulletIndex], m_bulletExitPos.transform.position, m_bulletExitPos.transform.rotation);//make transform postition the point on the gun
     }
 
 
