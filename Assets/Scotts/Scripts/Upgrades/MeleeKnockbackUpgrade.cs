@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MeleeKnockbackUpgrade : MonoBehaviour, iUpgrade {
+public class MeleeKnockbackUpgrade : MonoBehaviour, iUpgrade, ISelectHandler {
     public int m_aoeSize = 10;
     public upgradeDetails m_info;
     public string m_details = "Change the players melee to knock back enmies";
@@ -29,5 +31,9 @@ public class MeleeKnockbackUpgrade : MonoBehaviour, iUpgrade {
             return true;
         }
         return false;
+    }
+
+    public void OnSelect(BaseEventData eventData) {
+        //Info
     }
 }

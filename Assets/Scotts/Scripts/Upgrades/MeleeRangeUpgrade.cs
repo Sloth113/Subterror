@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MeleeRangeUpgrade : MonoBehaviour, iUpgrade{
+public class MeleeRangeUpgrade : MonoBehaviour, iUpgrade, ISelectHandler{
     public float m_rangeMod = 1.0f;
     public upgradeDetails m_info;
     public string m_details = "Change the players melee to hit further";
@@ -29,5 +31,9 @@ public class MeleeRangeUpgrade : MonoBehaviour, iUpgrade{
             return true;
         }
         return false;
+    }
+
+    public void OnSelect(BaseEventData eventData) {
+        //Infio throw new NotImplementedException();
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class RangeCorrosionUpgrade : MonoBehaviour, iUpgrade {
+public class RangeCorrosionUpgrade : MonoBehaviour, iUpgrade, ISelectHandler {
     public GameObject m_corrosiveBullet;
     public upgradeDetails m_info;
     public string m_details = "Add corrosive projectile to players range choice";
@@ -29,5 +31,9 @@ public class RangeCorrosionUpgrade : MonoBehaviour, iUpgrade {
             return true;
         }
         return false;
+    }
+
+    public void OnSelect(BaseEventData eventData) {
+        ///throw new NotImplementedException();
     }
 }

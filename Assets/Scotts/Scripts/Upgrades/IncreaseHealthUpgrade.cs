@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class IncreaseHealthUpgrade : MonoBehaviour, iUpgrade {
+public class IncreaseHealthUpgrade : MonoBehaviour, iUpgrade, ISelectHandler {
     public int m_increaseAmount = 10;
     public upgradeDetails m_info;
     
@@ -31,5 +32,9 @@ public class IncreaseHealthUpgrade : MonoBehaviour, iUpgrade {
             return true;
         }
         return false;
+    }
+
+    public void OnSelect(BaseEventData eventData) {
+        //Change text in UI to give details and costs n stuff
     }
 }

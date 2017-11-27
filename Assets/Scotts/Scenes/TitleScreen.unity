@@ -1581,7 +1581,7 @@ Prefab:
     - target: {fileID: 114083565081318088, guid: 83ea07b0851fd0548a29523d5474d202,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 1465343474169358, guid: 83ea07b0851fd0548a29523d5474d202, type: 2}
       propertyPath: m_IsActive
@@ -1681,6 +1681,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083565081318088, guid: 83ea07b0851fd0548a29523d5474d202,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083565081318088, guid: 83ea07b0851fd0548a29523d5474d202,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ScottTestPlaceOne
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ea07b0851fd0548a29523d5474d202, type: 2}
@@ -1974,9 +1984,6 @@ MonoBehaviour:
   blockDuration: 2
   blockCounter: 0
   blockChange: 1
-  m_keys: []
-  m_scrap: 0
-  m_mutagen: 0
 --- !u!143 &1043454299
 CharacterController:
   m_ObjectHideFlags: 0
