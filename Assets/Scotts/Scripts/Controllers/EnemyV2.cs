@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyV2 : MonoBehaviour, iHitable {
     public int m_hp = 30;
+    private int m_maxHp;
     public float m_moveSpeed = 3.0f;
     //
     public GameObject m_target;
@@ -24,14 +26,19 @@ public class EnemyV2 : MonoBehaviour, iHitable {
     //
     public GameObject m_rangeProjectile;
     public Transform m_projectileExit;
+    [Header("Overhead Healther Bar")]
+    public GameObject m_hPCanvas;
+    public Image m_healthBar;
     //
     private CharacterController m_controller;
     private NavMeshAgent m_navAgent;
     private ItemDropSystem m_dropSystem;
     private Animator m_animator;
 
+
     // Use this for initialization
     void Start () {
+        m_maxHp = m_hp;
         m_controller = this.GetComponent<CharacterController>();
         m_navAgent = this.GetComponent<NavMeshAgent>();
         m_dropSystem = GetComponent<ItemDropSystem>();
@@ -112,12 +119,20 @@ public class EnemyV2 : MonoBehaviour, iHitable {
 
     public void Hit() {
         m_hp--;
-        if(m_hp <= 0) {
+        if (m_hPCanvas != null) {
+            m_hPCanvas.SetActive(true);
+            m_healthBar.fillAmount = (float)m_hp / m_maxHp;
+        }
+        if (m_hp <= 0) {
             OnDeath();
         }
     }
-    public void Hit(int dam) {
+    public void Hit(int dam) {        
         m_hp -= dam;
+        if (m_hPCanvas != null) {
+            m_hPCanvas.SetActive(true);
+            m_healthBar.fillAmount =  (float)m_hp/ m_maxHp;
+        }
         if (m_hp <= 0) {
             OnDeath();
         }

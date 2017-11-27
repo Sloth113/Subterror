@@ -101,18 +101,23 @@ public class GameManager : MonoBehaviour {
         }
 
         else if (Input.GetButtonDown("Cancel") && (m_state.Peek() == State.Upgrades || m_state.Peek() == State.Settings || m_state.Peek() == State.Pause)) {
-            if(m_state.Peek() == State.Settings) {
-                m_state.Pop();
-            }
             m_state.Pop(); //Out of upgrades/options to inGame
-            m_inGameUI.SetActive(true);
-            //set all possibilities to false
-            m_mutagenMenuUI.SetActive(false);
-            m_scrapMenuUI.SetActive(false);
-            m_pauseMenuUI.SetActive(false);
-            m_settingsUI.SetActive(false);
-            //Unpause
-            UnPause();
+            if (m_state.Peek() == State.Title) {
+                m_titleMenuUI.SetActive(true);
+                m_settingsUI.SetActive(false);
+            }else if (m_state.Peek() == State.Pause) {
+                m_pauseMenuUI.SetActive(true);
+                m_settingsUI.SetActive(false);
+            } else {
+                m_inGameUI.SetActive(true);
+                //set all possibilities to false
+                m_mutagenMenuUI.SetActive(false);
+                m_scrapMenuUI.SetActive(false);
+                m_pauseMenuUI.SetActive(false);
+                m_settingsUI.SetActive(false);
+                //Unpause
+                UnPause();
+            }
         }
         if(m_state.Peek() == State.InGame) {
             m_timer += Time.deltaTime;
