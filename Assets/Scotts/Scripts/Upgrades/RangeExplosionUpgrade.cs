@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeExplosionUpgrade : MonoBehaviour {
+public class RangeExplosionUpgrade : iUpgrade {
+    public GameObject m_newExplosionSize; 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Apply(GameObject player) {
+        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        if (playerScript != null) {
+            //playerscript.bullets.add(corrsive);
+        }
+    }
+
+    public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
+        if (inv.mutagen > m_info.cost) {
+            return true;
+        }
+        return false;
+    }
 }

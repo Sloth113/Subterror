@@ -437,6 +437,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dcc223e3ab78dc498f8b0390b98100a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &277098009 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1786702288670696, guid: 83ea07b0851fd0548a29523d5474d202,
+    type: 2}
+  m_PrefabInternal: {fileID: 918303639}
 --- !u!1 &303615524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1248,12 @@ Transform:
   m_Father: {fileID: 98032683}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -28.219332, y: 0.20094451, z: 87.8737}
+--- !u!114 &708212265 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114853042546670822, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+    type: 2}
+  m_PrefabInternal: {fileID: 756404454}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &742689006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,6 +1298,11 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114920076259876002, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1383,7 +1399,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1430894312310354, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114813995184831232, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
         type: 2}
@@ -1448,6 +1464,41 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1534864725}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddToPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567040814414448, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 224376835393297442, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -62.599854
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
@@ -2836,6 +2887,28 @@ Transform:
   m_Father: {fileID: 380223283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.000002483026, y: 62.96374, z: -69.87516}
+--- !u!1 &1534864720 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1831708114351186, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+    type: 2}
+  m_PrefabInternal: {fileID: 756404454}
+--- !u!114 &1534864725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1534864720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cbbc11a10a31c4bb50bae821ee0d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 0
+    type: 0
+  m_details: Reduuce damage taken when blocking
+  m_infoText: {fileID: 708212265}
+  m_reduceAmount: 0.25
 --- !u!114 &1539737288 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114010541192278952, guid: c5572f5c41d87b845ac406de294ecaa8,
@@ -2888,7 +2961,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 277098009}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1587379841

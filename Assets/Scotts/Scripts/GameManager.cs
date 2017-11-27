@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Canvas))]
 public class GameManager : MonoBehaviour {
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
     private GameObject m_player;
     private List<iUpgrade> m_playersUpgrades = new List<iUpgrade>();
+    private List<iUpgrade> m_allUpgrades = new List<iUpgrade>();
     private Inventory m_playersInventory;
     private float m_timer;
     private Stack<State> m_state;
@@ -47,9 +50,7 @@ public class GameManager : MonoBehaviour {
     public GameObject m_scrapMenuUI;
     public GameObject m_winUI;
     public GameObject m_deadUI;
-
-    //Upgrades
-    private Dictionary<string, iUpgrade> m_upgradeDictionary;
+    
 
     //Set up instances and initiate state
     void Awake() {
@@ -80,8 +81,10 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(m_winUI);
         DontDestroyOnLoad(m_deadUI);
         //Load available upgrades
-        m_upgradeDictionary = new Dictionary<string, iUpgrade>();
-        m_upgradeDictionary.Add("HP1", new IncreaseHealthUpgrade());
+        m_allUpgrades.AddRange(m_scrapMenuUI.GetComponentsInChildren<iUpgrade>());
+        m_allUpgrades.AddRange(m_mutagenMenuUI.GetComponentsInChildren<iUpgrade>());
+        Debug.Log(m_allUpgrades.Count);
+        
     }
 	
 	// Check for pause and select button press
@@ -90,6 +93,7 @@ public class GameManager : MonoBehaviour {
             m_state.Push(State.Pause);
             m_inGameUI.SetActive(false);
             m_pauseMenuUI.SetActive(true);
+            m_pauseMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
             Pause();
          }
 
@@ -97,6 +101,7 @@ public class GameManager : MonoBehaviour {
             m_state.Push(State.Upgrades);
             m_inGameUI.SetActive(false);
             m_mutagenMenuUI.SetActive(true);
+            m_mutagenMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
             Pause();
         }
 
@@ -223,7 +228,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 0;
         //Disable Player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<CharacterControllerTest>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
         //Disable Enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //MIGHT BREAK
@@ -237,7 +242,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         //Enable Player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<CharacterControllerTest>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
         //Enable enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //MIGHT BREAK
@@ -273,6 +278,8 @@ public class GameManager : MonoBehaviour {
     public void ScrapMutaMenuToggle() {
         m_scrapMenuUI.SetActive(!m_scrapMenuUI.activeSelf);
         m_mutagenMenuUI.SetActive(!m_mutagenMenuUI.activeSelf);
+        m_mutagenMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
+        m_scrapMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
     }
 
     public void NextLevel(string name) {
@@ -321,6 +328,12 @@ public class GameManager : MonoBehaviour {
     }
     public int ScrapAmount() {
         return m_playersInventory.scrap;
+    }
+    public List<iUpgrade> PlayersUpgrades() {
+        return m_playersUpgrades;
+    }
+    public Inventory PlayersInventory() {
+        return m_playersInventory;
     }
     public List<Key> PlayerKeys() {
         return m_playersInventory.keys;

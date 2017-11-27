@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class RangeShotgunUpgrade : MonoBehaviour {
+public class RangeShotgunUpgrade : iUpgrade {
+    public GameObject m_shotgunPrefab;  
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Apply(GameObject player) {
+        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        if (playerScript != null) {
+            //Add shotgun
+        }
+    }
+    public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
+        if (inv.mutagen > m_info.cost) {
+            return true;
+        }
+        return false;
+    }
 }
