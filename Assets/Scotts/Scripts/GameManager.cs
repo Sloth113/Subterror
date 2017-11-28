@@ -20,10 +20,8 @@ public class GameManager : MonoBehaviour {
     }
     //Singleton approach
     private static GameManager m_instance = null;
-    public static GameManager Instance
-    {
-        get
-        {
+    public static GameManager Instance{
+        get{
             if(m_instance == null) {
                 GameObject gm = new GameObject();
                 gm.AddComponent<GameManager>();
@@ -34,9 +32,15 @@ public class GameManager : MonoBehaviour {
     }
 
     private GameObject m_player;
+    public GameObject Player {
+        get {            
+            return m_player;
+        }
+    }
+
     private List<iUpgrade> m_playersUpgrades = new List<iUpgrade>();
     private List<iUpgrade> m_allUpgrades = new List<iUpgrade>();
-    private Inventory m_playersInventory;
+    public Inventory m_playersInventory;
     private float m_timer;
     private Stack<State> m_state;
     private string m_level = "Title";
@@ -88,7 +92,7 @@ public class GameManager : MonoBehaviour {
         //Load available upgrades
         m_allUpgrades.AddRange(m_scrapMenuUI.GetComponentsInChildren<iUpgrade>());
         m_allUpgrades.AddRange(m_mutagenMenuUI.GetComponentsInChildren<iUpgrade>());
-        Debug.Log(m_allUpgrades.Count);
+        Debug.Log("Upgrades " + m_allUpgrades.Count);
         
     }
 	
@@ -243,7 +247,7 @@ public class GameManager : MonoBehaviour {
         player.GetComponent<PlayerController>().enabled = false;
         //Disable Enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        //MIGHT BREAK
+        //
         foreach (GameObject enemy in enemies) {
             if (enemy.GetComponent<EnemyV2>() != null) {
                 enemy.GetComponent<EnemyV2>().enabled = false;
@@ -257,7 +261,7 @@ public class GameManager : MonoBehaviour {
         player.GetComponent<PlayerController>().enabled = true;
         //Enable enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        //MIGHT BREAK
+        //
         foreach (GameObject enemy in enemies) {
             if (enemy.GetComponent<EnemyV2>() != null) {
                 enemy.GetComponent<EnemyV2>().enabled = true;
@@ -307,7 +311,6 @@ public class GameManager : MonoBehaviour {
         foreach(iUpgrade upgrade in m_playersUpgrades) {
             upgrade.Apply(m_player);
         }
-        m_inGameUI.GetComponent<BasicInGameUi>().SetPlayer(m_player);//Set player on UI controller
     }
     
     //Players inventory changes
@@ -326,13 +329,13 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ChangeMutaGen(int amount) {
-        if ((m_playersInventory.mutagen + amount) >= 0)
-            m_playersInventory.mutagen += amount;
+        m_playersInventory.mutagen += amount;
+        if (m_playersInventory.mutagen < 0) m_playersInventory.mutagen = 0;
     }
 
     public void ChangeScrap(int amount) {
-        if ((m_playersInventory.scrap + amount) >= 0)
             m_playersInventory.scrap += amount;
+        if (m_playersInventory.scrap < 0) m_playersInventory.scrap = 0;
     }
 
     public int MutaGenAmount() {
@@ -350,6 +353,6 @@ public class GameManager : MonoBehaviour {
     public List<Key> PlayerKeys() {
         return m_playersInventory.keys;
     }
-
+    
 
 }

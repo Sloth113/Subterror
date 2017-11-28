@@ -19,6 +19,7 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     public upgradeDetails m_info;
     public string m_details;
     public Text m_infoText;
+    public Text m_costText;
     public Button m_nextUnlock;
 
     abstract public void Apply(GameObject player);
@@ -28,7 +29,15 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     public void AddToPlayer() {
         if (PreRequisteMet(GameManager.Instance.PlayersInventory(), GameManager.Instance.PlayersUpgrades())) {
             GameManager.Instance.AddUpgrade(this);
-            this.GetComponent<Button>().interactable = false;
+            
+            if (m_info.type != upgradeType.MutaGen) {
+                this.GetComponent<Button>().interactable = false; //ONE TIME UPGRADE
+                GameManager.Instance.ChangeScrap(-m_info.cost);
+                m_costText.text = GameManager.Instance.ScrapAmount().ToString(); //UI
+            } else {
+                GameManager.Instance.ChangeMutaGen(-m_info.cost);
+                m_costText.text = GameManager.Instance.MutaGenAmount().ToString(); //UI
+            }
             if(m_nextUnlock != null) {
                 m_nextUnlock.interactable = true;
             }
@@ -43,7 +52,12 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     }
 
     public void OnSelect(BaseEventData eventData) {
-        m_infoText.text = GetDetails();
+        if (m_info.type == upgradeType.Scrap) {
+            m_infoText.text = GetDetails();
+            m_costText.text = GameManager.Instance.ScrapAmount() + " -" + m_info.cost;
+        } else {
+            m_costText.text = GameManager.Instance.MutaGenAmount() + " -" + m_info.cost;
+        }
     }
     
 }

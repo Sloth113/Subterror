@@ -47,24 +47,24 @@ public class EnemyV2 : MonoBehaviour, iHitable {
             m_target  = GameObject.FindGameObjectWithTag("Player");
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        //Move parts
-		if(m_target != null && (m_target.transform.position - this.transform.position).magnitude < m_agroRange) {
+
+    // Update is called once per frame
+    void Update() {
+        //Check within range to do anything
+        if (m_target != null && (m_target.transform.position - this.transform.position).magnitude < m_agroRange) {
+            //Move parts
             //Get to attack range  (MOVE)
-            if((m_target.transform.position - this.transform.position).magnitude > m_distToTarget) {
+            if ((m_target.transform.position - this.transform.position).magnitude > m_distToTarget) {
                 Vector3 dir = m_target.transform.position - this.transform.position;
                 dir.Normalize();//direction to target
                 m_navAgent.destination = m_target.transform.position - (dir * m_distToTarget);//Move to closest point within range towards target 
-            }else if (m_ranged) {
+            } else if (m_ranged) {
                 //Have the enemy always aiming at target
                 Vector3 lookAtPos = new Vector3(m_target.transform.position.x, this.transform.position.y, m_target.transform.position.z); //no y?
                 transform.LookAt(lookAtPos);
             }
-            
-            m_animator.SetFloat("Speed", m_navAgent.velocity.magnitude / m_navAgent.speed); //Blend tree 
-        }
+        
+
 
         //Attack parts
         //Melee
@@ -76,34 +76,40 @@ public class EnemyV2 : MonoBehaviour, iHitable {
                 OnDeath();
             }
             m_animator.SetTrigger("Melee");
-            MeleeSwing(); //MAY REMOVE FOR ANIMATION TO CONTROL 
+            //MeleeSwing(); //MAY REMOVE FOR ANIMATION TO CONTROL 
             m_meleeTimer = 0.0f;
-        }else {
+        } else {
             m_meleeTimer += Time.deltaTime;
         }
         //Ranged
-        
+
         if (m_ranged && m_rangedTimer > m_rangedCooldown && (m_target.transform.position - this.transform.position).magnitude > 2.0f) {
             //Range attack
             //Make sure look at player 
             //Debug.Log("Enemy Range Attack");
             m_animator.SetTrigger("Shoot");
-            CreateBullet();//MAY BE REMOVED FOR ANIMATOR CALLS
+            //CreateBullet();//MAY BE REMOVED FOR ANIMATOR CALLS
             m_rangedTimer = 0.0f;
         } else {
             m_rangedTimer += Time.deltaTime;
         }
-        
+    }
+        m_animator.SetFloat("Speed", m_navAgent.velocity.magnitude / m_navAgent.speed); //Blend tree 
+
     }
     public void MeleeSwing() {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 1f)) {
-            Debug.Log(hit.transform.name); //Works        
-            if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * m_meleeRange/2, m_meleeRange);
+        
+        foreach (Collider hit in hitColliders) {
+            //Only hit players
+            if (hit.transform.gameObject.GetComponent<iHitable>() != null && hit.transform.tag == "Player") {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage));
             }
         }
+       // RaycastHit hit;
+       // if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 1f)) {
+       //     Debug.Log(hit.transform.name); //Works        
+       //}
     }
     public void CreateBullet() {
         Instantiate<GameObject>(m_rangeProjectile, m_projectileExit.transform.position, m_projectileExit.transform.rotation);//make transform postition the point on the gun

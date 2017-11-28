@@ -33,7 +33,13 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     }
 
     public void DisplayToggle() {
-        m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_open);
+        List<Key> keys = GameManager.Instance.PlayerKeys();
+        foreach (Key key in keys) {
+            if (key.info == m_key.info) {
+                m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_open);
+                return;
+            }
+        }
     }
 
     public string GetText() {

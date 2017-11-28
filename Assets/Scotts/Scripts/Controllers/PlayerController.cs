@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, iHitable {
 
     //Ranged
     public float m_rangeCooldown = 5;
-    private float m_rangeTimer = 0;
+    public float m_rangeTimer = 0;
     public List<GameObject> m_bulletPrefabs; //ADD FUNCTIONS
     public List<RangeInfo> m_bulletPrefabss;
     public Transform m_bulletExitPos;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour, iHitable {
 
     //Block
     public float m_blockCooldown = 5;
-    private float m_blockTimer = 0;
+    public float m_blockTimer = 0;
     public float m_blockDuration = 2.0f;
     public float m_blockCounter = 0.0f;
     public float m_blockChange = 1.0f;//No damage - change 
@@ -74,8 +74,6 @@ public class PlayerController : MonoBehaviour, iHitable {
     void Update() {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
         
-        
-        
         //Input
         //Works with both WASD and Left joystick
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;
@@ -83,9 +81,9 @@ public class PlayerController : MonoBehaviour, iHitable {
             move = move.normalized * m_speed;
         }
         //No controller
-        if (input == InControl.InputDevice.Null) {
+        //if (input == InControl.InputDevice.Null) {
             transform.LookAt(GetMouseToPlayerPlanePoint()); //look at mouse
-        }
+        //}
         //Joystick
         if (input.GetControl(InControl.InputControlType.RightStickX) != 0 || input.GetControl(InControl.InputControlType.RightStickY) != 0) {
             float heading = Mathf.Atan2(input.GetControl(InControl.InputControlType.RightStickX), input.GetControl(InControl.InputControlType.RightStickY)) *Mathf.Rad2Deg;
@@ -172,11 +170,27 @@ public class PlayerController : MonoBehaviour, iHitable {
     }
 
     public void MeleeSwing() {
-        RaycastHit hit;
-        //SphereCast(origin[position<foot> + controller displacement], 
-        if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
-            Debug.Log(hit.transform.name); //Works        
-            if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
+        //old kinda works, hits one thing
+        //RaycastHit hit;
+        ////SphereCast(origin[position<foot> + controller displacement], 
+        //if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
+        //    Debug.Log(hit.transform.name); //Works        
+        //    if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
+        //        hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage * m_meleeMod));
+        //        if (m_meleeKnockBack) {
+        //            hit.transform.gameObject.GetComponent<iHitable>().Knockback();
+        //        }
+        //        if (m_meleeLifeSteal) {
+        //            IncreaseCurrentHP((int)(m_meleeDamage / 2.0f));//Heal partial
+        //        }
+        //    }
+        //}
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * m_meleeRange/2.0f, m_meleeRange);
+
+        foreach (Collider hit in hitColliders) {
+            //Hit everything but this (player)
+            if (hit.transform.gameObject.GetComponent<iHitable>() != null && hit.transform.tag != this.tag) {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage * m_meleeMod));
                 if (m_meleeKnockBack) {
                     hit.transform.gameObject.GetComponent<iHitable>().Knockback();
