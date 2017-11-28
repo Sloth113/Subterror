@@ -48,11 +48,11 @@ public class BasicDestructable : MonoBehaviour, iHitable {
         }
     }
 
-    public void KnockBack() {
+    public void Knockback() {
        //does nothing
     }
 
-    public void KockBack(Vector3 dir) {
+    public void Knockback(Vector3 dir) {
         //
         this.GetComponent<Rigidbody>().AddForce(dir);
     }

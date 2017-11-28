@@ -210,11 +210,11 @@ public class CharacterControllerTest : MonoBehaviour, iHitable {
         }
     }
 
-    public void KnockBack() {
+    public void Knockback() {
         Debug.Log("Stagger");
     }
 
-    public void KockBack(Vector3 dir) {
+    public void Knockback(Vector3 dir) {
         Debug.Log("Push back");
     }
 }
