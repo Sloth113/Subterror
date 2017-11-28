@@ -9,12 +9,13 @@ public class CorrosiveEffect : MonoBehaviour {
     public float m_damRate = 1.0f;
     private float m_timer = 0;
     public GameObject m_effect;
+    private GameObject m_spawn;
 	// Use this for initialization
 	void Start () {
         m_attached = GetComponent<iHitable>();
         if (m_effect != null) {
-            GameObject effect = Instantiate<GameObject>(m_effect, transform.position, transform.rotation);
-            effect.transform.parent = this.transform;
+            m_spawn = Instantiate<GameObject>(m_effect, transform.position, transform.rotation);
+            m_spawn.transform.parent = this.transform;
         }
     }
 	
@@ -26,6 +27,7 @@ public class CorrosiveEffect : MonoBehaviour {
             m_damRate += m_damRate;
         }
         if(m_timer > m_duration) {
+            Destroy(m_spawn);
             Destroy(this);
         }
 	}

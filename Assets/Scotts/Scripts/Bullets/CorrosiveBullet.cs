@@ -32,7 +32,7 @@ public class CorrosiveBullet : MonoBehaviour {
         }
         //Effect
         //
-        if (m_corrsiveEffect != null) {
+        if (m_corrsiveEffect != null && c.gameObject.GetComponent<iHitable>() != null) {
             c.gameObject.AddComponent<CorrosiveEffect>();
             c.gameObject.GetComponent<CorrosiveEffect>().m_effect = m_corrsiveEffect;
         }
