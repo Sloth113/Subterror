@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 [RequireComponent(typeof(Canvas))]
 public class GameManager : MonoBehaviour {
     //Game states 
     private enum State {
+        Intro,
         Title,
         InGame,
         Pause,
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour {
     public GameObject m_scrapMenuUI;
     public GameObject m_winUI;
     public GameObject m_deadUI;
-    
+    public VideoPlayer m_introVid;
 
     //Set up instances and initiate state
     void Awake() {
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour {
             m_playersInventory = new Inventory();
             m_playersInventory.keys = new List<Key>();
             m_playersUpgrades = new List<iUpgrade>();
-            m_instance.m_state.Push(State.Title);
+            m_instance.m_state.Push(State.Intro);
             DontDestroyOnLoad(this.gameObject);
         } else if(GameManager.m_instance != this) {
             Destroy(this.gameObject);
@@ -69,6 +71,9 @@ public class GameManager : MonoBehaviour {
     
     // Put things into dont destroy 
     void Start () {
+        //  m_introVid.Play();
+        m_state.Pop();
+        m_state.Push(State.Title);
         m_titleMenuUI.SetActive(true);
         //Set menus not to destroy
         DontDestroyOnLoad(m_titleMenuUI);
@@ -89,6 +94,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Check for pause and select button press
 	void Update () {
+        // if (m_introVid.frame >= (long)m_introVid.frameCount) {
+        //      m_state.Pop();
+        //    m_state.Push(State.Title);
+        //    m_titleMenuUI.SetActive(true);
+        //}
         if (Input.GetButtonDown("Cancel") && m_state.Peek() == State.InGame) {
             m_state.Push(State.Pause);
             m_inGameUI.SetActive(false);

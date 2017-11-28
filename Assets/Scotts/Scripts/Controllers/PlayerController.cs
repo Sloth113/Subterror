@@ -95,13 +95,13 @@ public class PlayerController : MonoBehaviour, iHitable {
             // Debug.Log("Moving");
             if (Input.GetButton("Fire1") && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
                 m_animator.SetTrigger("Shoot");
-                CreateBullet();
+                //CreateBullet();
                 m_rangeTimer = 0;
             }//Melee
             else if (Input.GetButton("Fire2") && m_meleeTimer >= m_meleeCooldown) {
                 m_animator.SetTrigger("Melee");
                 //Hit check PUT IN FUNCTION FOR ANIMATOR TO CALL
-                MeleeSwing();
+              //  MeleeSwing();
                 //Set timer to 0 
                 m_meleeTimer = 0;
             } else if (Input.GetButton("Fire3") && m_blockTimer >= m_blockCooldown) {

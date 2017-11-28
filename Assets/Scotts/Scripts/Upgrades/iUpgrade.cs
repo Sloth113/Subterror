@@ -19,6 +19,7 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     public upgradeDetails m_info;
     public string m_details;
     public Text m_infoText;
+    public Button m_nextUnlock;
 
     abstract public void Apply(GameObject player);
     
@@ -28,6 +29,9 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
         if (PreRequisteMet(GameManager.Instance.PlayersInventory(), GameManager.Instance.PlayersUpgrades())) {
             GameManager.Instance.AddUpgrade(this);
             this.GetComponent<Button>().interactable = false;
+            if(m_nextUnlock != null) {
+                m_nextUnlock.interactable = true;
+            }
         }
     }
     public string GetDetails() {

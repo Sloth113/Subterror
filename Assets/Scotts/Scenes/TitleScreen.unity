@@ -703,6 +703,7 @@ MonoBehaviour:
   m_scrapMenuUI: {fileID: 251510645}
   m_winUI: {fileID: 1859040624}
   m_deadUI: {fileID: 767184481}
+  m_introVid: {fileID: 0}
 --- !u!4 &311620642
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,7 +1400,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1430894312310354, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114813995184831232, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
         type: 2}
@@ -1499,6 +1500,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -62.599854
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683612588051520, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
@@ -2908,6 +2914,7 @@ MonoBehaviour:
     type: 0
   m_details: Reduuce damage taken when blocking
   m_infoText: {fileID: 708212265}
+  m_nextUnlock: {fileID: 2114717729}
   m_reduceAmount: 0.25
 --- !u!114 &1539737288 stripped
 MonoBehaviour:
@@ -3477,6 +3484,12 @@ Transform:
   m_Father: {fileID: 1043454297}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114717729 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114683612588051520, guid: 3bd9907f1e85bd74cb6f946ed0713b38,
+    type: 2}
+  m_PrefabInternal: {fileID: 756404454}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2122668797
 GameObject:
   m_ObjectHideFlags: 0
