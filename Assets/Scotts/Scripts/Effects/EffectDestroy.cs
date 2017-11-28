@@ -10,7 +10,7 @@ public class EffectDestroy : MonoBehaviour {
     void Update() {
         m_timer += Time.deltaTime;
         if (m_timer > m_duration) {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
