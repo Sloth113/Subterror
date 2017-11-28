@@ -16,6 +16,7 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
     void Start () {
         
         m_uIDisplay = this.GetComponentInChildren<Canvas>();
+        m_uIDisplay.gameObject.SetActive(false);
         //m_displayText = this.GetComponentInChildren<Text>();
         m_animator = GetComponentInChildren<Animator>();
 
@@ -27,9 +28,6 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
 	}
 
     public void DisplayToggle() {
-        if (gameObject.GetComponentInChildren<Text>() != null) {
-            gameObject.GetComponentInChildren<Text>().text = GetText();
-        }
         m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_state);
     }
 

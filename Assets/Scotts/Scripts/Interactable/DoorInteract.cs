@@ -13,6 +13,8 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     // Use this for initialization
     void Start () {
         m_uIDisplay = this.GetComponentInChildren<Canvas>();
+        if (m_uIDisplay != null)
+            m_uIDisplay.gameObject.SetActive(false);
         m_animator = GetComponent<Animator>();
         Light light = GetComponentInChildren<Light>();
         light.color = m_key.glow;
@@ -31,9 +33,6 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     }
 
     public void DisplayToggle() {
-        if(gameObject.GetComponentInChildren<Text>() != null) {
-            gameObject.GetComponentInChildren<Text>().text = GetText();
-        }
         m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_open);
     }
 
