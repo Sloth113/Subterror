@@ -94,12 +94,14 @@ public class GameManager : MonoBehaviour {
 	
 	// Check for pause and select button press
 	void Update () {
+        InControl.InputDevice input = InControl.InputManager.ActiveDevice;
+
         // if (m_introVid.frame >= (long)m_introVid.frameCount) {
         //      m_state.Pop();
         //    m_state.Push(State.Title);
         //    m_titleMenuUI.SetActive(true);
         //}
-        if (Input.GetButtonDown("Cancel") && m_state.Peek() == State.InGame) {
+        if ((Input.GetKeyDown(KeyCode.Escape) || input.GetControl(InControl.InputControlType.Start)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Pause);
             m_inGameUI.SetActive(false);
             m_pauseMenuUI.SetActive(true);
@@ -107,7 +109,7 @@ public class GameManager : MonoBehaviour {
             Pause();
          }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && m_state.Peek() == State.InGame) {
+        else if ((Input.GetKeyDown(KeyCode.Tab) || input.GetControl(InControl.InputControlType.Action3)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Upgrades);
             m_inGameUI.SetActive(false);
             m_mutagenMenuUI.SetActive(true);
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour {
             Pause();
         }
 
-        else if (Input.GetButtonDown("Cancel") && (m_state.Peek() == State.Upgrades || m_state.Peek() == State.Settings || m_state.Peek() == State.Pause)) {
+        else if ((Input.GetKeyDown(KeyCode.Escape) || input.GetControl(InControl.InputControlType.Action2)) && (m_state.Peek() == State.Upgrades || m_state.Peek() == State.Settings || m_state.Peek() == State.Pause)) {
             m_state.Pop(); //Out of upgrades/options to inGame
             if (m_state.Peek() == State.Title) {
                 m_titleMenuUI.SetActive(true);

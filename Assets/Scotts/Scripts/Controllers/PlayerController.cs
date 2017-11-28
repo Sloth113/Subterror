@@ -10,6 +10,11 @@ public struct Inventory {
     public int mutagen;
     public List<Key> keys;
 }
+[System.Serializable]
+public struct RangeInfo {
+    public GameObject prefab;
+    public string name;
+}
 
 public class PlayerController : MonoBehaviour, iHitable {
     private CharacterController m_controller;
@@ -38,6 +43,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     public float m_rangeCooldown = 5;
     private float m_rangeTimer = 0;
     public List<GameObject> m_bulletPrefabs; //ADD FUNCTIONS
+    public List<RangeInfo> m_bulletPrefabss;
     public Transform m_bulletExitPos;
     public int m_bulletIndex = 0;
 
@@ -47,6 +53,10 @@ public class PlayerController : MonoBehaviour, iHitable {
     public float m_blockDuration = 2.0f;
     public float m_blockCounter = 0.0f;
     public float m_blockChange = 1.0f;//No damage - change 
+
+    //Heal
+    public float m_healTimer = 0;
+    public float m_healCooldown = 5;
 
     //Get controller and animator
     void Start() {
@@ -63,18 +73,19 @@ public class PlayerController : MonoBehaviour, iHitable {
     // Update is called once per frame
     void Update() {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
-        Debug.Log(input.Name);
+        
         
         //Input
+        //Works with both WASD and Left joystick
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;
         if (move.sqrMagnitude >= m_speed * m_speed) {
             move = move.normalized * m_speed;
         }
         transform.LookAt(GetMouseToPlayerPlanePoint()); //look at mouse
         //Joystick
-        if (input.GetControl(InControl.InputControlType.RightStickX) > 0 || input.GetControl(InControl.InputControlType.RightStickY) > 0) {
+        if (input.GetControl(InControl.InputControlType.RightStickX) != 0 || input.GetControl(InControl.InputControlType.RightStickY) != 0) {
             float heading = Mathf.Atan2(input.GetControl(InControl.InputControlType.RightStickX), input.GetControl(InControl.InputControlType.RightStickY)) *Mathf.Rad2Deg;
-            transform.rotation=Quaternion.Euler(0f,0f,heading);
+            transform.rotation=Quaternion.Euler(0f, heading,0f);
         }
 
 
@@ -95,33 +106,39 @@ public class PlayerController : MonoBehaviour, iHitable {
         //Move using controller
         m_controller.Move(move * Time.deltaTime);
 
-        //Range shoot input.
+        //Range shoot input. only will do another action if in Movement (not doing other actions) 
         if (m_animator.GetCurrentAnimatorStateInfo(1).IsName("UpperBody.Movement")) {
-            // Debug.Log("Moving");
-            if (Input.GetButton("Fire1") && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
+            if ((input.GetControl(InControl.InputControlType.LeftTrigger) > 0 || Input.GetMouseButtonDown(0)) && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
                 m_animator.SetTrigger("Shoot");
-                //CreateBullet();
+                //CreateBullet();//Animator now calls it
                 m_rangeTimer = 0;
             }//Melee
-            else if (Input.GetButton("Fire2") && m_meleeTimer >= m_meleeCooldown) {
+            else if ((input.GetControl(InControl.InputControlType.RightTrigger) > 0 || Input.GetMouseButtonDown(1)) && m_meleeTimer >= m_meleeCooldown) {
                 m_animator.SetTrigger("Melee");
-                //Hit check PUT IN FUNCTION FOR ANIMATOR TO CALL
-              //  MeleeSwing();
+                //Hit check Animator calls the function now
+                // MeleeSwing();
                 //Set timer to 0 
                 m_meleeTimer = 0;
-            } else if (Input.GetButton("Fire3") && m_blockTimer >= m_blockCooldown) {
+            } else if ((input.GetControl(InControl.InputControlType.LeftBumper) > 0 || Input.GetKeyDown(KeyCode.Q)) && m_blockTimer >= m_blockCooldown) {
                 //Blocking
                 m_animator.SetTrigger("Block");
                 m_incomeDamMod -= m_blockChange; //drop the mod 
                 m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
                 m_blockTimer = 0; //Cooldown 
+            } else if ((input.GetControl(InControl.InputControlType.RightBumper) > 0 || Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > 0 && m_healTimer > m_healCooldown){
+                //Heal
+                Debug.Log("Heal");
+                IncreaseCurrentHP(10);
+                GameManager.Instance.ChangeMutaGen(-1);
+                m_healTimer = 0;
+                //Create glow or something? 
+            } else if ((input.GetControl(InControl.InputControlType.Action4).WasPressed || Input.GetAxis("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.R))) {
+                //Cycle through weapons
+                m_bulletIndex++;
+                if (m_bulletIndex >= m_bulletPrefabs.Count) m_bulletIndex = 0; //Cycle
+
             }
         }
-        //Heal
-
-        //Switch weapon
-
-        //
         
         //Timers
         if (m_rangeTimer < m_rangeCooldown) {
@@ -141,6 +158,9 @@ public class PlayerController : MonoBehaviour, iHitable {
         if (m_blockCounter >= m_blockDuration) {
             m_incomeDamMod += m_blockChange;//reset modifier
             m_blockCounter = 0.0f;
+        }
+        if(m_healTimer < m_healCooldown) {
+            m_healTimer += Time.deltaTime;
         }
 
     }
