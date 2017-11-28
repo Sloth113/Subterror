@@ -75,17 +75,23 @@ public class PlayerController : MonoBehaviour, iHitable {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
         
         
+        
         //Input
         //Works with both WASD and Left joystick
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;
         if (move.sqrMagnitude >= m_speed * m_speed) {
             move = move.normalized * m_speed;
         }
-        transform.LookAt(GetMouseToPlayerPlanePoint()); //look at mouse
+        //No controller
+        if (input == InControl.InputDevice.Null) {
+            transform.LookAt(GetMouseToPlayerPlanePoint()); //look at mouse
+        }
         //Joystick
         if (input.GetControl(InControl.InputControlType.RightStickX) != 0 || input.GetControl(InControl.InputControlType.RightStickY) != 0) {
             float heading = Mathf.Atan2(input.GetControl(InControl.InputControlType.RightStickX), input.GetControl(InControl.InputControlType.RightStickY)) *Mathf.Rad2Deg;
             transform.rotation=Quaternion.Euler(0f, heading,0f);
+        }else {
+
         }
 
 
@@ -132,7 +138,7 @@ public class PlayerController : MonoBehaviour, iHitable {
                 GameManager.Instance.ChangeMutaGen(-1);
                 m_healTimer = 0;
                 //Create glow or something? 
-            } else if ((input.GetControl(InControl.InputControlType.Action4).WasPressed || Input.GetAxis("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.R))) {
+            } else if ((input.GetControl(InControl.InputControlType.Action4) || Input.GetAxis("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.R))) {
                 //Cycle through weapons
                 m_bulletIndex++;
                 if (m_bulletIndex >= m_bulletPrefabs.Count) m_bulletIndex = 0; //Cycle
@@ -232,7 +238,9 @@ public class PlayerController : MonoBehaviour, iHitable {
         }
     }
     void OnTriggerStay(Collider c) {
-        if (c.transform.tag == "Interactable" && Input.GetKeyDown(KeyCode.X)) {
+        InControl.InputDevice input = InControl.InputManager.ActiveDevice;
+
+        if (c.transform.tag == "Interactable" && (input.GetControl(InControl.InputControlType.Action1) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))) {
             c.GetComponent<iInteractable>().Use(this.gameObject);
         }
     }

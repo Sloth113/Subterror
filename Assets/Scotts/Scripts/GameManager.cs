@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour {
 	// Check for pause and select button press
 	void Update () {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
-
+        
         // if (m_introVid.frame >= (long)m_introVid.frameCount) {
         //      m_state.Pop();
         //    m_state.Push(State.Title);
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour {
             Pause();
          }
 
-        else if ((Input.GetKeyDown(KeyCode.Tab) || input.GetControl(InControl.InputControlType.Action3)) && m_state.Peek() == State.InGame) {
+        else if ((Input.GetKeyDown(KeyCode.Tab) || input.GetControl(InControl.InputControlType.Select)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Upgrades);
             m_inGameUI.SetActive(false);
             m_mutagenMenuUI.SetActive(true);

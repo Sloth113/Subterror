@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class DoorInteract : MonoBehaviour,iInteractable {
     public bool m_open = false;
-    private Text m_displayText;
+    //private Text m_displayText;
+    private Canvas m_uIDisplay;
     public Key m_key;
     private Animator m_animator;
     // Use this for initialization
     void Start () {
-        m_displayText = this.GetComponentInChildren<Text>();
+        m_uIDisplay = this.GetComponentInChildren<Canvas>();
         m_animator = GetComponent<Animator>();
         Light light = GetComponentInChildren<Light>();
         light.color = m_key.glow;
@@ -30,11 +31,10 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     }
 
     public void DisplayToggle() {
-        if (m_displayText.text != GetText()) {
-            m_displayText.text = GetText();
-        } else {
-            m_displayText.text = "";
+        if(gameObject.GetComponentInChildren<Text>() != null) {
+            gameObject.GetComponentInChildren<Text>().text = GetText();
         }
+        m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_open);
     }
 
     public string GetText() {
@@ -43,6 +43,7 @@ public class DoorInteract : MonoBehaviour,iInteractable {
 
     public void Use() {
         //Nothing
+        
         if (m_key.info == "" && !m_open) {
             Open();
         }

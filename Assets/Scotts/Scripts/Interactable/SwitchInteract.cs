@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class SwitchInteract : MonoBehaviour, iInteractable {
     bool m_state = false;
-    private Text m_displayText;
+    //private Text m_displayText;
+    private Canvas m_uIDisplay;
     public GameObject m_link;
     private Animator m_animator;
 
 
     // Use this for initialization
     void Start () {
-        m_displayText = this.GetComponentInChildren<Text>();
+        
+        m_uIDisplay = this.GetComponentInChildren<Canvas>();
+        //m_displayText = this.GetComponentInChildren<Text>();
         m_animator = GetComponentInChildren<Animator>();
 
     }
@@ -24,11 +27,10 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
 	}
 
     public void DisplayToggle() {
-        if (m_displayText.text != GetText()) {
-            m_displayText.text = GetText();
-        }else {
-            m_displayText.text = "";
+        if (gameObject.GetComponentInChildren<Text>() != null) {
+            gameObject.GetComponentInChildren<Text>().text = GetText();
         }
+        m_uIDisplay.gameObject.SetActive(!m_uIDisplay.gameObject.activeSelf && !m_state);
     }
 
     public string GetText() {
@@ -40,7 +42,7 @@ public class SwitchInteract : MonoBehaviour, iInteractable {
         if (m_link != null && m_link.GetComponent<iInteractable>() != null) {
             m_link.GetComponent<iInteractable>().Use();
         }
-        m_state = !m_state;
+        m_state = true;
         Debug.Log("Switched" + m_state);
     }
 
