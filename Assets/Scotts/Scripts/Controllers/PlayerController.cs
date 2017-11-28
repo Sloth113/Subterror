@@ -21,14 +21,16 @@ public class PlayerController : MonoBehaviour, iHitable {
     private Animator m_animator;
 
     //Stats
+    [Header("Stats")]
     public float m_speed = 10;
     private float m_maxTotalSpeed = 10;
     public float m_hp = 100;
     public float m_maxHp = 100;
     public float m_maxTotalHp = 200;
     public float m_incomeDamMod = 1.0f;
-    
+
     //Melee
+    [Header("Melee")]
     public float m_meleeCooldown = 0.5f;
     //private float m_meleeMidHitTime = 0.25f;
     private float m_meleeTimer = 0;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     public bool m_meleeLifeSteal = false;
 
     //Ranged
+    [Header("Range")]
     public float m_rangeCooldown = 5;
     public float m_rangeTimer = 0;
     public List<GameObject> m_bulletPrefabs; //ADD FUNCTIONS
@@ -48,15 +51,21 @@ public class PlayerController : MonoBehaviour, iHitable {
     public int m_bulletIndex = 0;
 
     //Block
+    [Header("Block")]
     public float m_blockCooldown = 5;
     public float m_blockTimer = 0;
     public float m_blockDuration = 2.0f;
     public float m_blockCounter = 0.0f;
     public float m_blockChange = 1.0f;//No damage - change 
+    public GameObject m_defEffPrefab;
 
     //Heal
+    [Header("Heal")]
     public float m_healTimer = 0;
     public float m_healCooldown = 5;
+    public int m_healAmount = 10;
+    public int m_healCost = 1; //Mutagen cost
+    public GameObject m_healEffPrefab;
 
     //Get controller and animator
     void Start() {
@@ -67,7 +76,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     void Awake() {
         //Set new player as instance
         GameManager.Instance.NewPlayer(this.gameObject); //manager then sets on everything else
-
+        
     }
 
     // Update is called once per frame
@@ -125,15 +134,20 @@ public class PlayerController : MonoBehaviour, iHitable {
                 m_meleeTimer = 0;
             } else if ((input.GetControl(InControl.InputControlType.LeftBumper) > 0 || Input.GetKeyDown(KeyCode.Q)) && m_blockTimer >= m_blockCooldown) {
                 //Blocking
+                GameObject spawn = Instantiate<GameObject>(m_defEffPrefab, transform.position, transform.rotation);
+                spawn.GetComponent<EffectDestroy>().m_duration = m_blockDuration;
+                spawn.transform.parent = this.transform;
                 m_animator.SetTrigger("Block");
                 m_incomeDamMod -= m_blockChange; //drop the mod 
                 m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
                 m_blockTimer = 0; //Cooldown 
             } else if ((input.GetControl(InControl.InputControlType.RightBumper) > 0 || Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > 0 && m_healTimer > m_healCooldown){
                 //Heal
-                Debug.Log("Heal");
-                IncreaseCurrentHP(10);
-                GameManager.Instance.ChangeMutaGen(-1);
+                GameObject spawn = Instantiate<GameObject>(m_healEffPrefab, transform.position, transform.rotation);
+                spawn.GetComponent<EffectDestroy>().m_duration = 1.0f;
+                spawn.transform.parent = this.transform;
+                IncreaseCurrentHP(m_healAmount);
+                GameManager.Instance.ChangeMutaGen(-m_healCost);
                 m_healTimer = 0;
                 //Create glow or something? 
             } else if ((input.GetControl(InControl.InputControlType.Action4) || Input.GetAxis("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.R))) {
