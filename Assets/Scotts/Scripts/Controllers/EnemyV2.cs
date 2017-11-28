@@ -72,8 +72,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
             //Melee attack
             //Debug.Log("Enemy Melee Attack");
             if (m_explody) {
-                //USES BULLET AS EXPLOSION
-                Instantiate<GameObject>(m_rangeProjectile, m_projectileExit.transform.position, m_projectileExit.transform.rotation);//make transform postition the point on the gun
+                //Close enough to explode
                 OnDeath();
             }
             m_animator.SetTrigger("Melee");
@@ -113,6 +112,9 @@ public class EnemyV2 : MonoBehaviour, iHitable {
         //Do stuff animation n shit then die? 
         if (m_dropSystem != null) {
             m_dropSystem.DropItems();
+        }
+        if (m_explody) {
+            Instantiate<GameObject>(m_rangeProjectile, m_projectileExit.transform.position, m_projectileExit.transform.rotation);//Range projectile in this case is explosion prefab
         }
         Destroy(this.gameObject);
     }

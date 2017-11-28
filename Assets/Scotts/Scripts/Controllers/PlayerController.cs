@@ -214,20 +214,28 @@ public class PlayerController : MonoBehaviour, iHitable {
 
     private void OnDeath() {
         //GameManager.m_instance.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//Destart
+        m_animator.SetTrigger("Dead");
+        this.enabled = false;
+        GameManager.Instance.InGameToDead();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);//Destart
     }
 
     public void Hit() {
         m_hp--;
         if (m_hp <= 0) {
             OnDeath();
+        }else {
+            m_animator.SetTrigger("Hit");
         }
     }
     public void Hit(int dam) {
         m_hp -= dam;
         if (m_hp <= 0) {
             OnDeath();
+        }else {
+            m_animator.SetTrigger("Hit");
         }
+        
     }
     //Heal
     public void IncreaseCurrentHP(int amount) {
