@@ -12,7 +12,7 @@ public struct Inventory {
 }
 
 public class PlayerController : MonoBehaviour, iHitable {
-    private CharacterController controller;
+    private CharacterController m_controller;
     private Animator m_animator;
 
     //Stats
@@ -51,17 +51,19 @@ public class PlayerController : MonoBehaviour, iHitable {
     //Get controller and animator
     void Start() {
         m_animator = GetComponent<Animator>();
-        controller = GetComponent<CharacterController>();
+        m_controller = GetComponent<CharacterController>();
     }
 
     void Awake() {
         //Set new player as instance
-        GameManager.Instance.NewPlayer(this.gameObject);
+        GameManager.Instance.NewPlayer(this.gameObject); //manager then sets on everything else
 
     }
 
     // Update is called once per frame
     void Update() {
+        InControl.InputDevice input = InControl.InputManager.ActiveDevice;
+        
         //Input
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;
         if (move.sqrMagnitude >= m_speed * m_speed) {
@@ -69,8 +71,10 @@ public class PlayerController : MonoBehaviour, iHitable {
         }
         transform.LookAt(GetMouseToPlayerPlanePoint()); //look at mouse
         //Joystick
-        //float heading = Mathf.Atan2(joyvector.x, joyvector.y) *Mathf.Rad2Deg;
-        //transform.rotation=Quaternion.Euler(0f,0f,heading);
+        if (input.GetControl(InControl.InputControlType.RightStickX) > 0 || input.GetControl(InControl.InputControlType.RightStickY) > 0) {
+            float heading = Mathf.Atan2(input.GetControl(InControl.InputControlType.RightStickX), input.GetControl(InControl.InputControlType.RightStickY)) *Mathf.Rad2Deg;
+            transform.rotation=Quaternion.Euler(0f,0f,heading);
+        }
 
 
         //Moving back or forward for animation blending EXPAND to side ways as well
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour, iHitable {
             m_animator.SetFloat("Speed", move.magnitude / m_speed);
         }
         //Keep grounded
-        if (!controller.isGrounded) {
+        if (!m_controller.isGrounded) {
             //fall
             move.y += Physics.gravity.y * 10 * Time.deltaTime;
         } else {
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour, iHitable {
         }
 
         //Move using controller
-        controller.Move(move * Time.deltaTime);
+        m_controller.Move(move * Time.deltaTime);
 
         //Range shoot input.
         if (m_animator.GetCurrentAnimatorStateInfo(1).IsName("UpperBody.Movement")) {
@@ -143,7 +147,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     public void MeleeSwing() {
         RaycastHit hit;
         //SphereCast(origin[position<foot> + controller displacement], 
-        if (Physics.SphereCast(transform.position + controller.center - transform.forward, controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
+        if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 0.75f)) {
             Debug.Log(hit.transform.name); //Works        
             if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage * m_meleeMod));

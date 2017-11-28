@@ -216,7 +216,7 @@ MonoBehaviour:
   m_duration: 2
   m_damage: 5
   m_damRate: 1
-  m_effect: {fileID: 1567561797587964, guid: 418f83fd39868b349b6734efef409a92, type: 2}
+  m_effect: {fileID: 0}
 --- !u!1001 &48175391
 Prefab:
   m_ObjectHideFlags: 0
@@ -1029,6 +1029,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114327708622882196, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_bulletPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1699627680163168, guid: 46335624b8f56a04b9686bfffc4516b0,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114416654131347836, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
@@ -2649,38 +2655,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1682310657712178, guid: 6741cd77258da8f4ab8474f670dfc7fb,
     type: 2}
   m_PrefabInternal: {fileID: 721286706}
---- !u!114 &1612262718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1612262717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da6037eeae499342a9ce729a822c01b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 10
-  m_hp: 100
-  m_maxHp: 100
-  m_maxTotalHp: 200
-  m_incomeDamMod: 1
-  m_meleeCooldown: 0.5
-  m_meleeMod: 1
-  m_meleeDamage: 10
-  m_meleeRange: 1
-  m_meleeAngle: 90
-  m_meleeKnockBack: 0
-  m_meleeLifeSteal: 0
-  m_rangeCooldown: 1
-  m_bulletPrefabs:
-  - {fileID: 1699627680163168, guid: 8b796dd1fa0a6c94ebd401fbc7729906, type: 2}
-  m_bulletExitPos: {fileID: 1867205850}
-  m_bulletIndex: 0
-  m_blockCooldown: 5
-  m_blockDuration: 2
-  m_blockCounter: 0
-  m_blockChange: 1
 --- !u!1001 &1671359138
 Prefab:
   m_ObjectHideFlags: 0
@@ -2917,11 +2891,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8bca5c3fae791f498c43963d5c9a107, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1867205850 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4407485607683296, guid: 6741cd77258da8f4ab8474f670dfc7fb,
-    type: 2}
-  m_PrefabInternal: {fileID: 721286706}
 --- !u!1 &1912906787
 GameObject:
   m_ObjectHideFlags: 0
