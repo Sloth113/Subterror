@@ -1302,10 +1302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 20
     type: 1
-  m_details: 
+  m_details: 'Cost - 20 Enhance your Melee weapon with increased reach. (+1) '
   m_infoText: {fileID: 0}
+  m_costText: {fileID: 0}
   m_nextUnlock: {fileID: 0}
   m_aoeSize: 10
 --- !u!114 &114035633431473244
@@ -1351,6 +1352,7 @@ MonoBehaviour:
     type: 1
   m_details: 
   m_infoText: {fileID: 0}
+  m_costText: {fileID: 0}
   m_nextUnlock: {fileID: 0}
   m_rangeMod: 1
 --- !u!114 &114056741877701180
@@ -1777,6 +1779,7 @@ MonoBehaviour:
     type: 1
   m_details: 
   m_infoText: {fileID: 0}
+  m_costText: {fileID: 0}
   m_nextUnlock: {fileID: 0}
   m_aoeSize: 10
 --- !u!114 &114153808452664414
@@ -2598,6 +2601,7 @@ MonoBehaviour:
     type: 0
   m_details: 
   m_infoText: {fileID: 0}
+  m_costText: {fileID: 0}
   m_nextUnlock: {fileID: 0}
   m_reduceAmount: 0.25
 --- !u!114 &114489611245598756
