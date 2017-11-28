@@ -114,11 +114,11 @@ public class EnemyV1 : MonoBehaviour, iHitable {
         }
     }
 
-    public void KnockBack() {
-        throw new NotImplementedException();
+    public void Knockback() {
+        //throw new NotImplementedException();
     }
 
-    public void KockBack(Vector3 dir) {
-        throw new NotImplementedException();
+    public void Knockback(Vector3 dir) {
+        //throw new NotImplementedException();
     }
 }

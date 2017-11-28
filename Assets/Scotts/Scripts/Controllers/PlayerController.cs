@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour, iHitable {
             if (hit.transform.gameObject.GetComponent<iHitable>() != null) {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage * m_meleeMod));
                 if (m_meleeKnockBack) {
-                    hit.transform.gameObject.GetComponent<iHitable>().KnockBack();
+                    hit.transform.gameObject.GetComponent<iHitable>().Knockback();
                 }
                 if (m_meleeLifeSteal) {
                     IncreaseCurrentHP((int)(m_meleeDamage / 2.0f));//Heal partial

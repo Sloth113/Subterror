@@ -18,7 +18,7 @@ public class Explosion : MonoBehaviour {
             Debug.Log(hit.transform.name);
             if (hit.transform.gameObject.GetComponent<iHitable>() != null && hit.transform.tag != m_ignore) {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_explosionDamage));
-                hit.transform.gameObject.GetComponent<iHitable>().KnockBack();
+                hit.transform.gameObject.GetComponent<iHitable>().Knockback();
             }
         }
     }

@@ -142,6 +142,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
 
     public void Knockback() {
         Debug.Log("Stagger");
+        m_navAgent.velocity = Vector3.zero;
     }
 
     public void Knockback(Vector3 dir) {
