@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     // Update is called once per frame
     void Update() {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
+        Debug.Log(input.Name);
         
         //Input
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;
