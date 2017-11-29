@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
     private List<iUpgrade> m_savedUpgrades = new List<iUpgrade>();
     private Inventory m_savedInventory;
     private Stack<State> m_state;
-    private string m_level = "Title";
+    private string m_level = "level_1-1";
 
     [Header("Final stats")]
     public float m_timer;
@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour {
     public GameObject m_scrapMenuUI;
     public GameObject m_winUI;
     public GameObject m_deadUI;
+
+    //Was pressed in INCONTROL isnt workign so making it work
+    private bool m_menuSwitch = false;
 
     //Set up instances and initiate state
     void Awake() {
@@ -108,7 +111,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
         
-
         if ((Input.GetKeyDown(KeyCode.Escape) || input.GetControl(InControl.InputControlType.Start)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Pause);
             m_inGameUI.SetActive(false);
@@ -117,7 +119,7 @@ public class GameManager : MonoBehaviour {
             Pause();
          }
 
-        else if ((Input.GetKeyDown(KeyCode.Tab) || input.GetControl(InControl.InputControlType.Select)) && m_state.Peek() == State.InGame) {
+        else if ((Input.GetKeyDown(KeyCode.Tab) || input.GetControl(InControl.InputControlType.Select) || input.GetControl(InControl.InputControlType.DPadDown)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Upgrades);
             m_inGameUI.SetActive(false);
             m_mutagenMenuUI.SetActive(true);
@@ -143,13 +145,17 @@ public class GameManager : MonoBehaviour {
                 //Unpause
                 UnPause();
             }
-        } else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || input.GetControl(InControl.InputControlType.LeftBumper) || input.GetControl(InControl.InputControlType.RightBumper)) && m_state.Peek() == State.Upgrades){
+        } else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || input.GetControl(InControl.InputControlType.LeftBumper) || input.GetControl(InControl.InputControlType.RightBumper)) && !m_menuSwitch && m_state.Peek() == State.Upgrades){
+            m_menuSwitch = true;
             ScrapMutaMenuToggle();
+        }else if(!input.GetControl(InControl. InputControlType.LeftBumper) && !input.GetControl(InControl.InputControlType.RightBumper) && m_menuSwitch) {
+            m_menuSwitch = false;
         }
         if (m_state.Peek() == State.InGame) {
             m_timer += Time.deltaTime;
         }
-	}
+        
+    }
 
     //Manage adds upgrades to player 
     public void AddUpgrade(iUpgrade upgrade) {
@@ -192,6 +198,12 @@ public class GameManager : MonoBehaviour {
         
         m_state.Pop();//Pause or over
         m_state.Push(State.InGame);
+        m_deadUI.SetActive(false);
+        m_winUI.SetActive(false);
+        m_pauseMenuUI.SetActive(false);
+        m_inGameUI.SetActive(true);
+
+        UnPause();
         SceneManager.LoadScene(m_level);
     }
 
@@ -250,8 +262,8 @@ public class GameManager : MonoBehaviour {
         //Remove settings state
         m_state.Pop();
         m_settingsUI.SetActive(false);
-        if(m_state.Peek() == State.InGame) {
-            m_inGameUI.SetActive(true);
+        if(m_state.Peek() == State.Pause) {
+            m_pauseMenuUI.SetActive(true);
         }else if(m_state.Peek() == State.Title) {
             m_titleMenuUI.SetActive(true);
         }
@@ -340,8 +352,8 @@ public class GameManager : MonoBehaviour {
     public void ScrapMutaMenuToggle() {
         m_scrapMenuUI.SetActive(!m_scrapMenuUI.activeSelf);
         m_mutagenMenuUI.SetActive(!m_mutagenMenuUI.activeSelf);
-        m_mutagenMenuUI.GetComponentInChildren<Button>().Select();
-        m_scrapMenuUI.GetComponentInChildren<Button>().Select();      
+        if(m_mutagenMenuUI.activeSelf) m_mutagenMenuUI.GetComponentInChildren<Button>().Select();
+        else m_scrapMenuUI.GetComponentInChildren<Button>().Select();      
     }
 
     public void NextLevel(string name) {

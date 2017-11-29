@@ -19,6 +19,7 @@ public class BasicDestructable : MonoBehaviour, iHitable {
 	}
 
     void OnDeath() {
+        m_dead = true;
         //Explosion
         if (m_particleObjects != null && m_particleObjects.Count > 0) {
             foreach (GameObject particleObj in m_particleObjects) {

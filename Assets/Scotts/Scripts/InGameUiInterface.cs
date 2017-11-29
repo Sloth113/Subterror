@@ -34,7 +34,7 @@ public class InGameUiInterface : MonoBehaviour {
         m_blockBar.fillAmount = (float)playerScript.m_blockTimer / playerScript.m_blockCooldown;
         m_healBar.fillAmount = (float)playerScript.m_healTimer / playerScript.m_healCooldown;
 
-        Debug.Log(playerScript.m_bulletPrefabs[playerScript.m_bulletIndex].transform.name);
+
         switch (playerScript.m_bulletPrefabs[playerScript.m_bulletIndex].transform.name) {
             case "ExplosiveBullet":
                 {

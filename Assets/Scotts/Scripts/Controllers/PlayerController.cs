@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour, iHitable {
                 // MeleeSwing();
                 //Set timer to 0 
                 m_meleeTimer = 0;
-            } else if ((input.GetControl(InControl.InputControlType.LeftBumper) > 0 || Input.GetKeyDown(KeyCode.Q)) && m_blockTimer >= m_blockCooldown) {
+            } else if ((input.GetControl(InControl.InputControlType.LeftBumper).IsPressed || Input.GetKeyDown(KeyCode.Q)) && m_blockTimer >= m_blockCooldown) {
                 //Blocking
                 GameObject spawn = Instantiate<GameObject>(m_defEffPrefab, transform.position, transform.rotation);
                 spawn.GetComponent<EffectDestroy>().m_duration = m_blockDuration;
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour, iHitable {
                 m_incomeDamMod -= m_blockChange; //drop the mod 
                 m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
                 m_blockTimer = 0; //Cooldown 
-            } else if ((input.GetControl(InControl.InputControlType.RightBumper) > 0 || Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > 0 && m_healTimer > m_healCooldown){
+            } else if ((input.GetControl(InControl.InputControlType.RightBumper).IsPressed|| Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > 0 && m_healTimer > m_healCooldown){
                 //Heal
                 GameObject spawn = Instantiate<GameObject>(m_healEffPrefab, transform.position, transform.rotation);
                 spawn.GetComponent<EffectDestroy>().m_duration = 1.0f;
@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     void OnTriggerStay(Collider c) {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
 
-        if (c.transform.tag == "Interactable" && (input.GetControl(InControl.InputControlType.Action1) || input.GetControl(InControl.InputControlType.Action2) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))) {
+        if (c.transform.tag == "Interactable" && (input.GetControl(InControl.InputControlType.Action1) || input.GetControl(InControl.InputControlType.Action3) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))) {
             c.GetComponent<iInteractable>().Use(this.gameObject);
         }
     }
