@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 222634743706823740}
   - component: {fileID: 114763779894797618}
   - component: {fileID: 114114532421300360}
+  - component: {fileID: 114932790444044762}
   m_Layer: 5
   m_Name: 'Upgrade #3.1 (Knockback)'
   m_TagString: Untagged
@@ -569,6 +570,7 @@ GameObject:
   - component: {fileID: 222754242297041834}
   - component: {fileID: 114237037871697176}
   - component: {fileID: 114130495943357760}
+  - component: {fileID: 114990770822737042}
   m_Layer: 5
   m_Name: 'Upgrade #2.1 (Knockback)'
   m_TagString: Untagged
@@ -810,6 +812,7 @@ GameObject:
   - component: {fileID: 222941844745333642}
   - component: {fileID: 114329278388718222}
   - component: {fileID: 114778911607294838}
+  - component: {fileID: 114655282849300014}
   m_Layer: 5
   m_Name: 'Upgrade #2.2 (Cooldown Reduction)'
   m_TagString: Untagged
@@ -892,6 +895,7 @@ GameObject:
   - component: {fileID: 222565600773716282}
   - component: {fileID: 114666817882841522}
   - component: {fileID: 114011119759622598}
+  - component: {fileID: 114768341227972714}
   m_Layer: 5
   m_Name: 'Upgrade #2.0 (Health)'
   m_TagString: Untagged
@@ -993,6 +997,7 @@ GameObject:
   - component: {fileID: 222395643198955472}
   - component: {fileID: 114270384953120364}
   - component: {fileID: 114021171185648628}
+  - component: {fileID: 114117309365175868}
   m_Layer: 5
   m_Name: 'Upgrade #3.2 (Fire rate Increase)'
   m_TagString: Untagged
@@ -1296,7 +1301,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114666817882841522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114768341227972714}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114021171185648628
@@ -1337,7 +1353,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114270384953120364}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114117309365175868}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114023217338571536
@@ -1545,7 +1572,7 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114185532591329468}
-  m_reduceAmount: 0.5
+  m_reduceAmount: 0.25
 --- !u!114 &114067688991780968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1743,9 +1770,40 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114763779894797618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114932790444044762}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114117309365175868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865257132958756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d1579c92456e949ab9e6831ef4f370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 10
+    type: 1
+  m_details: 'Cost - 10 Maximizes the potency of the Shotgun Mod by making your gun
+    shoot further '
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 0}
+  m_rangeIncrease: 1.5
 --- !u!114 &114123722410210058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1817,7 +1875,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114237037871697176}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114990770822737042}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114140915861121866
@@ -2203,7 +2272,6 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
-  m_newExplosionSize: {fileID: 0}
 --- !u!114 &114237037871697176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2823,7 +2891,7 @@ MonoBehaviour:
     cost: 15
     type: 1
   m_details: 'Cost - 15 Use the Ability 1 button to Shield yourself from attacks,
-    reducing incoming damage by 25% for a few seconds. '
+    reducing incoming damage by 10% for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114683612588051520}
@@ -3342,6 +3410,25 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114655282849300014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705810296085616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56f13f62b831b243bd67ac084e96ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 15
+    type: 1
+  m_details: 'Cost - 15 Increases the amount of health restored by Heal. '
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 0}
+  m_healChange: 10
 --- !u!114 &114658050060855592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3573,7 +3660,7 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
-  m_rangeMod: 1
+  m_damageChange: 5
 --- !u!114 &114763779894797618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3601,6 +3688,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114768341227972714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769250410761074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d134a23a798c294cb92e4f5f202cc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 10
+    type: 1
+  m_details: 'Cost - 10 Use the Ability 2 button to spend MutaGens to restore your
+    health. '
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114130495943357760}
 --- !u!114 &114778911607294838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3639,7 +3745,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114329278388718222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114655282849300014}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114782174526998300
@@ -3661,7 +3778,7 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114172716533469758}
-  m_corrosiveBullet: {fileID: 0}
+  m_timeIncreaseAmount: 3
 --- !u!114 &114789525967628868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4094,6 +4211,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114932790444044762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056704602552010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9956b0c9410d68e40921ded4b0b6c317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 15
+    type: 1
+  m_details: 'Cost - 15 Increases the potency of the Shotgun Mod by making your gun
+    shoot more bullets. '
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114021171185648628}
+  m_newShotCount: 5
 --- !u!114 &114945701869218640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4148,7 +4285,7 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 0}
-  m_reduceAmount: 0.75
+  m_reduceAmount: 0.25
 --- !u!114 &114960566058704408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4184,6 +4321,25 @@ MonoBehaviour:
   m_Text: 'Bullet
 
     Rain'
+--- !u!114 &114990770822737042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591746851371400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d7207297f9ac4cb55cb5dfef187e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 15
+    type: 1
+  m_details: 'Cost - 15 Reduces the amount of MutaGens it costs to restore your health. '
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114778911607294838}
+  m_costChange: 1
 --- !u!222 &222016238657765416
 CanvasRenderer:
   m_ObjectHideFlags: 1

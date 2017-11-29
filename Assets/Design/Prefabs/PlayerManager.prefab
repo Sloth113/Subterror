@@ -759,7 +759,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057679436180900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1, y: 0, z: -5.9}
+  m_LocalPosition: {x: 420.6419, y: 316.7577, z: -471.9998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4870390073353064}
@@ -1295,6 +1295,7 @@ MonoBehaviour:
   m_meleeAngle: 90
   m_meleeKnockBack: 0
   m_meleeLifeSteal: 0
+  m_lifeStealRatio: 0.1
   m_rangeCooldown: 2
   m_rangeTimer: 0
   m_bulletPrefabs:
@@ -1306,13 +1307,15 @@ MonoBehaviour:
   m_blockTimer: 0
   m_blockDuration: 2
   m_blockCounter: 0
-  m_blockChange: 1
-  m_defEffPrefab: {fileID: 0}
+  m_blockChange: 0
+  m_defEffPrefab: {fileID: 1683496390681986, guid: e6048c9bdb7691e47802ebec242abbbd,
+    type: 2}
   m_healTimer: 0
-  m_healCooldown: 5
+  m_healCooldown: 10
   m_healAmount: 10
-  m_healCost: 1
-  m_healEffPrefab: {fileID: 0}
+  m_healCost: 3
+  m_healEffPrefab: {fileID: 1137934761047082, guid: acafe72297ed2e945a67af7ab09d697d,
+    type: 2}
 --- !u!114 &114674480598597192
 MonoBehaviour:
   m_ObjectHideFlags: 1
