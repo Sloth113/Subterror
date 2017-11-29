@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
             return m_instance;
         }
     }
+    private AsyncOperation m_load = null;
 
     private GameObject m_player;
     public GameObject Player {
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour {
     private List<iUpgrade> m_playersUpgrades = new List<iUpgrade>();
     private List<iUpgrade> m_allUpgrades = new List<iUpgrade>();
     public Inventory m_playersInventory;
+    private List<iUpgrade> m_savedUpgrades = new List<iUpgrade>();
+    private Inventory m_savedInventory;
     private float m_timer;
     private Stack<State> m_state;
     private string m_level = "Title";
@@ -56,7 +59,6 @@ public class GameManager : MonoBehaviour {
     public GameObject m_scrapMenuUI;
     public GameObject m_winUI;
     public GameObject m_deadUI;
-    public VideoPlayer m_introVid;
 
     //Set up instances and initiate state
     void Awake() {
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour {
             m_instance.m_state = new Stack<State>();
             m_playersInventory = new Inventory();
             m_playersInventory.keys = new List<Key>();
+            m_savedUpgrades = new List<iUpgrade>();
+            m_savedInventory.keys = new List<Key>();
             m_playersUpgrades = new List<iUpgrade>();
             m_instance.m_state.Push(State.Intro);
             DontDestroyOnLoad(this.gameObject);
@@ -75,7 +79,6 @@ public class GameManager : MonoBehaviour {
     
     // Put things into dont destroy 
     void Start () {
-        //  m_introVid.Play();
         m_state.Pop();
         m_state.Push(State.Title);
         m_titleMenuUI.SetActive(true);
@@ -92,7 +95,7 @@ public class GameManager : MonoBehaviour {
         //Load available upgrades
         m_allUpgrades.AddRange(m_scrapMenuUI.GetComponentsInChildren<iUpgrade>());
         m_allUpgrades.AddRange(m_mutagenMenuUI.GetComponentsInChildren<iUpgrade>());
-        Debug.Log("Upgrades " + m_allUpgrades.Count);
+        //Debug.Log("Upgrades " + m_allUpgrades.Count);
         
     }
 	
@@ -100,11 +103,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
         
-        // if (m_introVid.frame >= (long)m_introVid.frameCount) {
-        //      m_state.Pop();
-        //    m_state.Push(State.Title);
-        //    m_titleMenuUI.SetActive(true);
-        //}
+
         if ((Input.GetKeyDown(KeyCode.Escape) || input.GetControl(InControl.InputControlType.Start)) && m_state.Peek() == State.InGame) {
             m_state.Push(State.Pause);
             m_inGameUI.SetActive(false);
@@ -153,14 +152,37 @@ public class GameManager : MonoBehaviour {
 
     //Load game
     public void StartGame() {
+        //Reset things
+        m_savedInventory.keys.Clear();
+        m_playersInventory.keys.Clear();
+        m_playersUpgrades.Clear();
+        m_savedUpgrades.Clear();
+        m_savedInventory.mutagen = 0;
+        m_savedInventory.scrap = 0;
+        m_playersInventory.mutagen = 0;
+        m_playersInventory.scrap = 0;
+
         m_titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
         m_level = "level_1-1";
         m_timer = 0;
+
+        m_loadingUI.SetActive(true);
+        StartCoroutine(LoadScene(m_level));
+        //SceneManager.LoadScene(m_level);
+    }
+    //Called from pause or death
+    public void RestartLevel() {
+        //Reset inventory stuff and upgrades to save
+        m_playersInventory.keys = new List<Key>(m_savedInventory.keys);
+        m_playersInventory.mutagen = m_savedInventory.mutagen;
+        m_playersInventory.scrap = m_savedInventory.scrap;
+        m_playersUpgrades = new List<iUpgrade>(m_savedUpgrades);//COPY
         
+        m_state.Pop();//Pause or over
+        m_state.Push(State.InGame);
         SceneManager.LoadScene(m_level);
-        m_inGameUI.SetActive(true);
     }
 
     //Load level using string (mostly used in testing)
@@ -171,7 +193,8 @@ public class GameManager : MonoBehaviour {
         m_level = level;
         m_timer = 0; //Maybe change
 
-        SceneManager.LoadScene(m_level);
+        m_loadingUI.SetActive(true);
+        StartCoroutine(LoadScene(m_level));
         m_inGameUI.SetActive(true);
     }
 
@@ -179,6 +202,10 @@ public class GameManager : MonoBehaviour {
         m_titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
+        m_playersInventory.keys = new List<Key>(m_savedInventory.keys);
+        m_playersInventory.mutagen = m_savedInventory.mutagen;
+        m_playersInventory.scrap = m_savedInventory.scrap;
+        m_playersUpgrades = new List<iUpgrade>(m_savedUpgrades);//COPY
         /*
         m_level =  SAVEDATA.levelName;
         m_timer = SAVEDATA.timer; //Maybe change
@@ -186,9 +213,8 @@ public class GameManager : MonoBehaviour {
         m_playersUpgrades = SAVEDATA.upgrades;
         m_playersInventory = SAVEDATA.inventory;
         */
-
-        SceneManager.LoadScene(m_level);
-        m_inGameUI.SetActive(true);
+        m_loadingUI.SetActive(true);
+        StartCoroutine(LoadScene(m_level));
     }
 
     //Quit
@@ -207,7 +233,8 @@ public class GameManager : MonoBehaviour {
         //set ui to active and update state
         m_settingsUI.SetActive(true);
         m_state.Push(State.Settings);
-        
+        m_settingsUI.GetComponentInChildren<Button>().Select();
+
     }
     public void ExitSettings() {
         //Remove settings state
@@ -235,7 +262,8 @@ public class GameManager : MonoBehaviour {
         m_titleMenuUI.SetActive(true);
         m_pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
-
+        m_titleMenuUI.GetComponentInChildren<Button>().Select();
+        //Load
         SceneManager.LoadScene("TitleScreen");
     }
 
@@ -272,37 +300,50 @@ public class GameManager : MonoBehaviour {
     public void InGameToDead() {
         m_state.Pop();
         m_state.Push(State.GameOver);
+        Pause();
         m_inGameUI.SetActive(false);
         m_deadUI.SetActive(true);
+        m_deadUI.GetComponentInChildren<Button>().Select();
     }
 
     public void InGameToWin() {
         m_state.Pop();
         m_state.Push(State.GameOver);
+        Pause();
         m_inGameUI.SetActive(false);
         m_winUI.SetActive(true);
+        m_winUI.GetComponentInChildren<Button>().Select();
     }
 
     public void OverToMenu() {
+        UnPause();
         m_state.Pop();//Should pop over
         m_state.Push(State.Title);
         m_deadUI.SetActive(false);
         m_winUI.SetActive(false);
         m_titleMenuUI.SetActive(true);
+        m_titleMenuUI.GetComponentInChildren<Button>().Select();
+
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public void ScrapMutaMenuToggle() {
         m_scrapMenuUI.SetActive(!m_scrapMenuUI.activeSelf);
         m_mutagenMenuUI.SetActive(!m_mutagenMenuUI.activeSelf);
-        m_mutagenMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
-        m_scrapMenuUI.GetComponentInChildren<Button>().Select();//Set selected (random first button)
+        m_mutagenMenuUI.GetComponentInChildren<Button>().Select();
+        m_scrapMenuUI.GetComponentInChildren<Button>().Select();      
     }
 
     public void NextLevel(string name) {
-        if(name == "Win") {
+        if (name == "Win") {
             InGameToWin();
+        } else {
+            SaveInventory();
+
+            //Loading screen
+            SceneManager.LoadScene(name);
+            m_level = name;
         }
-        SceneManager.LoadScene(name);
     }
 
     //Called when the new scene is loaded with a player
@@ -311,6 +352,16 @@ public class GameManager : MonoBehaviour {
         foreach(iUpgrade upgrade in m_playersUpgrades) {
             upgrade.Apply(m_player);
         }
+        m_loadingUI.SetActive(false);
+        m_inGameUI.SetActive(true); //Only activate when theres a player
+    }
+
+    private void SaveInventory() {
+        m_savedInventory.keys = new List<Key>(m_playersInventory.keys);
+        m_savedInventory.mutagen = m_playersInventory.mutagen;
+        m_savedInventory.scrap = m_playersInventory.scrap;
+
+        m_savedUpgrades = new List<iUpgrade>(m_playersUpgrades);
     }
     
     //Players inventory changes
@@ -354,5 +405,9 @@ public class GameManager : MonoBehaviour {
         return m_playersInventory.keys;
     }
     
+    private IEnumerator LoadScene(string name) {
+        m_load = SceneManager.LoadSceneAsync(name);
+        yield return m_load;
+    }
 
 }
