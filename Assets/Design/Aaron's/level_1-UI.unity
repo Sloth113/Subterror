@@ -759,6 +759,9 @@ MonoBehaviour:
     scrap: 0
     mutagen: 0
     keys: []
+  m_timer: 0
+  m_scrapTotal: 0
+  m_mutaGenTotal: 0
   m_titleMenuUI: {fileID: 1545093545}
   m_loadingUI: {fileID: 1193903511}
   m_pauseMenuUI: {fileID: 109961853}
@@ -768,7 +771,6 @@ MonoBehaviour:
   m_scrapMenuUI: {fileID: 1088476879}
   m_winUI: {fileID: 1285804861}
   m_deadUI: {fileID: 1245812270}
-  m_introVid: {fileID: 0}
 --- !u!223 &827970333
 Canvas:
   m_ObjectHideFlags: 0
@@ -1507,7 +1509,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1430894312310354, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bd9907f1e85bd74cb6f946ed0713b38, type: 2}
@@ -1608,10 +1610,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1178816709388232, guid: 79c869bb215d74f44a22c012b9ce4759, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79c869bb215d74f44a22c012b9ce4759, type: 2}
