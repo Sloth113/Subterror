@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ChangeBGM : MonoBehaviour {
 	public AudioClip newMusic;
+    
+    void Start()
+    {
+        ChangeMusic();
+    }
 
 	public void ChangeMusic()
 	{

@@ -2809,11 +2809,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114957505727482196, guid: c5572f5c41d87b845ac406de294ecaa8,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1433161421}
     - target: {fileID: 114503552172016462, guid: c5572f5c41d87b845ac406de294ecaa8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 311620640}
+    - target: {fileID: 114449047596861682, guid: c5572f5c41d87b845ac406de294ecaa8,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1433161421}
     - target: {fileID: 114212512668333502, guid: c5572f5c41d87b845ac406de294ecaa8,
         type: 2}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4045,6 +4055,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353032929}
   m_Mesh: {fileID: 4300002, guid: f55f65f556cd54c4ab6fdba6971b4028, type: 3}
+--- !u!114 &1359281614 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114957505727482196, guid: c5572f5c41d87b845ac406de294ecaa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 934599904}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1421981012
 Prefab:
   m_ObjectHideFlags: 0
@@ -4765,17 +4781,27 @@ Prefab:
         type: 2}
       propertyPath: musicSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1359281614}
     - target: {fileID: 114029972247971218, guid: 79616a16cd30fec4290b08d324a1338e,
         type: 2}
       propertyPath: sfxSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1986086527}
     - target: {fileID: 114029972247971218, guid: 79616a16cd30fec4290b08d324a1338e,
         type: 2}
       propertyPath: masterSlider
       value: 
       objectReference: {fileID: 934599905}
+    - target: {fileID: 82420015852940112, guid: 79616a16cd30fec4290b08d324a1338e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 41e8da2ce84099a42b2e61c22f4d20fe, type: 3}
+    - target: {fileID: 82420015852940112, guid: 79616a16cd30fec4290b08d324a1338e,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79616a16cd30fec4290b08d324a1338e, type: 2}
   m_IsPrefabParent: 0
@@ -4976,6 +5002,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f13d949a9a92e1e4aa86cb460c5b9cff, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1986086527 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114449047596861682, guid: c5572f5c41d87b845ac406de294ecaa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 934599904}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1988161326 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114729269697297078, guid: 9f5f0732a3db59c4288d48c03a94b9ce,

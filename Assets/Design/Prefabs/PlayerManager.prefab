@@ -759,7 +759,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057679436180900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.6, y: -0.16735, z: -8.3}
+  m_LocalPosition: {x: -11.1, y: 0, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4870390073353064}
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da6037eeae499342a9ce729a822c01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 10
+  m_speed: 5
   m_hp: 100
   m_maxHp: 100
   m_maxTotalHp: 200
@@ -1295,15 +1295,24 @@ MonoBehaviour:
   m_meleeAngle: 90
   m_meleeKnockBack: 0
   m_meleeLifeSteal: 0
-  m_rangeCooldown: 5
+  m_rangeCooldown: 2
+  m_rangeTimer: 0
   m_bulletPrefabs:
   - {fileID: 1699627680163168, guid: 0089a2d8a256ac54ea0743fa4ad2a7fb, type: 2}
+  m_bulletPrefabss: []
   m_bulletExitPos: {fileID: 4407485607683296}
   m_bulletIndex: 0
   m_blockCooldown: 5
+  m_blockTimer: 0
   m_blockDuration: 2
   m_blockCounter: 0
   m_blockChange: 1
+  m_defEffPrefab: {fileID: 0}
+  m_healTimer: 0
+  m_healCooldown: 5
+  m_healAmount: 10
+  m_healCost: 1
+  m_healEffPrefab: {fileID: 0}
 --- !u!114 &114674480598597192
 MonoBehaviour:
   m_ObjectHideFlags: 1
