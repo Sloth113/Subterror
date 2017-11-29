@@ -13,7 +13,7 @@ public class RangeExpRadiUpgrade : iUpgrade {
             foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
                 if (bullet.GetComponent<ExplosiveBullet>() != null) {
                     bullet.GetComponent<ExplosiveBullet>().m_explosion.GetComponent<Explosion>().m_explosionSize += m_radiIncrease;
-                    bullet.GetComponent<ExplosiveBullet>().m_biggerExplosion.GetComponent<Explosion>().m_explosionSize += m_radiIncrease;
+                    //bullet.GetComponent<ExplosiveBullet>().m_biggerExplosion.GetComponent<Explosion>().m_explosionSize += m_radiIncrease;
                 }
             }
         }
@@ -21,7 +21,7 @@ public class RangeExpRadiUpgrade : iUpgrade {
     }
 
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;

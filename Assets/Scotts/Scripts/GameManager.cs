@@ -388,12 +388,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ChangeMutaGen(int amount) {
+        if (amount > 0) m_mutaGenTotal += amount;
         m_playersInventory.mutagen += amount;
         if (m_playersInventory.mutagen < 0) m_playersInventory.mutagen = 0;
     }
 
     public void ChangeScrap(int amount) {
-            m_playersInventory.scrap += amount;
+        if (amount > 0) m_scrapTotal += amount;
+        m_playersInventory.scrap += amount;
         if (m_playersInventory.scrap < 0) m_playersInventory.scrap = 0;
     }
 

@@ -14,7 +14,7 @@ public class RangeShotgunUpgrade : iUpgrade {
         }
     }
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;
