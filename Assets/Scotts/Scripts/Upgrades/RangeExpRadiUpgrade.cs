@@ -5,13 +5,19 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RangeExpRadiUpgrade : iUpgrade {
-    public float m_radiIncrease; //
+    public float m_radiIncrease = 1.0f; //
 
     public override void Apply(GameObject player) {
-        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            //playerscript.bullets.add(corrsive);
+            foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
+                if (bullet.GetComponent<ExplosiveBullet>() != null) {
+                    bullet.GetComponent<ExplosiveBullet>().m_explosion.GetComponent<Explosion>().m_explosionSize += m_radiIncrease;
+                    bullet.GetComponent<ExplosiveBullet>().m_biggerExplosion.GetComponent<Explosion>().m_explosionSize += m_radiIncrease;
+                }
+            }
         }
+    
     }
 
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {

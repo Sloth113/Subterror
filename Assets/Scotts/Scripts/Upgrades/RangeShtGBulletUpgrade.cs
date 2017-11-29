@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeExplosionUpgrade : iUpgrade {
-    public GameObject m_newExplosionSize; 
+public class RangeShtGBulletUpgrade : iUpgrade {
+    public int m_newShotCount = 5;
 
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            playerScript.m_bulletPrefabs.Add(m_newExplosionSize);
+            foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
+                if (bullet.GetComponent<ShotgunShot>() != null) {
+                    bullet.GetComponent<ShotgunShot>().m_shotCount = m_newShotCount;
+                }
+            }
+
         }
     }
 

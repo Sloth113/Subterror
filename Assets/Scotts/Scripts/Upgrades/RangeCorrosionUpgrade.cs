@@ -10,13 +10,16 @@ public class RangeCorrosionUpgrade : iUpgrade {
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            //playerscript.bullets.add(corrsive);
+            playerScript.m_bulletPrefabs.Add(m_corrosiveBullet);
         }
     }
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;
+    }
+    public new void AddToPlayer() {
+        base.AddToPlayer();
     }
 }

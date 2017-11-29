@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MeleeMultiplierUpgrade : iUpgrade{
-    public float m_damMulti = 1.0f;
+    public float m_damMultiIncrease = 1.0f;
 
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            playerScript.m_meleeMod += m_damMulti;
+            playerScript.m_meleeMod += m_damMultiIncrease;
         }
     }
 
@@ -20,5 +20,8 @@ public class MeleeMultiplierUpgrade : iUpgrade{
             return true;
         }
         return false;
+    }
+    public new void AddToPlayer() {
+        base.AddToPlayer();
     }
 }

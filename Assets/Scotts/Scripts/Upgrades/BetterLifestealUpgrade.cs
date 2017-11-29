@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class MeleeCooldownUpgrade : iUpgrade {
-    public int m_cooldownChange = 10;
-
+public class BetterLifestealUpgrade : iUpgrade {
+    public float m_newRatio = 0.5f;
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            //Toggle on player
+            playerScript.m_lifeStealRatio = m_newRatio;
         }
     }
 
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;
+    }
+    public new void AddToPlayer() {
+        base.AddToPlayer();
     }
 }

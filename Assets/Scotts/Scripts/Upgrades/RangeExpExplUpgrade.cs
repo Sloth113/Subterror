@@ -5,16 +5,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RangeExpExplUpgrade : iUpgrade {
-    public GameObject m_newExplosionSize;
-
     public override void Apply(GameObject player) {
-        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            //playerscript.bullets.add(corrsive);
+            foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
+                if (bullet.GetComponent<ExplosiveBullet>() != null) {
+                    bullet.GetComponent<ExplosiveBullet>().m_betterExplosion = true; 
+                }
+            }
         }
     }
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;

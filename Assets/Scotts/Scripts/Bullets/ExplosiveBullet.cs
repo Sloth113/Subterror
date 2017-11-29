@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ExplosiveBullet : MonoBehaviour {
     public GameObject m_explosion;
+    public GameObject m_biggerExplosion;
     public float speed = 10;
     public float lifeTime = 1;
     private float timer = 0;
     public float m_damage = 10;
+
+    public bool m_betterExplosion;
     // Use this for initialization
     void Start () {
 		
@@ -19,7 +22,11 @@ public class ExplosiveBullet : MonoBehaviour {
         this.transform.position += this.transform.forward * speed * Time.deltaTime;
         if (timer >= lifeTime) {
             if (m_explosion != null)
-                Instantiate<GameObject>(m_explosion, this.transform.position, this.transform.rotation);
+                if (m_betterExplosion) {
+                    Instantiate<GameObject>(m_biggerExplosion, this.transform.position, this.transform.rotation);
+                }else {
+                    Instantiate<GameObject>(m_explosion, this.transform.position, this.transform.rotation);
+                }
             Destroy(this.gameObject);
         } else {
             timer += Time.deltaTime;
@@ -33,8 +40,11 @@ public class ExplosiveBullet : MonoBehaviour {
         }
         //Effect
         //
-        if (m_explosion != null)
+        if (m_betterExplosion) {
+            Instantiate<GameObject>(m_biggerExplosion, this.transform.position, this.transform.rotation);
+        } else {
             Instantiate<GameObject>(m_explosion, this.transform.position, this.transform.rotation);
+        }
         Destroy(this.gameObject);
     }
 }

@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeExplosionUpgrade : iUpgrade {
-    public GameObject m_newExplosionSize; 
+public class RangeShtGnRangeUpgrade : iUpgrade {
+    public float m_rangeIncrease = 5.0f;
 
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            playerScript.m_bulletPrefabs.Add(m_newExplosionSize);
+            foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
+                if (bullet.GetComponent<ShotgunShot>() != null) {
+                    bullet.GetComponent<ShotgunShot>().m_bullets.GetComponent<ShotgunBullet>().lifeTime += m_rangeIncrease;
+                }
+            }
         }
     }
 
@@ -17,8 +21,5 @@ public class RangeExplosionUpgrade : iUpgrade {
             return true;
         }
         return false;
-    }
-    public new void AddToPlayer() {
-        base.AddToPlayer();
     }
 }

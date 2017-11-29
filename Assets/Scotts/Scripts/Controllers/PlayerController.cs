@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     public float m_meleeAngle = 90; //Degrees
     public bool m_meleeKnockBack = false;
     public bool m_meleeLifeSteal = false;
+    public float m_lifeStealRatio = 0.1f; //Ratio to damage delt
 
     //Ranged
     [Header("Range")]
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     public float m_blockTimer = 0;
     public float m_blockDuration = 2.0f;
     public float m_blockCounter = 0.0f;
-    public float m_blockChange = 1.0f;//No damage - change 
+    public float m_blockChange = 0;//No damage - change 
     public GameObject m_defEffPrefab;
 
     //Heal
@@ -210,7 +211,7 @@ public class PlayerController : MonoBehaviour, iHitable {
                     hit.transform.gameObject.GetComponent<iHitable>().Knockback();
                 }
                 if (m_meleeLifeSteal) {
-                    IncreaseCurrentHP((int)(m_meleeDamage / 2.0f));//Heal partial
+                    IncreaseCurrentHP((int)(m_meleeDamage * m_lifeStealRatio));//Heal partial
                 }
             }
         }
@@ -290,7 +291,7 @@ public class PlayerController : MonoBehaviour, iHitable {
         }
     }
     public void Hit(int dam) {
-        m_hp -= dam;
+        m_hp -= dam * m_incomeDamMod;
         if (m_hp <= 0) {
             OnDeath();
         }else {

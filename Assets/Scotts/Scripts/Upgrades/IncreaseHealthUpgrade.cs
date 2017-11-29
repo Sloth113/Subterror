@@ -10,10 +10,10 @@ public class IncreaseHealthUpgrade : iUpgrade {
     public Image m_progressBar;
 
     public override void Apply(GameObject player) {
-        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
         if(playerScript != null) {
             playerScript.m_hp += m_increaseAmount;
-            playerScript.maxHp += m_increaseAmount;
+            playerScript.m_maxHp += m_increaseAmount;
         }
     }
 

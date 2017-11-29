@@ -5,17 +5,21 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RangeCorTimeUpgrade : iUpgrade {
-    public GameObject m_corrosiveBullet; //find 
+    public float m_timeIncreaseAmount = 3.0f;
 
     public override void Apply(GameObject player) {
-        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            //playerscript.bullets.add(corrsive);
+            foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
+                if (bullet.GetComponent<CorrosiveBullet>() != null) {
+                    bullet.GetComponent<CorrosiveBullet>().m_corrsiveEffect.GetComponent<CorrosiveEffect>().m_duration += m_timeIncreaseAmount;
+                }
+            }
         }
     }
 
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.scrap > m_info.cost) {
             return true;
         }
         return false;
