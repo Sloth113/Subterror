@@ -1538,9 +1538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 30
+    cost: 15
     type: 1
-  m_details: 'Cost - 30 Enhances the Block effect, reducing incoming damage by 50%
+  m_details: 'Cost - 15 Enhances the Block effect, reducing incoming damage by 50%
     for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -1832,10 +1832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 40
+    cost: 20
     type: 1
-  m_details: 'Absorb even more health from enemies by draining more than just their
-    flesh and blood. (50%) '
+  m_details: 'Cost - 20 Absorb even more health from enemies by draining more than
+    just their flesh and blood. (50%) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 0}
@@ -2197,9 +2197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 1
+    cost: 15
     type: 1
-  m_details: Expl exp
+  m_details: 'Cost - 15 Maximises the potency of Explosions by increasing their radius. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
@@ -2533,9 +2533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 20
+    cost: 10
     type: 1
-  m_details: 'Cost - 20 Enhance your Melee weapon with increased reach. (+1) '
+  m_details: 'Cost - 10 Enhance your Melee weapon with increased reach. (+1) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114029033811330070}
@@ -2585,9 +2585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 20
+    cost: 10
     type: 1
-  m_details: Modifies your gun to shoot a Spread Shot.
+  m_details: 'Cost - 10 Modifies your gun to shoot a Spread Shot. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114114532421300360}
@@ -2820,9 +2820,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 30
+    cost: 15
     type: 1
-  m_details: 'Cost - 30 Use the Ability 1 button to Shield yourself from attacks,
+  m_details: 'Cost - 15 Use the Ability 1 button to Shield yourself from attacks,
     reducing incoming damage by 25% for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -2956,9 +2956,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 40
+    cost: 20
     type: 1
-  m_details: 'Cost - 40 Restore your health by leaching the blood of your enemies.
+  m_details: 'Cost - 20 Restore your health by leaching the blood of your enemies.
     (25%) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -3545,10 +3545,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 35
+    cost: 15
     type: 1
-  m_details: 'Cost - 35 Modifies your gun to shoot Radiated bullets that deal Corrosive
-    damage to your enemies. (10 speed, 1s time, 10 dmg) '
+  m_details: 'Cost - 15 Modifies your gun to shoot Radiated bullets that deal Corrosive
+    damage to your enemies. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114923321451797802}
@@ -3566,9 +3566,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 1
+    cost: 10
     type: 1
-  m_details: Dam
+  m_details: 'Cost - 10 Maximises the potency of Radiated Bullets by increasing the
+    initial damage. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
@@ -3653,9 +3654,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 1
+    cost: 10
     type: 1
-  m_details: Time
+  m_details: 'Cost - 10 Increases the potency of Radiated Bullets by extending the
+    duration of the Corrosion. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114172716533469758}
@@ -3896,9 +3898,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 1
+    cost: 15
     type: 1
-  m_details: Expl range
+  m_details: 'Cost - 15 Modifies your gun to shoot bullets that Explode after a short
+    period of time or on impact. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114162471048428768}
@@ -4138,9 +4141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 30
+    cost: 15
     type: 1
-  m_details: 'Cost - 30 Maximises the Block effect, reducing incoming damage by 75%
+  m_details: 'Cost - 15 Maximises the Block effect, reducing incoming damage by 75%
     for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
