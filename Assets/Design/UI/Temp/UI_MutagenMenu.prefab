@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224818859209956420}
   - component: {fileID: 222025994691348446}
   - component: {fileID: 114500483682837162}
+  - component: {fileID: 114175480955830746}
   m_Layer: 5
   m_Name: MutaGen_Count
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 224417680028087634}
   - component: {fileID: 222256227816289902}
   - component: {fileID: 114586641732763026}
+  - component: {fileID: 114777696573293238}
   m_Layer: 5
   m_Name: Speed_Upgrade
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   - component: {fileID: 224689206650315822}
   - component: {fileID: 222738870785349198}
   - component: {fileID: 114277405499489306}
+  - component: {fileID: 114645937104317416}
   m_Layer: 5
   m_Name: Health_Upgrade
   m_TagString: Untagged
@@ -107,6 +110,7 @@ GameObject:
   - component: {fileID: 224223861366610584}
   - component: {fileID: 222159800840452848}
   - component: {fileID: 114518622418524342}
+  - component: {fileID: 114352951175454502}
   m_Layer: 5
   m_Name: Attack_Upgrade
   m_TagString: Untagged
@@ -464,7 +468,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114682053950800716}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ScrapMutaMenuToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114163879492877078
@@ -500,6 +515,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Speed
+--- !u!114 &114175480955830746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062870237484070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b47eee46b1a4f741bd5625412ec2b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114216828762217548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -614,7 +640,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114645937104317416}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114309881142851368
@@ -677,6 +714,26 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Health
+--- !u!114 &114352951175454502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271294230720228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f898a05d47b3a4b852c7e9596188f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 10
+    type: 0
+  m_details: 
+  m_infoText: {fileID: 0}
+  m_costText: {fileID: 114500483682837162}
+  m_nextUnlock: {fileID: 0}
+  m_increaseAmount: 5
+  m_progressBar: {fileID: 114571716016837350}
 --- !u!114 &114484110359564378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,7 +826,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114352951175454502}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114571716016837350
@@ -837,9 +905,40 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114777696573293238}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114645937104317416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107502630704042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837ee393eccf1414dbf4e9a6a60071ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 10
+    type: 0
+  m_details: 
+  m_infoText: {fileID: 0}
+  m_costText: {fileID: 114500483682837162}
+  m_nextUnlock: {fileID: 0}
+  m_increaseAmount: 10
+  m_progressBar: {fileID: 114923760926562120}
 --- !u!114 &114682053950800716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -981,6 +1080,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114777696573293238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1079796191760102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588e7184d98fd6643a8af67fcdbf1fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 10
+    type: 0
+  m_details: Increase Speed
+  m_infoText: {fileID: 0}
+  m_costText: {fileID: 114500483682837162}
+  m_nextUnlock: {fileID: 0}
+  m_increaseAmount: 1
+  m_progressBar: {fileID: 114309881142851368}
 --- !u!114 &114797148461627642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1106,7 +1225,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114762316375467818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ScrapMutaMenuToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &222025994691348446

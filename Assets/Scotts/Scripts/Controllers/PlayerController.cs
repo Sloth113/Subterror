@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour, iHitable {
     void OnTriggerStay(Collider c) {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
 
-        if (c.transform.tag == "Interactable" && (input.GetControl(InControl.InputControlType.Action1) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))) {
+        if (c.transform.tag == "Interactable" && (input.GetControl(InControl.InputControlType.Action1) || input.GetControl(InControl.InputControlType.Action2) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))) {
             c.GetComponent<iInteractable>().Use(this.gameObject);
         }
     }

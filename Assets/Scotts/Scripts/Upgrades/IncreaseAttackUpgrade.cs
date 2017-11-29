@@ -7,19 +7,26 @@ using UnityEngine.UI;
 
 public class IncreaseAttackUpgrade : iUpgrade {
     public int m_increaseAmount = 10;
+    public Image m_progressBar;
 
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            playerScript.m_meleeDamage += (float)m_increaseAmount / 10.0f;
+            playerScript.m_meleeDamage += (float)m_increaseAmount;
         }
 
     }
 
     public override bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades) {
-        if (inv.mutagen > m_info.cost) {
+        if (inv.mutagen >= m_info.cost && m_progressBar.fillAmount != 1)
+        {
+            m_progressBar.fillAmount += .1f; //Is here because only applys after this is works
             return true;
         }
         return false;
+    }
+    public new void AddToPlayer()
+    {
+        base.AddToPlayer();
     }
 }

@@ -6,9 +6,10 @@ public class RangeExplosionUpgrade : iUpgrade {
     public GameObject m_newExplosionSize; 
 
     public override void Apply(GameObject player) {
-        CharacterControllerTest playerScript = player.GetComponent<CharacterControllerTest>();
+        PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
             //playerscript.bullets.add(corrsive);
+            playerScript.m_bulletPrefabs.Add(m_newExplosionSize);
         }
     }
 

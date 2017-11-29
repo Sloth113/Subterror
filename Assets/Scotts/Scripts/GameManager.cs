@@ -44,9 +44,14 @@ public class GameManager : MonoBehaviour {
     public Inventory m_playersInventory;
     private List<iUpgrade> m_savedUpgrades = new List<iUpgrade>();
     private Inventory m_savedInventory;
-    private float m_timer;
     private Stack<State> m_state;
     private string m_level = "Title";
+
+    [Header("Final stats")]
+    public float m_timer;
+    public int m_scrapTotal;
+    public int m_mutaGenTotal;
+    
 
     [Header("UI Elements")]
     [Tooltip("UI prefabs")]
@@ -161,12 +166,15 @@ public class GameManager : MonoBehaviour {
         m_savedInventory.scrap = 0;
         m_playersInventory.mutagen = 0;
         m_playersInventory.scrap = 0;
+        
 
         m_titleMenuUI.SetActive(false);
         m_state.Pop();
         m_state.Push(State.InGame);
         m_level = "level_1-1";
         m_timer = 0;
+        m_scrapTotal = 0;
+        m_mutaGenTotal = 0;
 
         m_loadingUI.SetActive(true);
         StartCoroutine(LoadScene(m_level));

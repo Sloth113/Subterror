@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 222938632739398320}
   - component: {fileID: 114593298283672918}
   - component: {fileID: 114658650605106516}
+  - component: {fileID: 114899988366634924}
   m_Layer: 5
   m_Name: 'Upgrade #2.0 (Explosion)'
   m_TagString: Untagged
@@ -141,6 +142,7 @@ GameObject:
   - component: {fileID: 222056345887690084}
   - component: {fileID: 114670865476766660}
   - component: {fileID: 114611181695707156}
+  - component: {fileID: 114887283981440676}
   m_Layer: 5
   m_Name: 'Upgrade #2.1 (Increased Radius)'
   m_TagString: Untagged
@@ -195,6 +197,7 @@ GameObject:
   - component: {fileID: 222993943032747148}
   - component: {fileID: 114304743627902234}
   - component: {fileID: 114172716533469758}
+  - component: {fileID: 114743485524443188}
   m_Layer: 5
   m_Name: 'Upgrade #1.2 (Damage Increase)'
   m_TagString: Untagged
@@ -532,6 +535,7 @@ GameObject:
   - component: {fileID: 222118504092369310}
   - component: {fileID: 114098993581949426}
   - component: {fileID: 114923321451797802}
+  - component: {fileID: 114782174526998300}
   m_Layer: 5
   m_Name: 'Upgrade #1.1 (Increased DOT)'
   m_TagString: Untagged
@@ -1093,6 +1097,7 @@ GameObject:
   - component: {fileID: 222563364351404772}
   - component: {fileID: 114389837076080340}
   - component: {fileID: 114162471048428768}
+  - component: {fileID: 114214832608643762}
   m_Layer: 5
   m_Name: 'Upgrade #2.2 (Exploding Explosion)'
   m_TagString: Untagged
@@ -1239,7 +1244,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114329129113269854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ScrapMutaMenuToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114011119759622598
@@ -1403,7 +1419,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114513178319228726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114517766236536478}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114034282304942946
@@ -1812,7 +1839,6 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 0}
-  m_aoeSize: 50
 --- !u!114 &114153808452664414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1886,7 +1912,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114389837076080340}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114214832608643762}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114163673010473966
@@ -1962,7 +1999,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114304743627902234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114743485524443188}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114180605800192712
@@ -2069,7 +2117,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114205605325851994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114946554463098006}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114204737472110350
@@ -2126,6 +2185,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114214832608643762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951893927803856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1903d27cf4d97f44899681611e949a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 1
+    type: 1
+  m_details: Expl exp
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 0}
+  m_newExplosionSize: {fileID: 0}
 --- !u!114 &114237037871697176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2459,7 +2537,7 @@ MonoBehaviour:
     type: 1
   m_details: 'Cost - 20 Enhance your Melee weapon with increased reach. (+1) '
   m_infoText: {fileID: 114034282304942946}
-  m_costText: {fileID: 114853042546670822}
+  m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114029033811330070}
   m_rangeMod: 1
 --- !u!114 &114350452305707004
@@ -2716,7 +2794,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114380938377233600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114350140094945098}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114475529941429836
@@ -2874,7 +2963,6 @@ MonoBehaviour:
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114857233470780628}
-  m_aoeSize: 25
 --- !u!114 &114537050825508452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,7 +3034,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114874688036110020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114366261392509666}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114567040814414448
@@ -2988,12 +3087,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 114475529941429836}
+        m_MethodName: AddToPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3142,7 +3241,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114670865476766660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114887283981440676}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114630956689298200
@@ -3218,7 +3328,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114088661010704206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114695606142047324}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114658050060855592
@@ -3292,7 +3413,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114593298283672918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114899988366634924}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114666817882841522
@@ -3387,7 +3519,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114307323722190224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114067129265763922}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114695606142047324
@@ -3411,6 +3554,25 @@ MonoBehaviour:
   m_nextUnlock: {fileID: 114923321451797802}
   m_corrosiveBullet: {fileID: 1699627680163168, guid: dbc2e9a24a9959841aa6565673b57ea4,
     type: 2}
+--- !u!114 &114743485524443188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225796377568904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94668d2b32984a8498a5fad5d8867b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 1
+    type: 1
+  m_details: Dam
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 0}
+  m_rangeMod: 1
 --- !u!114 &114763779894797618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3479,6 +3641,25 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114782174526998300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575355064635112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bee0656be7adea41ac1ce5941d8dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 1
+    type: 1
+  m_details: Time
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114172716533469758}
+  m_corrosiveBullet: {fileID: 0}
 --- !u!114 &114789525967628868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3610,7 +3791,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114376355389781274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114140915861121866}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114874688036110020
@@ -3678,9 +3870,39 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114503862570498826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ScrapMutaMenuToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114887283981440676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1183864646543682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37bf2d06203a654d8b52a7090e81e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 1
+    type: 1
+  m_details: Expl range
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114162471048428768}
+  m_radiIncrease: 5
 --- !u!114 &114888341295834848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3743,6 +3965,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114899988366634924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071934417325070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50bfefa257e2a34eaca10d419653c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_info:
+    cost: 1
+    type: 1
+  m_details: Explosive range
+  m_infoText: {fileID: 114034282304942946}
+  m_costText: {fileID: 114180605800192712}
+  m_nextUnlock: {fileID: 114611181695707156}
+  m_newExplosionSize: {fileID: 1699627680163168, guid: 46335624b8f56a04b9686bfffc4516b0,
+    type: 2}
 --- !u!114 &114913553191890724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3808,7 +4050,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114098993581949426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114782174526998300}
+        m_MethodName: AddToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114923597128399876
