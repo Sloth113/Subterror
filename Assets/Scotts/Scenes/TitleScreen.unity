@@ -3014,7 +3014,6 @@ GameObject:
   - component: {fileID: 1043454301}
   - component: {fileID: 1043454300}
   - component: {fileID: 1043454299}
-  - component: {fileID: 1043454298}
   - component: {fileID: 1043454302}
   m_Layer: 10
   m_Name: Player 1
@@ -3041,34 +3040,6 @@ Transform:
   m_Father: {fileID: 892575474}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1043454298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114416654131347836, guid: 6741cd77258da8f4ab8474f670dfc7fb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043454296}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efcb914e1e502204eb4b506f71fb034b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  m_hp: 100
-  maxHp: 100
-  incomeDamMod: 1
-  meleeCooldown: 0.5
-  meleeMod: 1
-  meleeDamage: 10
-  meleeRange: 1
-  meleeAngle: 90
-  shootCooldown: 1
-  bulletTest: {fileID: 1699627680163168, guid: 0089a2d8a256ac54ea0743fa4ad2a7fb, type: 2}
-  bulletExit: {fileID: 2046215708}
-  blockCooldown: 5
-  blockDuration: 2
-  blockCounter: 0
-  blockChange: 1
 --- !u!143 &1043454299
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5152,6 +5123,53 @@ Transform:
   m_Father: {fileID: 1043454297}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2052855848
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.076101154
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.05747641
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.1611426
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278680811879108, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061074938571444, guid: b42f7c75cdce04442ba9544e75691009,
+        type: 2}
+      propertyPath: newMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 41e8da2ce84099a42b2e61c22f4d20fe, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b42f7c75cdce04442ba9544e75691009, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2122668797
 GameObject:
   m_ObjectHideFlags: 0
