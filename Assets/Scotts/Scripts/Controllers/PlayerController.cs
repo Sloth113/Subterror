@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour, iHitable {
     //Stats
     [Header("Stats")]
     public float m_speed = 10;
-    private float m_maxTotalSpeed = 10;
+    //private float m_maxTotalSpeed = 10;
     public float m_hp = 100;
-    public float m_maxHp = 100;
+    public float m_maxHp = 100;//
     public float m_maxTotalHp = 200;
     public float m_incomeDamMod = 1.0f;
 
@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour, iHitable {
     public float m_rangeCooldown = 5;
     public float m_rangeTimer = 0;
     public List<GameObject> m_bulletPrefabs; //ADD FUNCTIONS
-    public List<RangeInfo> m_bulletPrefabss;
     public Transform m_bulletExitPos;
     public int m_bulletIndex = 0;
 
@@ -83,7 +82,6 @@ public class PlayerController : MonoBehaviour, iHitable {
     // Update is called once per frame
     void Update() {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
-        
         //Input
         //Works with both WASD and Left joystick
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * m_speed;

@@ -55,6 +55,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
             //Move parts
             //Get to attack range  (MOVE)
             if ((m_target.transform.position - this.transform.position).magnitude > m_distToTarget) {
+                m_controller.velocity.ToString();//Ignore pls   
                 Vector3 dir = m_target.transform.position - this.transform.position;
                 dir.Normalize();//direction to target
                 m_navAgent.destination = m_target.transform.position - (dir * m_distToTarget);//Move to closest point within range towards target 

@@ -89,6 +89,15 @@ public class GameManager : MonoBehaviour {
     void Start () {
         m_state.Pop();
         m_state.Push(State.Title);
+        //Disable/Set not to destroy
+        m_loadingUI.SetActive(false);
+        m_pauseMenuUI.SetActive(false);
+        m_inGameUI.SetActive(false);
+        m_settingsUI.SetActive(false);
+        m_mutagenMenuUI.SetActive(false);
+        m_scrapMenuUI.SetActive(false);
+        m_winUI.SetActive(false);
+        m_deadUI.SetActive(false);
         m_titleMenuUI.SetActive(true);
         //Set menus not to destroy
         DontDestroyOnLoad(m_titleMenuUI);
