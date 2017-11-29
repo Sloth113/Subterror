@@ -7,6 +7,7 @@ public class BasicDestructable : MonoBehaviour, iHitable {
     public int m_hp = 20;
     public List<GameObject> m_particleObjects;
     private ItemDropSystem m_dropSystem;
+    private bool m_dead = false;
 	// Use this for initialization
 	void Start () {
         m_dropSystem = GetComponent<ItemDropSystem>();
@@ -37,13 +38,13 @@ public class BasicDestructable : MonoBehaviour, iHitable {
 
     public void Hit() {
         m_hp--;
-        if(m_hp <= 0) {
+        if(m_hp <= 0 && !m_dead) {
             OnDeath();
         }
     }
-    public void Hit(int dam) {
+    public void Hit(int dam ) {
         m_hp -= dam;
-        if (m_hp <= 0) {
+        if (m_hp <= 0 && !m_dead) {
             OnDeath();
         }
     }

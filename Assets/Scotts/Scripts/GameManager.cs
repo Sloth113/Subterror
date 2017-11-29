@@ -143,8 +143,10 @@ public class GameManager : MonoBehaviour {
                 //Unpause
                 UnPause();
             }
+        } else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || input.GetControl(InControl.InputControlType.LeftBumper) || input.GetControl(InControl.InputControlType.RightBumper)) && m_state.Peek() == State.Upgrades){
+            ScrapMutaMenuToggle();
         }
-        if(m_state.Peek() == State.InGame) {
+        if (m_state.Peek() == State.InGame) {
             m_timer += Time.deltaTime;
         }
 	}

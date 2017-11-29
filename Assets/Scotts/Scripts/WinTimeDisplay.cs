@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class WinTimeDisplay : MonoBehaviour {
     void OnEnable()
     {
-        this.GetComponent<Text>().text = GameManager.Instance.m_timer.ToString();
+        this.GetComponent<Text>().text = ((int)GameManager.Instance.m_timer).ToString();
     }
     void OnAwake()
     {
-        this.GetComponent<Text>().text = GameManager.Instance.m_timer.ToString();
+        this.GetComponent<Text>().text = ((int)GameManager.Instance.m_timer).ToString();
     }
 }
