@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114114532421300360}
   - component: {fileID: 114932790444044762}
   m_Layer: 5
-  m_Name: 'Upgrade #3.1 (Knockback)'
+  m_Name: 'Upgrade #3.1 (Increased Firerate)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 224813785549009686}
   - component: {fileID: 222565172302296028}
   - component: {fileID: 114180605800192712}
+  - component: {fileID: 114258615273278564}
   m_Layer: 5
   m_Name: TotalScrap
   m_TagString: Untagged
@@ -999,7 +1000,7 @@ GameObject:
   - component: {fileID: 114021171185648628}
   - component: {fileID: 114117309365175868}
   m_Layer: 5
-  m_Name: 'Upgrade #3.2 (Fire rate Increase)'
+  m_Name: 'Upgrade #3.2 (Increased Speed)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1349,7 +1350,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114270384953120364}
   m_OnClick:
     m_PersistentCalls:
@@ -1442,7 +1443,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114513178319228726}
   m_OnClick:
     m_PersistentCalls:
@@ -1552,7 +1553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Soulsteal
+  m_Text: SoulSteal
 --- !u!114 &114067129265763922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1565,9 +1566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 5
     type: 1
-  m_details: 'Cost - 15 Enhances the Block effect, reducing incoming damage by 50%
+  m_details: 'Cost - 5 Enhances the Block effect, reducing incoming damage by 50%
     for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -1766,7 +1767,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114763779894797618}
   m_OnClick:
     m_PersistentCalls:
@@ -1796,9 +1797,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 5
     type: 1
-  m_details: 'Cost - 10 Maximizes the potency of the Shotgun Mod by making your gun
+  m_details: 'Cost - 5 Maximizes the potency of the Shotgun Mod by making your gun
     shoot further '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
@@ -1871,7 +1872,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114237037871697176}
   m_OnClick:
     m_PersistentCalls:
@@ -1901,9 +1902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 20
+    cost: 10
     type: 1
-  m_details: 'Cost - 20 Absorb even more health from enemies by draining more than
+  m_details: 'Cost - 10 Absorb even more health from enemies by draining more than
     just their flesh and blood. (50%) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -1977,7 +1978,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114389837076080340}
   m_OnClick:
     m_PersistentCalls:
@@ -2027,9 +2028,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Standard
+  m_Text: 'Explosion
 
-    Bullet'
+    Mod'
 --- !u!114 &114172716533469758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2064,7 +2065,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114304743627902234}
   m_OnClick:
     m_PersistentCalls:
@@ -2182,7 +2183,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114205605325851994}
   m_OnClick:
     m_PersistentCalls:
@@ -2266,9 +2267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 10
     type: 1
-  m_details: 'Cost - 15 Maximises the potency of Explosions by increasing their radius. '
+  m_details: 'Cost - 10 Maximises the potency of Explosions by increasing their radius
+    and damage. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
@@ -2332,6 +2334,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: MELEE
+--- !u!114 &114258615273278564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627565516888456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58b012494333cd4f865fc330cd26a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114264859082357024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2601,9 +2614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 5
     type: 1
-  m_details: 'Cost - 10 Enhance your Melee weapon with increased reach. (+1) '
+  m_details: 'Cost - 5 Enhance your Melee weapon with increased reach. (+1) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114029033811330070}
@@ -2653,9 +2666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 8
     type: 1
-  m_details: 'Cost - 10 Modifies your gun to shoot a Spread Shot. '
+  m_details: 'Cost - 8 Modifies your gun to shoot a Spread Shot. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114114532421300360}
@@ -2888,10 +2901,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 8
     type: 1
-  m_details: 'Cost - 15 Use the Ability 1 button to Shield yourself from attacks,
-    reducing incoming damage by 10% for a few seconds. '
+  m_details: 'Cost - 8 Use the Ability 1 button to Shield yourself from attacks, reducing
+    incoming damage by 10% for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
   m_nextUnlock: {fileID: 114683612588051520}
@@ -3024,9 +3037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 20
+    cost: 10
     type: 1
-  m_details: 'Cost - 20 Restore your health by leaching the blood of your enemies.
+  m_details: 'Cost - 10 Restore your health by leaching the blood of your enemies.
     (25%) '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -3305,7 +3318,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114670865476766660}
   m_OnClick:
     m_PersistentCalls:
@@ -3422,9 +3435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 10
     type: 1
-  m_details: 'Cost - 15 Increases the amount of health restored by Heal. '
+  m_details: 'Cost - 10 Increases the amount of health restored by Heal. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 0}
@@ -3602,7 +3615,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114307323722190224}
   m_OnClick:
     m_PersistentCalls:
@@ -3632,9 +3645,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 8
     type: 1
-  m_details: 'Cost - 15 Modifies your gun to shoot Radiated bullets that deal Corrosive
+  m_details: 'Cost - 8 Modifies your gun to shoot Radiated bullets that deal Corrosive
     damage to your enemies. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -3653,9 +3666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 5
     type: 1
-  m_details: 'Cost - 10 Maximises the potency of Radiated Bullets by increasing the
+  m_details: 'Cost - 5 Maximises the potency of Radiated Bullets by increasing the
     initial damage. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
@@ -3700,9 +3713,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 5
     type: 1
-  m_details: 'Cost - 10 Use the Ability 2 button to spend MutaGens to restore your
+  m_details: 'Cost - 5 Use the Ability 2 button to spend MutaGens to restore your
     health. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
@@ -3741,7 +3754,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114329278388718222}
   m_OnClick:
     m_PersistentCalls:
@@ -3771,9 +3784,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 10
+    cost: 5
     type: 1
-  m_details: 'Cost - 10 Increases the potency of Radiated Bullets by extending the
+  m_details: 'Cost - 5 Increases the potency of Radiated Bullets by extending the
     duration of the Corrosion. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
@@ -3811,7 +3824,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Soulsteal
+  m_Text: LifeSteal
 --- !u!114 &114808533814666764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3906,7 +3919,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114376355389781274}
   m_OnClick:
     m_PersistentCalls:
@@ -4015,10 +4028,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 5
     type: 1
-  m_details: 'Cost - 15 Modifies your gun to shoot bullets that Explode after a short
-    period of time or on impact. '
+  m_details: 'Cost - 5 Increases the potency of Explosions by increasing their radius. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114162471048428768}
@@ -4097,9 +4109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 1
+    cost: 8
     type: 1
-  m_details: Explosive range
+  m_details: 'Cost - 8 Modifies your gun to shoot bullets that Explode after a short
+    period of time or on impact. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114611181695707156}
@@ -4166,7 +4179,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114098993581949426}
   m_OnClick:
     m_PersistentCalls:
@@ -4223,9 +4236,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 10
     type: 1
-  m_details: 'Cost - 15 Increases the potency of the Shotgun Mod by making your gun
+  m_details: 'Cost - 10 Increases the potency of the Shotgun Mod by making your gun
     shoot more bullets. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
@@ -4278,9 +4291,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 5
     type: 1
-  m_details: 'Cost - 15 Maximises the Block effect, reducing incoming damage by 75%
+  m_details: 'Cost - 5 Maximises the Block effect, reducing incoming damage by 75%
     for a few seconds. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114853042546670822}
@@ -4333,9 +4346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_info:
-    cost: 15
+    cost: 10
     type: 1
-  m_details: 'Cost - 15 Reduces the amount of MutaGens it costs to restore your health. '
+  m_details: 'Cost - 10 Reduces the amount of MutaGens it costs to restore your health. '
   m_infoText: {fileID: 114034282304942946}
   m_costText: {fileID: 114180605800192712}
   m_nextUnlock: {fileID: 114778911607294838}

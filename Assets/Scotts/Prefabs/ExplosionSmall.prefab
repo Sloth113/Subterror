@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 199950978418482622}
   - component: {fileID: 114089687311903426}
   m_Layer: 0
-  m_Name: DustExplosion
+  m_Name: ExplosionSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742345a259a011541bd0971e18082773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_explosionSize: 5
+  m_explosionSize: 3
+  m_explosionDamage: 10
+  m_ignore: 
 --- !u!114 &114650634292737636
 MonoBehaviour:
   m_ObjectHideFlags: 1

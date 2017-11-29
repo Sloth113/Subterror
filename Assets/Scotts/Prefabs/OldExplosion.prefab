@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 198038995851051280}
   - component: {fileID: 199812057933180126}
   - component: {fileID: 114662377529219620}
+  - component: {fileID: 114035597819609294}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: OldExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,6 +43,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114035597819609294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1401197603335356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742345a259a011541bd0971e18082773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_explosionSize: 3
+  m_explosionDamage: 10
+  m_ignore: 
 --- !u!114 &114662377529219620
 MonoBehaviour:
   m_ObjectHideFlags: 1
