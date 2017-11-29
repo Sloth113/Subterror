@@ -1300,7 +1300,6 @@ MonoBehaviour:
   m_rangeTimer: 0
   m_bulletPrefabs:
   - {fileID: 1699627680163168, guid: 0089a2d8a256ac54ea0743fa4ad2a7fb, type: 2}
-  m_bulletPrefabss: []
   m_bulletExitPos: {fileID: 4407485607683296}
   m_bulletIndex: 0
   m_blockCooldown: 5
@@ -1313,7 +1312,7 @@ MonoBehaviour:
   m_healTimer: 0
   m_healCooldown: 10
   m_healAmount: 10
-  m_healCost: 3
+  m_healCost: 99999
   m_healEffPrefab: {fileID: 1137934761047082, guid: acafe72297ed2e945a67af7ab09d697d,
     type: 2}
 --- !u!114 &114674480598597192

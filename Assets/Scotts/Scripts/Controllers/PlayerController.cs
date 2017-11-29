@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour, iHitable {
                 m_incomeDamMod -= m_blockChange; //drop the mod 
                 m_blockCounter = 0.01f; //Counts up to duration MATCH WITH ANIMATION?
                 m_blockTimer = 0; //Cooldown 
-            } else if ((input.GetControl(InControl.InputControlType.RightBumper).IsPressed|| Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > 0 && m_healTimer > m_healCooldown){
+            } else if ((input.GetControl(InControl.InputControlType.RightBumper).IsPressed|| Input.GetKeyDown(KeyCode.E)) && GameManager.Instance.MutaGenAmount() > m_healCost && m_healTimer > m_healCooldown){
                 //Heal
                 GameObject spawn = Instantiate<GameObject>(m_healEffPrefab, transform.position, transform.rotation);
                 spawn.GetComponent<EffectDestroy>().m_duration = 1.0f;

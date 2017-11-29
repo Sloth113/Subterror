@@ -332,6 +332,7 @@ public class GameManager : MonoBehaviour {
         m_state.Pop();
         m_state.Push(State.GameOver);
         Pause();
+        
         m_inGameUI.SetActive(false);
         m_deadUI.SetActive(true);
         m_deadUI.GetComponentInChildren<Button>().Select();
@@ -351,6 +352,7 @@ public class GameManager : MonoBehaviour {
         m_state.Pop();//Should pop over
         m_state.Push(State.Title);
         m_deadUI.SetActive(false);
+        m_inGameUI.SetActive(false);
         m_winUI.SetActive(false);
         m_titleMenuUI.SetActive(true);
         m_titleMenuUI.GetComponentInChildren<Button>().Select();

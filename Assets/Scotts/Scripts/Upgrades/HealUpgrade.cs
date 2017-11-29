@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealUpgrade : iUpgrade {
+    public int m_startCost = 3;
     public override void Apply(GameObject player) {
         PlayerController playerScript = player.GetComponent<PlayerController>();
         if (playerScript != null) {
-            playerScript.m_healCost = 10;
+            playerScript.m_healCost = m_startCost;
         }
     }
 
