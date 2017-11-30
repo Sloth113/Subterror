@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Key on script for pick ups
 [System.Serializable]
 public struct Key {
     public string info;

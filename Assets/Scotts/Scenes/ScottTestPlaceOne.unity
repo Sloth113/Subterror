@@ -1035,6 +1035,39 @@ Prefab:
       value: 
       objectReference: {fileID: 1699627680163168, guid: 46335624b8f56a04b9686bfffc4516b0,
         type: 2}
+    - target: {fileID: 114327708622882196, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 23317068248416252, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23317068248416252, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40dbbda090d66bd4a80527a7c3fd145e, type: 2}
+    - target: {fileID: 114327708622882196, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_gunModel
+      value: 
+      objectReference: {fileID: 2104014270}
+    - target: {fileID: 114327708622882196, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+        type: 2}
+      propertyPath: m_paperModel
+      value: 
+      objectReference: {fileID: 2007077638}
+    - target: {fileID: 1752054692096316, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554883754037620, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114416654131347836, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6741cd77258da8f4ab8474f670dfc7fb, type: 2}
@@ -2964,6 +2997,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1912906787}
+--- !u!1 &2007077638 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1554883754037620, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 721286706}
 --- !u!1001 &2090377829
 Prefab:
   m_ObjectHideFlags: 0
@@ -3018,6 +3056,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf6a4344f938e8e48abe5d0cec3ed4b0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2104014270 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1752054692096316, guid: 6741cd77258da8f4ab8474f670dfc7fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 721286706}
 --- !u!1001 &2116913110
 Prefab:
   m_ObjectHideFlags: 0

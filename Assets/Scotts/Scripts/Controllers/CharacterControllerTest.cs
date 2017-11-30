@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
+//Old character controller. 
+//Used now for level testing as it does not interact with game manager as much
+//
 public class CharacterControllerTest : MonoBehaviour, iHitable {
 
     private CharacterController controller;

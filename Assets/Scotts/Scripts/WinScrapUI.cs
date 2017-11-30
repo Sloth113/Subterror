@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Display total scrap value in the attached text
+//Used on win screen
 public class WinScrapUI : MonoBehaviour {
 
     void OnEnable() {

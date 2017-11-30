@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+//Enery that is used in game
+//Uses animators
+//More variables and set features such as active(agro) range
 public class EnemyV2 : MonoBehaviour, iHitable {
     public int m_hp = 30;
     private int m_maxHp;
@@ -98,6 +100,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
         m_animator.SetFloat("Speed", m_navAgent.velocity.magnitude / m_navAgent.speed); //Blend tree 
 
     }
+    //For animtor to activate
     public void MeleeSwing() {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * m_meleeRange/2, m_meleeRange);
         
@@ -107,7 +110,8 @@ public class EnemyV2 : MonoBehaviour, iHitable {
                 hit.transform.gameObject.GetComponent<iHitable>().Hit((int)(m_meleeDamage));
             }
         }
-       // RaycastHit hit;
+        //OLD
+       // RaycastHit hit; 
        // if (Physics.SphereCast(transform.position + m_controller.center - transform.forward, m_controller.height / 1.5f, transform.forward, out hit, 1f)) {
        //     Debug.Log(hit.transform.name); //Works        
        //}
@@ -125,7 +129,7 @@ public class EnemyV2 : MonoBehaviour, iHitable {
         }
         Destroy(this.gameObject);
     }
-
+    //Hitable
     public void Hit() {
         m_hp--;
         if (m_hPCanvas != null) {

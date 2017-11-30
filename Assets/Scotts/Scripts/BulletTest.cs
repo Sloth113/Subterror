@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Inital test 
+//Move forward destoy on timer or collision
 public class BulletTest : MonoBehaviour {
     public float speed = 10;
     public float lifeTime = 1;

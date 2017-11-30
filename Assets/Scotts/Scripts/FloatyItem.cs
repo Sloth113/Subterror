@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Makes the item attached spin and float. 
 public class FloatyItem : MonoBehaviour {
     public float m_rotateSpeed = 50.0f; //Degress/Sec
     public float m_bounceDist = 0.3f; //0 nothing 1 a lot 

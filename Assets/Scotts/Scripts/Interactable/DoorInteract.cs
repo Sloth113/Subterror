@@ -21,11 +21,7 @@ public class DoorInteract : MonoBehaviour,iInteractable {
         Renderer rend = GetComponentInChildren<Renderer>();
         rend.material.SetColor("_Color", m_key.glow);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
     private void Open() {
         m_open = true;
         //Play animation
@@ -47,8 +43,7 @@ public class DoorInteract : MonoBehaviour,iInteractable {
     }
 
     public void Use() {
-        //Nothing
-        
+        //Open if it doesn require a key
         if (m_key.info == "" && !m_open) {
             Open();
         }
@@ -59,6 +54,7 @@ public class DoorInteract : MonoBehaviour,iInteractable {
         if (m_key.info == "" && !m_open) {
             Open();
         }else {
+            //Check if player interacted, then get what keys they have and check if they can open
             if(user.transform.tag == "Player") {
                 List<Key> keys = GameManager.Instance.PlayerKeys();
                 foreach(Key key in keys) {

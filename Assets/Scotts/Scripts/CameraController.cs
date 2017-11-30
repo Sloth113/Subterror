@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Attached to camera to follow player //Some smoothing 
 public class CameraController : MonoBehaviour {
     public GameObject player;
     private Vector3 m_dist;

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script put onto effects that have set duration
 public class EffectDestroy : MonoBehaviour {
 
     public float m_duration = 2.0f;

@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Destructable items such a boxes and barrels.
+// Work with drop system
 public class BasicDestructable : MonoBehaviour, iHitable {
     public int m_hp = 20;
     public List<GameObject> m_particleObjects;
@@ -55,7 +56,6 @@ public class BasicDestructable : MonoBehaviour, iHitable {
     }
 
     public void Knockback(Vector3 dir) {
-        //
         this.GetComponent<Rigidbody>().AddForce(dir);
     }
 }

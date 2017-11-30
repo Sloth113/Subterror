@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Takes the player and UI elements that will be used to show the players stats, cooldowns and other items.
+//
 public class InGameUiInterface : MonoBehaviour {
     public Image m_healthBar;
     public Image m_healthTotal;
@@ -15,11 +16,7 @@ public class InGameUiInterface : MonoBehaviour {
     public GameObject m_explosiveIcon;
     public GameObject m_corrosiveIcon;
     public GameObject m_shotgunIcon;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
         PlayerController playerScript = GameManager.Instance.Player.GetComponent<PlayerController>();
@@ -34,7 +31,7 @@ public class InGameUiInterface : MonoBehaviour {
         m_blockBar.fillAmount = (float)playerScript.m_blockTimer / playerScript.m_blockCooldown;
         m_healBar.fillAmount = (float)playerScript.m_healTimer / playerScript.m_healCooldown;
 
-
+        //Switch icon based on prefab name
         switch (playerScript.m_bulletPrefabs[playerScript.m_bulletIndex].transform.name) {
             case "ExplosiveBullet":
                 {

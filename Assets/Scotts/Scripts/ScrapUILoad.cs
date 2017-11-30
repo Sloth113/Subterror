@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Sets text to current mutagen amount 
+//Used in mutagen upgrade scene
 public class ScrapUILoad : MonoBehaviour {
 
     void OnEnable() {

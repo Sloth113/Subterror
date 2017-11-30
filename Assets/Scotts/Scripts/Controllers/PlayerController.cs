@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//Current player controller used to control the main character
+//Many variables here a visible so the designers can change values
+//
 [System.Serializable]
 public struct Inventory {
     public int scrap;
@@ -11,6 +13,7 @@ public struct Inventory {
     public List<Key> keys;
 }
 [System.Serializable]
+//Not used struct for ranged information. 
 public struct RangeInfo {
     public GameObject prefab;
     public string name;
@@ -19,6 +22,10 @@ public struct RangeInfo {
 public class PlayerController : MonoBehaviour, iHitable {
     private CharacterController m_controller;
     private Animator m_animator;
+
+    //Modelthing
+    public GameObject m_gunModel;
+    public GameObject m_paperModel;
 
     //Stats
     [Header("Stats")]
@@ -122,11 +129,16 @@ public class PlayerController : MonoBehaviour, iHitable {
         if (m_animator.GetCurrentAnimatorStateInfo(1).IsName("UpperBody.Movement")) {
             if ((input.GetControl(InControl.InputControlType.LeftTrigger) > 0 || Input.GetMouseButtonDown(0)) && m_rangeTimer >= m_rangeCooldown && m_bulletPrefabs.Count > 0 && m_bulletExitPos != null) {
                 m_animator.SetTrigger("Shoot");
+                HideMelee();
+                ShowRange();
+                    
                 //CreateBullet();//Animator now calls it
                 m_rangeTimer = 0;
             }//Melee
             else if ((input.GetControl(InControl.InputControlType.RightTrigger) > 0 || Input.GetMouseButtonDown(1)) && m_meleeTimer >= m_meleeCooldown) {
                 m_animator.SetTrigger("Melee");
+             
+               
                 //Hit check Animator calls the function now
                 // MeleeSwing();
                 //Set timer to 0 
@@ -156,7 +168,7 @@ public class PlayerController : MonoBehaviour, iHitable {
 
             }
         }
-        
+        Debug.Log(m_animator.GetCurrentAnimatorStateInfo(1).IsName("UpperBody.Movement"));
         //Timers
         if (m_rangeTimer < m_rangeCooldown) {
             m_rangeTimer += Time.deltaTime;
@@ -214,11 +226,33 @@ public class PlayerController : MonoBehaviour, iHitable {
             }
         }
     }
+    //Used by animator to display correct mesh 
+    public void ShowMelee() {
+        if (m_paperModel != null) {
+            m_paperModel.SetActive(true);
+        }
+    }
 
+    public void HideMelee() {
+        if (m_paperModel != null) {
+            m_paperModel.SetActive(false);
+        }
+    }
+
+    public void ShowRange() {
+        if (m_paperModel != null) {
+            m_gunModel.SetActive(true);
+        }
+    }
+    public void HideRange() {
+        if (m_paperModel != null) {
+            m_gunModel.SetActive(false);
+        }
+    }
+    //Used by animator to 'shoot' 
     public void CreateBullet() {
         Instantiate<GameObject>(m_bulletPrefabs[m_bulletIndex], m_bulletExitPos.transform.position, m_bulletExitPos.transform.rotation);//make transform postition the point on the gun
     }
-
 
     //Used to use mouse on board
     private Vector3 GetMouseToPlayerPlanePoint() {
@@ -234,7 +268,7 @@ public class PlayerController : MonoBehaviour, iHitable {
         Vector3 castPoint = mouseRay.GetPoint(rayDist);
         return castPoint;
     }
-
+    //Collided with a trigger (items/door/switchs)
     void OnTriggerEnter(Collider c) {
         //Items
         if (c.transform.tag == "Item") {
@@ -261,9 +295,10 @@ public class PlayerController : MonoBehaviour, iHitable {
     //leaving interactable space
     void OnTriggerExit(Collider c) {
         if (c.transform.tag == "Interactable") {
-            c.GetComponent<iInteractable>().DisplayToggle();
+            c.GetComponent<iInteractable>().DisplayToggle();//clear display
         }
     }
+    //Check for interact
     void OnTriggerStay(Collider c) {
         InControl.InputDevice input = InControl.InputManager.ActiveDevice;
 
@@ -271,7 +306,7 @@ public class PlayerController : MonoBehaviour, iHitable {
             c.GetComponent<iInteractable>().Use(this.gameObject);
         }
     }
-
+    //Player died, tell manager 
     private void OnDeath() {
         //GameManager.m_instance.
         m_animator.SetTrigger("Dead");
@@ -279,7 +314,7 @@ public class PlayerController : MonoBehaviour, iHitable {
         GameManager.Instance.InGameToDead();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);//Destart
     }
-
+    //Hitable 
     public void Hit() {
         m_hp--;
         if (m_hp <= 0) {
@@ -312,7 +347,7 @@ public class PlayerController : MonoBehaviour, iHitable {
         }
         IncreaseCurrentHP(amount);
     }
-
+    //Hitable
     public void Knockback() {
         Debug.Log("Stagger");
     }

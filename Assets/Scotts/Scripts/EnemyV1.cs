@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+//First enemy iteration, no interaction with animator
 public class EnemyV1 : MonoBehaviour, iHitable {
     public int m_hp = 30;
     public float moveSpeed = 3.0f;

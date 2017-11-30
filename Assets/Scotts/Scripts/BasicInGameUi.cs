@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//UI tests to see interaction with old player controller.
 public class BasicInGameUi : MonoBehaviour {
     private GameObject m_playerObj;
     private CharacterControllerTest m_player;

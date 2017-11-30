@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Effect that will hurt the attached target
 public class CorrosiveEffect : MonoBehaviour {
     private iHitable m_attached;
     public float m_duration = 2.0f;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-//Should of made a class
+//Was upgrade interface changed to base class as it had shared functions
 [System.Serializable]
 public enum upgradeType {
     MutaGen,
@@ -14,7 +14,7 @@ public struct upgradeDetails {
     public int cost;
     public upgradeType type;
 }
-public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
+public abstract class iUpgrade : MonoBehaviour, ISelectHandler, IPointerEnterHandler {
   
     public upgradeDetails m_info;
     public string m_details;
@@ -25,7 +25,7 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     abstract public void Apply(GameObject player);
     
     abstract public bool PreRequisteMet(Inventory inv, List<iUpgrade> upgrades);
-
+    //Check type and add it to game manager
     public void AddToPlayer() {
         if (PreRequisteMet(GameManager.Instance.PlayersInventory(), GameManager.Instance.PlayersUpgrades())) {
             GameManager.Instance.AddUpgrade(this);
@@ -50,7 +50,7 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
     public upgradeDetails CostAmount() {
         return m_info;
     }
-
+    //Controller select
     public void OnSelect(BaseEventData eventData) {
         if (m_info.type == upgradeType.Scrap) {
             m_infoText.text = GetDetails();
@@ -59,5 +59,15 @@ public abstract class iUpgrade : MonoBehaviour, ISelectHandler {
             m_costText.text = GameManager.Instance.MutaGenAmount() + " -" + m_info.cost;
         }
     }
-    
+    //Mouse over
+    public void OnPointerEnter(PointerEventData eventData) {
+        if (m_info.type == upgradeType.Scrap) {
+            m_infoText.text = GetDetails();
+            m_costText.text = GameManager.Instance.ScrapAmount() + " -" + m_info.cost;
+        } else {
+            m_costText.text = GameManager.Instance.MutaGenAmount() + " -" + m_info.cost;
+        }
+
+    }
+
 }

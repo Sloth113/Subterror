@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Switch interact
+//Made to be bound to another interactable
 public class SwitchInteract : MonoBehaviour, iInteractable {
     bool m_state = false;
     //private Text m_displayText;

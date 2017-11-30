@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Item drop system takes what items want to be dropped. And percentage of amount of drops.
+//Attach to scripts that support (Enemy, Basic Destroying) 
 public class ItemDropSystem : MonoBehaviour {
     [System.Serializable]
     public struct Drop {

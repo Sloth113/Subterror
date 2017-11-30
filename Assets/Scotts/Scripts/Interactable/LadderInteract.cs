@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Used to load new scene. 
 public class LadderInteract : MonoBehaviour, iInteractable {
     public string m_sceneName = "";
     // Use this for initialization

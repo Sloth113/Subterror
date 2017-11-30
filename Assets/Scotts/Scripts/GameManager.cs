@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Video;
-
+//Gamemanager
+//Handles overall game state and is a singleton allowwing other classes to call functions on here. 
+//Set up before player to be set. 
+//Also holds player inventory and upgrades.
+//
 [RequireComponent(typeof(Canvas))]
 public class GameManager : MonoBehaviour {
     //Game states 
@@ -68,7 +72,7 @@ public class GameManager : MonoBehaviour {
     //Was pressed in INCONTROL isnt workign so making it work
     private bool m_menuSwitch = false;
 
-    //Set up instances and initiate state
+    //Set up inital vars
     void Awake() {
         if (GameManager.m_instance == null) {
             GameManager.m_instance = this;
@@ -228,7 +232,7 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(LoadScene(m_level));
         m_inGameUI.SetActive(true);
     }
-
+    //Load temp save using level name and not reset inventory //Menu item
     public void LoadSave() {
         m_titleMenuUI.SetActive(false);
         m_state.Pop();
@@ -267,6 +271,7 @@ public class GameManager : MonoBehaviour {
         m_settingsUI.GetComponentInChildren<Button>().Select();
 
     }
+    // Menu traversal n stuff
     public void ExitSettings() {
         //Remove settings state
         m_state.Pop();
