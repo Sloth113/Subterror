@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class IncreaseSpeedUpgrade : iUpgrade {
-    public int m_increaseAmount = 1;
+    public float m_increaseAmount = 1.0f;
     public Image m_progressBar;
 
     public override void Apply(GameObject player) {
