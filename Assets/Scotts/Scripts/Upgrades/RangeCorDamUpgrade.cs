@@ -12,7 +12,7 @@ public class RangeCorDamUpgrade : iUpgrade {
         if (playerScript != null) {
             foreach(GameObject bullet in playerScript.m_bulletPrefabs) {
                 if (bullet.GetComponent<CorrosiveBullet>() != null) {
-                    bullet.GetComponent<CorrosiveBullet>().m_corrsiveEffect.GetComponent<CorrosiveEffect>().m_damage += m_damageChange;
+                    bullet.GetComponent<CorrosiveBullet>().m_corrosiveDamage += m_damageChange;
                 }
             }
             

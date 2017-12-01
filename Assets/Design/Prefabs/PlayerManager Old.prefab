@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4397388952448086}
   m_Layer: 0
-  m_Name: PlayerManager 1
+  m_Name: PlayerManager Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1284,6 +1284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da6037eeae499342a9ce729a822c01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gunModel: {fileID: 0}
+  m_paperModel: {fileID: 0}
   m_speed: 10
   m_hp: 100
   m_maxHp: 100
@@ -1296,15 +1298,24 @@ MonoBehaviour:
   m_meleeAngle: 90
   m_meleeKnockBack: 0
   m_meleeLifeSteal: 0
+  m_lifeStealRatio: 0.1
   m_rangeCooldown: 5
+  m_rangeTimer: 0
   m_bulletPrefabs:
   - {fileID: 1699627680163168, guid: 0089a2d8a256ac54ea0743fa4ad2a7fb, type: 2}
   m_bulletExitPos: {fileID: 4407485607683296}
   m_bulletIndex: 0
   m_blockCooldown: 5
+  m_blockTimer: 0
   m_blockDuration: 2
   m_blockCounter: 0
   m_blockChange: 1
+  m_defEffPrefab: {fileID: 0}
+  m_healTimer: 0
+  m_healCooldown: 5
+  m_healAmount: 10
+  m_healCost: 1
+  m_healEffPrefab: {fileID: 0}
 --- !u!114 &114359119262338846
 MonoBehaviour:
   m_ObjectHideFlags: 1

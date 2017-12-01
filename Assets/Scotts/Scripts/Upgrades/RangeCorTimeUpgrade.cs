@@ -12,7 +12,7 @@ public class RangeCorTimeUpgrade : iUpgrade {
         if (playerScript != null) {
             foreach (GameObject bullet in playerScript.m_bulletPrefabs) {
                 if (bullet.GetComponent<CorrosiveBullet>() != null) {
-                    bullet.GetComponent<CorrosiveBullet>().m_corrsiveEffect.GetComponent<CorrosiveEffect>().m_duration += m_timeIncreaseAmount;
+                    bullet.GetComponent<CorrosiveBullet>().m_corrosiveTime += m_timeIncreaseAmount;
                 }
             }
         }
