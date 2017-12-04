@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4218546770301872}
   - component: {fileID: 33119370665811780}
   - component: {fileID: 23794761486888470}
-  - component: {fileID: 64453756265466966}
+  - component: {fileID: 64985945670822064}
   m_Layer: 0
   m_Name: wall_pipe_middle_mesh
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942957510988968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.906531, y: 11.388563, z: 54.30361}
+  m_LocalPosition: {x: -232.82071, y: 180.65558, z: -596.7817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942957510988968}
   m_Mesh: {fileID: 4300000, guid: 49662fcf2e4b86a469444b96bd8a09cc, type: 3}
---- !u!64 &64453756265466966
+--- !u!64 &64985945670822064
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +89,7 @@ MeshCollider:
   m_GameObject: {fileID: 1942957510988968}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
